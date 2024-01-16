@@ -1,0 +1,34 @@
+Mentoring Name, Student Email,Student Name, Student Surname, Attendance
+cv,adem@gmail.com,adem,madem,Attended
+cv,yeni@yani.com,yeni,yeni,Attended
+cv,ada@ya.com,ada,sa,Not Attended
+cv,ada@demirci.com,se,es,Attended
+cv,ada@yani.com,akin,ak,Attended
+cv,ayse@demir.com,ayse,fatma,Attended
+cv,ada@demir.com,ada,demir,Attended
+cv,alma@yani.com,a,b,Not Attended
+cv,a@yani.com,a,b,Attended
+cv,student@example.com,Student,Test,Attended
+Resume,student@example.com,Student,Test,Attended
+Resume,a@yani.com,adem,bekir,Not Attended
+Resume,alma@yani.com,aysenur,islam,Attended
+Resume,ada@demir.com,selim,demir,Attended
+Resume,ayse@demir.com,ayse,fatmagul,Not Attended
+Resume,ada@yani.com,erdem,murat,Attended
+Social Media,student@example.com,Student,Test,Attended
+Social Media,a@yani.com,adem,bekir,Not Attended
+Social Media,alma@yani.com,aysenur,islam,Attended
+Social Media,ada@demir.com,selim,demir,Attended
+Social Media,ayse@demir.com,ayse,fatmagul,Not Attended
+Social Media,ada@yani.com,erdem,murat,Not Attended
+GitHub,student@example.com,Student,Test,Attended
+GitHub,a@yani.com,adem,bekir,Attended
+GitHub,alma@yani.com,aysenur,islam,Not Attended
+GitHub,ada@demir.com,selim,demir,Attended
+onur_deneme,a@yani.com,a,b,Attended
+onur_deneme,alma@yani.com,a,b,Not Attended
+onur_deneme,ayse@demir.com,ayse,fatma,Not Attended
+onur_deneme,ada@yani.com,akin,ak,Attended
+onur_deneme,ada@demirci.com,se,es,Not Attended
+onur_deneme,yeni@yani.com,yeni,yeni,Not Attended
+onur_deneme,adem@gmail.com,adem,madem,Attended

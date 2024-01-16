@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QPushButton" name="enter_Button">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>190</y>
+     <width>56</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="email_label">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>90</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>150</width>
+     <height>100</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>E-mail Adress:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="password_label">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>140</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>150</width>
+     <height>100</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Password:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="password">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>140</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="maxLength">
+    <number>8</number>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="email">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>90</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhEmailCharactersOnly</set>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

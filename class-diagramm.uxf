@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>216</x>
+      <y>264</y>
+      <w>162</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Admin
+--
+-variable
+--
+-create_Teacher_Account(Dic):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>462</x>
+      <y>252</y>
+      <w>162</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Student
+--
+
+--
+-sign_up(Dic):void
+-get_Lessons_Attendance(self):Dic
+-get_Mentor_Attendance(self):Dic
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>732</x>
+      <y>264</y>
+      <w>162</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Teacher
+--
+
+--
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>0</y>
+      <w>270</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>User
+--
+-name:String
+-surname:String
+-email:String
+-birthdate:String
+-city:String
+-phoneNumber:String
+--
+-log_in_user(String, String):String
+-get_Information(self):Dic
+-get_LessonSchedule(Self):Dic
+-get_Mentor_Schedule(Self):Dic
+-get_Announcements(Self):Dic
+-create_Announcements(String):Dic
+-get_Task(Self):Dic
+-create_Task(Dic):void
+-edit_Task(String, boolean):void
+-create_Edit_Lesson(String, String, String, String):void
+-create_Edit_Mentor(String, String, String, String):void
+-insert_Attendatence(String, Boolean):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>306</x>
+      <y>186</y>
+      <w>252</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>400.0;10.0;400.0;40.0;10.0;40.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>186</y>
+      <w>18</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>186</y>
+      <w>282</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;450.0;40.0;450.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>78</x>
+      <y>486</y>
+      <w>156</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Sign_Up_UI
+--
+--
+-create_Student(Dic):void
+-email_control(String):boolean
+-pass_control(String):booelan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>342</y>
+      <w>408</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes>
+    <additional_attributes>660.0;10.0;660.0;120.0;10.0;120.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>738</x>
+      <y>468</y>
+      <w>210</w>
+      <h>174</h>
+    </coordinates>
+    <panel_attributes>Teacher_UI
+--
+--
+-show_Information(self):Dic
+-show_Lesson_Schedule(self):Dic
+-create_edit_Lesson(Dic):void
+-show_Lessons_Attendance(self):Dic
+-create_edit_Mentor(Dic):void
+-show_Mentor_Attendance(self):Dic
+-edit_Lesson_Attendance(String, Boolean):void
+-edit_Mentor_Attendance(String, Boolean):void
+-show_Mentor_Schedule(self):Dic
+-show_Announcements():Dic
+-create_Announcments(String):void
+-show_Task():Dic
+-create_Task(Map):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>534</x>
+      <y>342</y>
+      <w>18</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>468</x>
+      <y>474</y>
+      <w>210</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>Student_UI
+--
+--
+-show_Information(self):Dic
+-show_Lesson_Schedule(self):Dic
+-show_Lessons_Attendance(self):Dic
+-show_Mentor_Attendance(self):Dic
+-show_Mentor_Schedule(self):Dic
+-show_Announcements():Dic
+-show_Task():Dic
+-edit_Task(String, Boolean):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>984</x>
+      <y>228</y>
+      <w>156</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Sign_In_UI
+--
+--
+-login(String, String):void
+-sign_up_Redirect(Boolean):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>582</x>
+      <y>186</y>
+      <w>486</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0;790.0;30.0;790.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>354</y>
+      <w>18</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>756</x>
+      <y>732</y>
+      <w>162</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Admin_UI
+--
+-variable
+--
+-create_Teacher_Account(Dic):void
+-email_control(String):boolean
+-pass_control(String):booelan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>822</x>
+      <y>636</y>
+      <w>18</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

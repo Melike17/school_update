@@ -1,0 +1,37 @@
+Lesson Name,Student Email,Student Name,Student Surname,Attendance
+SQL,ada@demirci.com,se,es,Attended
+SQL,ada@yani.com,akin,ak,Not Attended
+SQL,ayse@demir.com,ayse,fatma,Not Attended
+SQL,alma@yani.com,a,b,Attended
+SQL,student@example.com,Student,Test,Attended
+SQL,a@yani.com,a,b,Not Attended
+SQL,ada@demir.com,ada,demir,Attended
+SQL,ada@ya.com,ada,sa,Attended
+SQL,yeni@yani.com,yeni,yeni,Attended
+SQL,adem@gmail.com,adem,madem,Attended
+Pyhton Intro,student@example.com,Student,Test,Attended
+Pyhton Intro,a@yani.com,adem,bekir,Not Attended
+Pyhton Intro,alma@yani.com,aysenur,islam,Attended
+Pyhton Intro,ada@demir.com,selim,demir,Attended
+Pyhton Intro,ayse@demir.com,ayse,fatmagul,Not Attended
+Project,student@example.com,Student,Test,Attended
+Project,a@yani.com,adem,bekir,Not Attended
+Project,alma@yani.com,aysenur,islam,Attended
+Project,ada@demir.com,selim,demir,Attended
+Lesson Name,student@example.com,Student,Test,Attended
+Lesson Name,a@yani.com,a,b,Not Attended
+Lesson Name,alma@yani.com,a,b,Attended
+Lesson Name,ada@demir.com,ada,demir,Not Attended
+Lesson Name,ayse@demir.com,ayse,fatma,Attended
+Lesson Name,ada@yani.com,akin,ak,Not Attended
+Lesson Name,ada@demirci.com,se,es,Attended
+Lesson Name,ada@ya.com,ada,sa,Not Attended
+Lesson Name,yeni@yani.com,yeni,yeni,Attended
+Lesson Name,adem@gmail.com,adem,madem,Not Attended
+Machine Lerning,student@example.com,Student,Test,Attended
+Machine Lerning,a@yani.com,a,b,Not Attended
+Machine Lerning,ada@demir.com,ada,demir,Not Attended
+Machine Lerning,ayse@demir.com,ayse,fatma,Attended
+Machine Lerning,ada@yani.com,akin,ak,Not Attended
+Machine Lerning,ada@demirci.com,se,es,Attended
+Machine Lerning,ada@ya.com,ada,sa,Not Attended

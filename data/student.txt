@@ -1,0 +1,51 @@
+[
+  {
+    "name": "ayse",
+    "surname": "fatma",
+    "birthday": "2010-02-07",
+    "city": "sion",
+    "email": "assigned2@example.com",
+    "password": "AyFat12."
+  },
+  {
+    "name": "ali",
+    "surname": "veli",
+    "birthday": "2011-12-17",
+    "city": "gampel",
+    "email": "assigned@example.com",
+    "password": "AlVel12."
+  },
+  {
+    "name": "se",
+    "surname": "es",
+    "birthday": "1998-01-01",
+    "city": "gampel",
+    "email": "ss@gmail.com",
+    "password": "SeEs12."
+  },
+  {
+    "name": "fre",
+    "surname": "er",
+    "birthday": "1998-02-01",
+    "city": "sds",
+    "email": "sda@gmail.com",
+    "password": "123Qwe.."
+  },
+  {
+    "name": "fre",
+    "surname": "er",
+    "birthday": "1998-02-01",
+    "city": "sds",
+    "email": "sda@gmail.com",
+    "password": "123Qwe.."
+  },
+  {
+    "name": "selma",
+    "surname": "eslem",
+    "birthday": "1994-01-01",
+    "city": "gampel",
+    "email": "ss@gmail.com",
+    "password": "123Qwe.."
+  }
+  
+]

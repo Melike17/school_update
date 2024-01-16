@@ -1,0 +1,4 @@
+{"announcement": "first", "created_by": "admin@example.com", "timestamp": "2024-01-04T09:58:52"}
+{"announcement": "deneme", "created_by": "teacher@example.com", "timestamp": "2024-01-04T14:00:10"}
+{"announcement": "test", "created_by": "teacher@example.com", "timestamp": "2024-01-04T14:18:11"}
+{"announcement": "son son son", "created_by": "teacher@example.com", "timestamp": "2024-01-04T17:08:52"}

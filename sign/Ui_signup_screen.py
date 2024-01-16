@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\school-management-system\sign\signup_screen.ui'
+# Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\Sema\school_update\sign\signup_screen.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(600, 800)
-        Form.setMinimumSize(QtCore.QSize(600, 800))
-        Form.setMaximumSize(QtCore.QSize(600, 800))
+        Form.resize(500, 800)
+        Form.setMinimumSize(QtCore.QSize(500, 800))
+        Form.setMaximumSize(QtCore.QSize(500, 800))
         Form.setStyleSheet("background-color: rgb(57, 57, 57);\n"
 "")
         self.name = QtWidgets.QLineEdit(Form)
@@ -86,7 +86,7 @@ class Ui_Form(object):
         self.repassword.setEchoMode(QtWidgets.QLineEdit.Password)
         self.repassword.setObjectName("repassword")
         self.sign_Button = QtWidgets.QPushButton(Form)
-        self.sign_Button.setGeometry(QtCore.QRect(290, 650, 100, 50))
+        self.sign_Button.setGeometry(QtCore.QRect(300, 700, 100, 50))
         self.sign_Button.setMinimumSize(QtCore.QSize(100, 50))
         self.sign_Button.setMaximumSize(QtCore.QSize(100, 50))
         font = QtGui.QFont()
@@ -200,10 +200,21 @@ class Ui_Form(object):
         self.label_11.setStyleSheet("color: rgb(255, 0, 0);")
         self.label_11.setObjectName("label_11")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(230, 50, 61, 51))
+        self.label.setGeometry(QtCore.QRect(220, 60, 61, 51))
         self.label.setStyleSheet("border-image: url(./sign/assets/add-friend.png);")
         self.label.setText("")
         self.label.setObjectName("label")
+        self.student_radioButton = QtWidgets.QRadioButton(Form)
+        self.student_radioButton.setGeometry(QtCore.QRect(100, 640, 95, 20))
+        self.student_radioButton.setStyleSheet("\n"
+"background-color: rgb(57, 57, 57);\n"
+"color: rgb(255, 255, 255);")
+        self.student_radioButton.setObjectName("student_radioButton")
+        self.teacher_radioButton = QtWidgets.QRadioButton(Form)
+        self.teacher_radioButton.setGeometry(QtCore.QRect(100, 680, 95, 20))
+        self.teacher_radioButton.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: rgb(57, 57, 57);")
+        self.teacher_radioButton.setObjectName("teacher_radioButton")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -226,4 +237,6 @@ class Ui_Form(object):
         self.label_7.setText(_translate("Form", "*"))
         self.label_8.setText(_translate("Form", "*"))
         self.label_11.setText(_translate("Form", "*"))
+        self.student_radioButton.setText(_translate("Form", "Student"))
+        self.teacher_radioButton.setText(_translate("Form", "Teacher"))
 

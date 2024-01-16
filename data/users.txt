@@ -12,3 +12,11 @@
 {"name": "adem", "surname": "madem", "email": "adem@gmail.com", "birthdate": "2023-01-01", "city": "dfd", "phone_number": "2131432", "password": "123Qwe..", "user_type": "student"}
 {"name": "onur_deneme", "surname": "teacher", "email": "onur@example.com", "birthdate": "1994-09-28", "city": "tyest", "phone_number": "23897487945", "password": "123Qwe..", "user_type": "teacher"}
 {"name": "onur_student", "surname": "student", "email": "onur@examplesd.com", "birthdate": "2024-01-01", "city": "dehene", "phone_number": "(125)456 48 5", "password": "123Qwe..", "user_type": "student"}
+{"name": "Asena", "surname": "Sen", "email": "asena@gmail.com", "birthdate": "2009-09-04", "city": "Malborn", "phone_number": "(234)456 78 98", "password": "123Qwe..", "user_type": "student"}
+{"name": "Alain", "surname": "Max", "email": "alain@gmail.com", "birthdate": "1989-11-14", "city": "Zurih", "phone_number": "(234)456 78 90", "password": "123Qwe..", "user_type": "student"}
+{"name": "erman", "surname": "erte", "email": "er@gmail.com", "birthdate": "2024-01-01", "city": "dfgdf", "phone_number": "(232)232 42 34", "password": "123Qwe..", "user_type": "student"}
+{"name": "deneme", "surname": "eeee", "email": "dene@gmail.com", "birthdate": "2024-01-01", "city": "adana", "phone_number": "(234)567 89 09", "password": "123Qwe..", "user_type": "teacher"}
+{"name": "adem", "surname": "turk", "email": "adem@example.com", "birthdate": "2024-01-01", "city": "aderna", "phone_number": "(234)567 89 00", "password": "123Qwe..", "user_type": "teacher"}
+{"name": "mert", "surname": "dert", "email": "mert@gmail.com", "birthdate": "2024-01-01", "city": "sdad", "phone_number": "(23)456 78 90", "password": "123Qwe..", "user_type": "teacher"}
+{"name": "orhun", "surname": "okutmak", "email": "o@gmail.com", "birthdate": "2024-01-01", "city": "ase", "phone_number": "(234)456 78 99", "password": "123Qwe..", "user_type": "teacher"}
+{"name": "a", "surname": "a", "email": "a@gmail.com", "birthdate": "2024-01-01", "city": "wd", "phone_number": "(123)456 78 90", "password": "123Qwe..", "user_type": "teacher"}

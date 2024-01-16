@@ -26,7 +26,8 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(10, 98, 38);</string>
+   <string notr="true">
+background-color: rgb(99, 0, 149);</string>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
@@ -38,19 +39,19 @@
       <x>0</x>
       <y>10</y>
       <width>960</width>
-      <height>650</height>
+      <height>950</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
       <width>960</width>
-      <height>650</height>
+      <height>950</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
       <width>960</width>
-      <height>650</height>
+      <height>950</height>
      </size>
     </property>
     <property name="font">
@@ -59,11 +60,11 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(10, 98, 38);
+     <string notr="true">background-color: rgb(27, 27, 27);
 color: rgb(0, 0, 0);</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="teacher_main">
      <attribute name="title">
@@ -93,7 +94,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(241, 180, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
@@ -124,7 +125,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(241, 180, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
@@ -172,7 +173,7 @@ color: rgb(0, 0, 0);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(241, 180, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
@@ -216,7 +217,7 @@ color: rgb(0, 0, 0);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(241, 180, 49);
+          <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
          </property>
          <property name="text">
@@ -258,7 +259,7 @@ color: rgb(0, 0, 0);</string>
        <item row="1" column="0" colspan="2">
         <widget class="QComboBox" name="announcement_to_delete_combobox">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(241, 180, 49);
+          <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
          </property>
         </widget>
@@ -328,7 +329,7 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(246, 184, 49);</string>
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
        <string>Name :</string>
@@ -364,7 +365,7 @@ background-color: rgb(246, 184, 49);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
@@ -401,7 +402,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
@@ -438,7 +439,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
@@ -475,7 +476,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
@@ -512,7 +513,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
@@ -546,7 +547,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="readOnly">
@@ -583,7 +584,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="readOnly">
@@ -620,7 +621,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="readOnly">
@@ -657,7 +658,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="readOnly">
@@ -694,7 +695,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="readOnly">
@@ -731,7 +732,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="readOnly">
@@ -877,7 +878,7 @@ color: rgb(0, 0, 0);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
@@ -903,7 +904,7 @@ color: rgb(0, 0, 0);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
@@ -1070,7 +1071,7 @@ color: rgb(0, 0, 0);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
@@ -1731,7 +1732,7 @@ color: rgb(0, 0, 0);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(249, 186, 50);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
@@ -1757,7 +1758,7 @@ color: rgb(0, 0, 0);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(249, 186, 50);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
@@ -2252,16 +2253,6 @@ color: rgb(0, 0, 0);</string>
      </widget>
     </widget>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>960</width>
-     <height>24</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

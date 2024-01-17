@@ -30,9 +30,9 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
         self.status=None
         
     
-    def create_Student(self,name, surname, email, birthday, city,phone_number, password):
+    def create_Student(self,name, surname, email, birthday, city,phone_number, password,status):
         if not (User.email_exists(email)):
-            User.create_user(name, surname, email, birthday, city, phone_number, password, user_type="student")
+            User.create_user(name, surname, email, birthday, city, phone_number, password, user_type="student",status=status)
             print("User created successfully.")
             # Close this window after saving the user
             self.ui_main_3_window.close()
@@ -41,20 +41,13 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
         else:
             QMessageBox.warning(None, 'Warning', f'The email {email} already exists.', QMessageBox.Ok)
         
-    def create_Teacher(self,name, surname, email, birthday, city,phone_number, password):
+    def create_Teacher(self,name, surname, email, birthday, city,phone_number, password,status):
         if not User.email_exists(email):
-            if self.status == 'open':
-                User.create_user(name, surname, email, birthday, city, phone_number, password, user_type="teacher")
-                print("User created successfully.")
-                # Close this window after saving the user
-                self.ui_main_3_window.close()
-                # Open the login screen
-                self.open_login()
-            elif self.status == 'hold':
-                QMessageBox.warning(None, 'Warning', 'Please wait for admin to confirm!', QMessageBox.Ok)
-                self.ui_main_3_window.close()
-                # Open the login screen
-                self.open_login()
+            User.create_user(name, surname, email, birthday, city, phone_number, password, user_type="teacher",status=status)
+            QMessageBox.warning(None, 'Warning', 'Please wait for admin to confirm!', QMessageBox.Ok)
+            self.ui_main_3_window.close()
+            # Open the login screen
+            self.open_login()
         else:
             QMessageBox.warning(None, 'Warning', f'The email {email} already exists.', QMessageBox.Ok)
             
@@ -112,11 +105,14 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
             self.ui_main_3_window.resize(440,400)
         elif user_type == 'teacher':
             # Open Teacher UI
-            self.ui_main_3_window = QtWidgets.QMainWindow()
-            self.ui_main_3 = Ui_MainWindow_6()
-            self.ui_main_3.setupUi(self.ui_main_3_window)
-            self.ui_main_3.show()
-            self.ui_main_3_window.resize(440,400)
+            if self.status=='active':
+                self.ui_main_3_window = QtWidgets.QMainWindow()
+                self.ui_main_3 = Ui_MainWindow_6()
+                self.ui_main_3.setupUi(self.ui_main_3_window)
+                self.ui_main_3.show()
+                self.ui_main_3_window.resize(440,400)
+            else:
+                QMessageBox.warning(None, 'Warning', 'Your account has not been activated yet!', QMessageBox.Ok)
         elif user_type == 'student':
             self.ui_main_3_window = QtWidgets.QMainWindow()
             self.ui_main_3 = Ui_MainWindow_5()
@@ -148,11 +144,11 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
         elif not self.is_equal_password(password, repassword):
             QMessageBox.warning(None, 'Warning', 'Passwords do not match. Please check your password!', QMessageBox.Ok)
         elif student_checked:
-            self.status = 'open'
-            self.create_Student(name, surname, email, birthday, city, phone_number, password)
+            self.status = 'active'
+            self.create_Student(name, surname, email, birthday, city, phone_number, password,self.status)
         elif teacher_checked:
-            self.status = 'hold'
-            self.create_Teacher(name, surname, email, birthday, city, phone_number, password)
+            self.status = 'passive'
+            self.create_Teacher(name, surname, email, birthday, city, phone_number, password,self.status)
             
         else:
             QMessageBox.warning(None, 'Warning', 'Please select a role!', QMessageBox.Ok)

@@ -1,5 +1,5 @@
 {"name": "Admin", "surname": "Test", "email": "admin@example.com", "birthdate": "1990-01-01", "city": "dert", "phone_number": "123-456-7890", "password": "123Qwe..", "user_type": "admin"}
-{"name": "Teacher", "surname": "Test", "email": "teacher@example.com", "birthdate": "1990-01-01", "city": "Istsdfdgdfgfhfgjfhg", "phone_number": "123-456-78907689", "password": "123Qwe..", "user_type": "teacher"}
+{"name": "Teacher", "surname": "Test", "email": "teacher@example.com", "birthdate": "1990-01-01", "city": "Istsdfdgdfgfhfgjfhg", "phone_number": "123-456-78907689", "password": "123Qwe..", "user_type": "teacher","status": "active"}
 {"name": "Student", "surname": "Test", "email": "student@example.com", "birthdate": "1990-01-01", "city": "yenidfghertg", "phone_number": "123-456-7890", "password": "123Qwe..", "user_type": "student"}
 {"name": "a", "surname": "b", "email": "a@yani.com", "birthdate": "2023-01-01", "city": "efe", "phone_number": "23132", "password": "123Qwe..", "user_type": "student"}
 {"name": "a", "surname": "b", "email": "alma@yani.com", "birthdate": "2023-01-01", "city": "dfe", "phone_number": "21321", "password": "123Qwe..", "user_type": "student"}
@@ -19,4 +19,5 @@
 {"name": "adem", "surname": "turk", "email": "adem@example.com", "birthdate": "2024-01-01", "city": "aderna", "phone_number": "(234)567 89 00", "password": "123Qwe..", "user_type": "teacher"}
 {"name": "mert", "surname": "dert", "email": "mert@gmail.com", "birthdate": "2024-01-01", "city": "sdad", "phone_number": "(23)456 78 90", "password": "123Qwe..", "user_type": "teacher"}
 {"name": "orhun", "surname": "okutmak", "email": "o@gmail.com", "birthdate": "2024-01-01", "city": "ase", "phone_number": "(234)456 78 99", "password": "123Qwe..", "user_type": "teacher"}
-{"name": "a", "surname": "a", "email": "a@gmail.com", "birthdate": "2024-01-01", "city": "wd", "phone_number": "(123)456 78 90", "password": "123Qwe..", "user_type": "teacher"}
+{"name": "a", "surname": "a", "email": "a@gmail.com", "birthdate": "2024-01-01", "city": "wd", "phone_number": "(123)456 78 90", "password": "123Qwe..", "user_type": "teacher","status": "passive"}
+{"name": "selen", "surname": "es", "email": "selen@gmail.com", "birthdate": "2011-01-01", "city": "adana", "phone_number": "(234)456 78 90", "password": "123Qwe..", "user_type": "student", "status": "active"}

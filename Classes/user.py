@@ -18,7 +18,7 @@ class User():
     table_mentoring = None
     table_student = None
     
-    def __init__(self, name, surname, email, birthdate, city, phone_number, password, user_type):
+    def __init__(self, name, surname, email, birthdate, city, phone_number, password, user_type,status):
         self.name = name
         self.surname = surname
         self.email = email
@@ -27,15 +27,16 @@ class User():
         self.phone_number = phone_number
         self.password = password
         self.user_type = user_type
+        self.status=status
 
     @classmethod
-    def create_user(cls, name, surname, email, birthdate, city, phone_number, password, user_type):
+    def create_user(cls, name, surname, email, birthdate, city, phone_number, password, user_type,status):
         # Check if the email already exists
         if cls.email_exists(email):
            QMessageBox.information(None, 'Warning', f'The email {email} already exists.', QMessageBox.Ok)
             
         else:
-            new_user = cls(name, surname, email, birthdate, city, phone_number, password, user_type)
+            new_user = cls(name, surname, email, birthdate, city, phone_number, password, user_type,status)
             cls.save_user(new_user.__dict__)
             # Show a success message
             QMessageBox.information(None, 'Success', 'User created successfully.', QMessageBox.Ok)

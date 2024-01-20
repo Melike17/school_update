@@ -21,3 +21,4 @@
 {"name": "orhun", "surname": "okutmak", "email": "o@gmail.com", "birthdate": "2024-01-01", "city": "ase", "phone_number": "(234)456 78 99", "password": "123Qwe..", "user_type": "teacher"}
 {"name": "a", "surname": "a", "email": "a@gmail.com", "birthdate": "2024-01-01", "city": "wd", "phone_number": "(123)456 78 90", "password": "123Qwe..", "user_type": "teacher","status": "passive"}
 {"name": "selen", "surname": "es", "email": "selen@gmail.com", "birthdate": "2011-01-01", "city": "adana", "phone_number": "(234)456 78 90", "password": "123Qwe..", "user_type": "student", "status": "active"}
+{"name": "denemeteacher", "surname": "data", "email": "denemeteacher@gmail.com", "birthdate": "2024-01-01", "city": "fsdf", "phone_number": "(213)322 42 43", "password": "123Qwe..", "user_type": "teacher", "status": "passive"}

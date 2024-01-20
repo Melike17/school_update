@@ -6,7 +6,7 @@ sys.path.append(os.getcwd())
 
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
-from Teacher_UI.Ui_teacher import *
+from Teacher_UI.Ui_teacher_v1 import *
 from Classes.task import Task
 from Classes.user import *
 from Teacher_UI.CreateLesson import *
@@ -33,10 +33,16 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         tab_widget = self.tabWidget
         if User._current_user.user_type != "admin":
             tab_widget.removeTab(6)
+        else:
+            self.display_status()
         tab_widget.removeTab(5)
+        
 
         self.display_announcements()
         self.display_announcement_to_delete()
+        #if User._current_user.user_type == "admin":
+            
+            
 
         current_date_time = QDateTime.currentDateTime()
         formatted_date = current_date_time.toString("dd-MM-yyyy")
@@ -55,7 +61,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         self.create_task_button.clicked.connect(self.create_task)
 
         #signal to create teacher account
-        self.create_teacher_account_button.clicked.connect(self.check_enter_signup)
+        #self.create_teacher_account_button.clicked.connect(self.check_enter_signup)
 
         self.show_Lesson_Schedule()
         self.show_Mentor_Schedule()
@@ -133,7 +139,120 @@ class Main_Window(QMainWindow, Ui_MainWindow):
             QMessageBox.warning(None, 'Warning', f'The email {email} already exists.', QMessageBox.Ok)
 
     #-----------------------------------------------------------------
+    # def display_status(self):
+    #     try:
+           
+    #         # Take the teachers by status
+    #         passive_teachers = User.get_teachers_by_status('passive')
+    #         print(passive_teachers)
+    #         # Show in ListWidget
+    #         list_widget = self.findChild(QListWidget, "listWidget")
+    #         list_widget.clear()
 
+    #         for teacher in passive_teachers:
+    #             print("Current Teacher:", teacher)
+    #             item_text = f"{teacher[0]} {teacher[1]} ({teacher[2]})"
+    #             print("Item Text:", item_text)
+    #             item = QtWidgets.QListWidgetItem(item_text)
+    #             list_widget.addItem(item)
+
+
+    #     except Exception as e:
+    #         print(f"Error displaying teachers with 'passive' status: {e}")
+    def display_status(self):
+        try:
+            # Take the teachers by status
+            passive_teachers = User.get_teachers_by_status('passive')
+            print(passive_teachers)
+            # List widget
+            list_widget = self.findChild(QListWidget, "listWidget")
+            list_widget.clear()
+            
+
+            # Add teachers to list widget
+            for teacher in passive_teachers:
+                item_text = f"Name: {teacher[0]}, Email: {teacher[1]}, Status: {teacher[2]}"
+                item = QListWidgetItem(item_text)
+                list_widget.addItem(item)
+
+            # Your custom reject and approve buttons
+            reject_button = self.reject_Button
+            approve_button = self.approve_Button
+            
+
+            # Connect buttons to functions
+            approve_button.clicked.connect(self.approve_teacher)
+            reject_button.clicked.connect(self.reject_teacher)
+
+                
+        except Exception as e:
+            print(f"Error displaying teachers with 'passive' status: {e}")
+
+    def approve_teacher(self):
+        selected_item = self.findChild(QListWidget, "listWidget").currentItem()
+        print(selected_item.text())
+        # Extracting teacher email from the selected item's text
+        
+        if selected_item is not None:
+            email = selected_item.text().split(",")[1].split(":")[1].strip()
+            # Update the teacher status to 'active' in the database
+            self.update_teacher_status(email, 'active')
+            # Remove the item from the list widget   
+            selected_row = self.findChild(QListWidget, "listWidget").row(selected_item)
+            self.findChild(QListWidget, "listWidget").takeItem(selected_row)
+            # Success Message
+            QMessageBox.information(self, "Warning", "Teacher status changed successfully!")
+
+    def reject_teacher(self):
+        selected_item = self.findChild(QListWidget, "listWidget").currentItem()
+        print(selected_item.text())
+        
+        if selected_item is not None:
+            try:
+                email = selected_item.text().split(",")[1].split(":")[1].strip()
+                with get_db_connection() as conn:
+                    with conn.cursor() as cursor:
+                        # Email'e göre user_id'yi al
+                        get_user_id_query = '''
+                        SELECT user_id FROM school.user WHERE email = %s
+                        '''
+                        cursor.execute(get_user_id_query, (email,))
+                        user_id = cursor.fetchone()
+
+                        # User_id'yi kullanarak silme işlemini gerçekleştir
+                        if user_id:
+                            delete_query = '''
+                            DELETE FROM school.user WHERE user_id = %s
+                            '''
+                            cursor.execute(delete_query, (user_id[0],))
+                            # Remove the item from the list widget   
+                            selected_row = self.findChild(QListWidget, "listWidget").row(selected_item)
+                            self.findChild(QListWidget, "listWidget").takeItem(selected_row)      
+                            # Success Message
+                            QMessageBox.information(self, "Warning", "Teacher deleted successfully!") 
+
+            except Exception as e:
+                print(f"Error getting teachers by status: {e}")
+                # Extracting teacher email from the selected item's text
+                
+            
+           
+    def update_teacher_status(cls, email, new_status):
+        try:
+            with get_db_connection() as conn:
+                with conn.cursor() as cursor:
+                    sql_query = '''
+                    UPDATE school.user
+                    SET status = %s
+                    WHERE email = %s AND user_type = 'teacher'
+                    '''
+                    cursor.execute(sql_query, (new_status, email))
+                    conn.commit()
+
+        except Exception as e:
+            print(f"Error updating teacher status: {e}")
+    #-----------------------------------------------------------------------------
+          
     def display_announcement_to_delete(self):
         user = User._current_user
         announcements_to_delete = User.get_announcements_to_delete(user.email, user.user_type)

@@ -15,8 +15,6 @@ from Classes.user import User
 from Student_UI.student_main import Main_Window as Ui_MainWindow_5
 from Teacher_UI.teacher_main import Main_Window as Ui_MainWindow_6
 
-
-
 class Main_Window(QMainWindow, Ui_MainWindow_2):
     def __init__(self):
         super(Main_Window, self).__init__()
@@ -27,7 +25,7 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
         self.login_Button.clicked.connect(self.close)
         self.signup_Button.clicked.connect(self.open_signup)
         self.signup_Button.clicked.connect(self.close)
-        self.status=None
+       
         
     
     def create_Student(self,name, surname, email, birthday, city,phone_number, password,status):
@@ -104,15 +102,14 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
             self.ui_main_3.show()
             self.ui_main_3_window.resize(440,400)
         elif user_type == 'teacher':
-            # Open Teacher UI
-            if self.status=='active':
+            print("Opening teacher window with status:", User._current_user.status) 
+            if  User._current_user.status =='active':
                 self.ui_main_3_window = QtWidgets.QMainWindow()
                 self.ui_main_3 = Ui_MainWindow_6()
                 self.ui_main_3.setupUi(self.ui_main_3_window)
                 self.ui_main_3.show()
                 self.ui_main_3_window.resize(440,400)
-            else:
-                QMessageBox.warning(None, 'Warning', 'Your account has not been activated yet!', QMessageBox.Ok)
+            
         elif user_type == 'student':
             self.ui_main_3_window = QtWidgets.QMainWindow()
             self.ui_main_3 = Ui_MainWindow_5()
@@ -135,6 +132,7 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
         repassword = self.ui_main_3.repassword.text()
         student_checked = self.ui_main_3.student_radioButton.isChecked()
         teacher_checked = self.ui_main_3.teacher_radioButton.isChecked()
+        
         if not all([name, surname, birthday, city, email, phone_number, password, repassword]):
             QMessageBox.warning(None, 'Warning', 'Please fill in all the fields!', QMessageBox.Ok)
         elif not self.is_valid_email(email):
@@ -144,11 +142,11 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
         elif not self.is_equal_password(password, repassword):
             QMessageBox.warning(None, 'Warning', 'Passwords do not match. Please check your password!', QMessageBox.Ok)
         elif student_checked:
-            self.status = 'active'
-            self.create_Student(name, surname, email, birthday, city, phone_number, password,self.status)
+            
+            self.create_Student(name, surname, email, birthday, city, phone_number, password,status='active')
         elif teacher_checked:
-            self.status = 'passive'
-            self.create_Teacher(name, surname, email, birthday, city, phone_number, password,self.status)
+            
+            self.create_Teacher(name, surname, email, birthday, city, phone_number, password,status='passive')
             
         else:
             QMessageBox.warning(None, 'Warning', 'Please select a role!', QMessageBox.Ok)

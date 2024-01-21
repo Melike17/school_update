@@ -7,9 +7,15 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem
 from db_connect import get_db_connection
+import logging
 
 class User():
     
+    logFile = 'data/logging.log'
+    logFormat = '%(asctime)s - %(levelname)s - %(message)s'
+
+    logging.basicConfig(filename=logFile, level=logging.DEBUG, format=logFormat)
+
     FILE_PATH = "data/users.txt"
     ANNOUNCEMENT_FILE_PATH = "data/announcements.txt"
 
@@ -223,7 +229,7 @@ class User():
                             VALUES (%s, %s, %s, %s, %s, %s)
                         ''', (lesson, date, start, finish, 'lesson', user_id))
 
-                                    
+                        logging.info(f"Lesson created successfully by email {email}: {lesson_info}")            
                 except Exception as e:
                     print(f"Error in create lesson: {e}")
 
@@ -575,7 +581,7 @@ class User():
                             VALUES (%s, %s, %s, %s, %s, %s)
                         ''', (mentor, date, start, finish, 'mentor', user_id))
 
-                                    
+                        logging.info(f"Mentor created successfully by {email}: {mentor_info}")            
                 except Exception as e:
                     print(f"Error in create mentor: {e}")
 

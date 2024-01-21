@@ -1,11 +1,15 @@
+import sys,os
+sys.path.append(os.getcwd())
 import json
 import csv
 import os
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem
+from db_connect import get_db_connection
 
 class User():
+    
     FILE_PATH = "data/users.txt"
     ANNOUNCEMENT_FILE_PATH = "data/announcements.txt"
 
@@ -18,7 +22,7 @@ class User():
     table_mentoring = None
     table_student = None
     
-    def __init__(self, name, surname, email, birthdate, city, phone_number, password, user_type):
+    def __init__(self,user_id, name, surname, email, birthdate, city, phone_number, password, user_type,status, avatar_path):
         self.name = name
         self.surname = surname
         self.email = email
@@ -27,93 +31,167 @@ class User():
         self.phone_number = phone_number
         self.password = password
         self.user_type = user_type
+        self.status=status
+        self.avatar_path = avatar_path
 
     @classmethod
-    def create_user(cls, name, surname, email, birthdate, city, phone_number, password, user_type):
-        # Check if the email already exists
-        if cls.email_exists(email):
-           QMessageBox.information(None, 'Warning', f'The email {email} already exists.', QMessageBox.Ok)
+    def create_user(cls, name, surname, email, birthdate, city, phone_number, password, user_type,status):
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    if cls.email_exists(email):
+                        QMessageBox.information(None, 'Warning', f'The email {email} already exists.', QMessageBox.Ok)
+                   
+                    else:
+                        
+                        #avatar_path_random=random(["cat.png","koala.png"])
+                        avatar_path="avatars/cat.png"
+                        
+                        query = """
+                            INSERT INTO school.user (name, last_name, email, birthdate, city, phone_number, password_hash, user_type,status,avatar_path)
+                            VALUES (%s, %s, %s, %s, %s,%s, %s, %s, %s, %s)
+                            RETURNING user_id
+                        """
+                        cursor.execute(query, (name, surname, email, birthdate, city, phone_number, password, user_type,status,avatar_path))
+                        # Show a success message
+                        conn.commit()
+                        QMessageBox.information(None, 'Success', 'User created successfully.', QMessageBox.Ok)
+                    
+            except Exception as e:
+                print(f"Error: {e}")
             
-        else:
-            new_user = cls(name, surname, email, birthdate, city, phone_number, password, user_type)
-            cls.save_user(new_user.__dict__)
-            # Show a success message
-            QMessageBox.information(None, 'Success', 'User created successfully.', QMessageBox.Ok)
+        
+            
+        
         
     @classmethod
     def email_exists(cls, email):
         existing_emails = cls.get_emails_for_task_assign()
         return email in existing_emails
     
-    @classmethod
-    def save_user(cls, user):
-        try:
-            with open(cls.FILE_PATH, 'a') as file:
-                # Append the user data to the JSON file
-                json.dump(user, file)
-                file.write('\n')
-            print("User saved to file.")
-        except Exception as e:
-            print(f"Error saving user to file: {e}")
+    # @classmethod
+    # def save_user(cls, user):
+    #     try:
+    #         with open(cls.FILE_PATH, 'a') as file:
+    #             # Append the user data to the JSON file
+    #             json.dump(user, file)
+    #             file.write('\n')
+    #         print("User saved to file.")
+    #     except Exception as e:
+    #         print(f"Error saving user to file: {e}")
     
     @classmethod
     def update_user_information(cls, email, **kwargs):
-        try:
-            # Read existing users
-            with open(cls.FILE_PATH, 'r') as file:
-                users = [json.loads(line) for line in file]
-
-            # Find the user with the specified email
-            for user in users:
-                if user.get('email') == email:
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
                     # Update user information based on kwargs
-                    user.update(kwargs)
+                    update_query = "UPDATE school.user SET "
+                    values = []
+                    for key, value in kwargs.items():
+                        update_query += f"{key} = %s, "
+                        values.append(value)
+                    update_query = update_query.rstrip(", ")  # Remove the trailing comma
+                    update_query += " WHERE email = %s"
+                    values.append(email)
 
-            # Write the updated users back to the file
-            with open(cls.FILE_PATH, 'w') as file:
-                for user in users:
-                    json.dump(user, file)
-                    file.write('\n')
+                    cursor.execute(update_query, tuple(values))
+                    conn.commit()
 
-            print("User information updated.")
-        except Exception as e:
-            print(f"Error updating user information: {e}")
+                    #QMessageBox.information(None, 'Success', 'User information updated successfully.', QMessageBox.Ok)
+
+            except Exception as e:
+                print(f"Error updating user information: {e}")
 
     @classmethod
     def get_emails_for_task_assign(cls):
         emails = []
         try:
-            with open(cls.FILE_PATH, 'r') as file:
-                for line in file:
-                    user_data = json.loads(line)
-                    emails.append(user_data.get('email'))
+            with get_db_connection() as conn:
+                with conn.cursor() as cursor:
+                    query = "SELECT email FROM school.user"
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+                    emails = [row[0] for row in result]
         except Exception as e:
-            print(f"Error reading emails from file: {e}")
+            print(f"Error retrieving emails from the database: {e}")
+
         return emails
+
     
     @classmethod
     def login(cls, email, password):
         try:
-            with open(cls.FILE_PATH, 'r') as file:
-                for line in file:
-                    user_data = json.loads(line)
-                    if user_data.get('email') == email and user_data.get('password') == password:
+            with get_db_connection() as conn:
+                with conn.cursor() as cursor:
+                    query = "SELECT * FROM school.user WHERE email = %s AND password_hash = %s "
+                    cursor.execute(query, (email, password))
+                    result = cursor.fetchone()
+                    
+                    if result:
+                        user_data = {
+                            "user_id": result[0],
+                            "name": result[1],
+                            "last_name": result[2],
+                            "email": result[3],
+                            "birthdate": result[4],
+                            "city": result[5],
+                            "phone_number": result[6],
+                            "password_hash": result[7],
+                            "user_type": result[8],
+                            "status": result[9],
+                            "avatar_path":result[10]
+                        }
                         return user_data
         except Exception as e:
-            print(f"Error reading user data from file: {e}")
+            print(f"Error reading user data from the database: {e}")
         return None
-    
+
+        
+
     @classmethod
     def set_currentuser(cls, email):
-        try:
-            with open(cls.FILE_PATH, 'r') as file:
-                for line in file:
-                    user_data = json.loads(line)
-                    if user_data.get('email') == email:
-                        cls._current_user = cls(**user_data)
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    sql_query = '''
+                    SELECT * FROM school.user WHERE email = %s
+                    '''
+                    cursor.execute(sql_query, (email,))
+                    user_data = cursor.fetchone()
+                    if user_data:
+                        # Unpack the user_data tuple and create a User instance
+                        user_instance = cls(*user_data)
+                        cls._current_user = user_instance
                         return
+            except Exception as e:
+                print(f"Error setting current user: {e}")
+                
+   
+                
+    @classmethod
+    def get_teachers_by_status(cls, status):
+        teachers = []
+        try:
+            with get_db_connection() as conn:
+                with conn.cursor() as cursor:
+                    sql_query = '''
+                    SELECT name, email, status
+                    FROM school.user
+                    WHERE user_type = 'teacher' AND status = %s
+                    '''
+                    cursor.execute(sql_query, (status,))
+                    teachers = cursor.fetchall()
+
         except Exception as e:
-            print(f"Error setting current user: {e}")
+            print(f"Error getting teachers by status: {e}")
+            
+        teachers_with_options = [(name, email, status, 'Approve', 'Reject') for name, email, status in teachers]
+        return teachers
+                
+    #---------------------------------------------------------------------------------------
+
+
 
 # Save the user information to the file
 # User.create_user(

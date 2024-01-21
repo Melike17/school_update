@@ -24,7 +24,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.setWindowTitle("Teacher Page")
 
-        #User.set_currentuser("admin@example.com")
+        User.set_currentuser("admin@example.com")
 
         
         self.current_user_email = User._current_user.email

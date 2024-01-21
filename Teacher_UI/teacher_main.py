@@ -322,12 +322,12 @@ class Main_Window(QMainWindow, Ui_MainWindow):
 
     def open_create_lesson(self):
 
-        self.open_create_lesson_window = CreateLesson()
+        self.open_create_lesson_window = CreateLesson(self.current_user_email)
         self.open_create_lesson_window.show()
 
     def open_create_mentor(self):
 
-        self.open_create_mentor_window = CreateMentor()
+        self.open_create_mentor_window = CreateMentor(self.current_user_email)
         self.open_create_mentor_window.show()
 
     def show_lesson_attendance_page(self):

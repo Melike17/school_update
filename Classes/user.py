@@ -206,31 +206,26 @@ class User():
 # )
     
     @classmethod
-    def create_lessons(cls, lesson_info):
+    def create_lessons(cls, email, lesson_info):
         try:
-            rows = []
-            flag = True
+            date, lesson, start, finish = lesson_info
 
-            if len(lesson_info) >= 4:
-                with open(cls.FILE_LESSON, 'r', newline='') as file:
-                    reader = csv.reader(file)
-                    for row in reader:
-                        if row and row[0] == lesson_info[0]:
-                            row[1] = lesson_info[1]
-                            row[2] = lesson_info[2]
-                            row[3] = lesson_info[3]
-                            flag = False
-                        rows.append(row)
-                    
-                    if flag:
-                        rows.append(lesson_info)
-                
-                with open(cls.FILE_LESSON, 'w', newline='') as file:
-                    writer = csv.writer(file)
+            with get_db_connection() as conn:
+                try:
+                    with conn.cursor() as cursor:
+                        
+                        cursor.execute("SELECT user_id FROM user WHERE email = %s", (email,))
+                        user_id = cursor.fetchone()[0]
 
-                    if not os.path.isfile(cls.FILE_LESSON):
-                        writer.writerow(['Lesson Date','Lesson Name','Lesson Start Time','Lesson Finish Time'])
-                    writer.writerows(rows)
+                        
+                        cursor.execute('''
+                            INSERT INTO mentoringlesson (name, date, start, finish, type, user_id)
+                            VALUES (%s, %s, %s, %s, %s, %s)
+                        ''', (lesson, date, start, finish, 'lesson', user_id))
+
+                                    
+                except Exception as e:
+                    print(f"Error in create lesson: {e}")
 
         except Exception as e:
             print(f"Error in create lesson: {e}")
@@ -563,33 +558,29 @@ class User():
         return mentor_names
 
     @classmethod
-    def create_mentor(cls, mentor_info):
+    def create_mentor(cls, email, mentor_info):
         try:
-            rows = []
-            flag = True
-            if len(mentor_info) >= 4:
-                with open(cls.FILE_MENTOR, 'r', newline='') as file:
-                    reader = csv.reader(file)
-                    for row in reader:
-                        if row and row[0] == mentor_info[0]:
-                            row[1] = mentor_info[1]
-                            row[2] = mentor_info[2]
-                            row[3] = mentor_info[3]
-                            flag = False
-                        rows.append(row)
-                    
-                    if flag:
-                        rows.append(mentor_info)
-                
-                with open(cls.FILE_MENTOR, 'w', newline='') as file:
-                    writer = csv.writer(file)
+            date, mentor, start, finish = mentor_info
 
-                    if not os.path.isfile(cls.FILE_MENTOR):
-                        writer.writerow(['Mentoring Date','Mentoring Subject','Mentoring Start Time','Mentoring Finish Time'])
-                    writer.writerows(rows)
+            with get_db_connection() as conn:
+                try:
+                    with conn.cursor() as cursor:
+                        
+                        cursor.execute("SELECT user_id FROM user WHERE email = %s", (email,))
+                        user_id = cursor.fetchone()[0]
+
+                        
+                        cursor.execute('''
+                            INSERT INTO mentoringlesson (name, date, start, finish, type, user_id)
+                            VALUES (%s, %s, %s, %s, %s, %s)
+                        ''', (mentor, date, start, finish, 'mentor', user_id))
+
+                                    
+                except Exception as e:
+                    print(f"Error in create mentor: {e}")
 
         except Exception as e:
-            print(f"Error in create mentoring: {e}")
+            print(f"Error in create mentor: {e}")
 
     
     @classmethod

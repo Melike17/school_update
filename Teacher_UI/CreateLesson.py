@@ -5,8 +5,9 @@ from Classes.user import User
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QPushButton, QVBoxLayout, QWidget
 
 class CreateLesson(QMainWindow):
-    def __init__(self):
+    def __init__(self, email):
         super().__init__()
+        self.email = email
 
         self.setWindowTitle("Lesson Create")
         self.setGeometry(100, 100, 400, 300)
@@ -51,7 +52,7 @@ class CreateLesson(QMainWindow):
         start = self.textbox_baslama.text()
         finish = self.textbox_bitis.text()
 
-        User.create_lessons([date, lesson, start, finish])
+        User.create_lessons(self.email, [date, lesson, start, finish])
         self.close()
 
 def create_lesson():

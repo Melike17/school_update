@@ -20,7 +20,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.setWindowTitle("Student Page")
 
-        #User.set_currentuser("student@example.com")
+        User.set_currentuser("student@example.com")
 
 
         current_date_time = QDateTime.currentDateTime()

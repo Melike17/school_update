@@ -238,24 +238,26 @@ class User():
 
     @classmethod
     def get_LessonSchedule(cls):
+
         if cls.table_lesson is None: 
             cls.table_lesson = QTableWidget()
             cls.table_lesson.setColumnCount(4)
 
-        try:
-            with open(cls.FILE_LESSON, 'r', newline='') as file:
-                reader = csv.reader(file)
-                cls.table_lesson.setRowCount(0)
-                row_number = 0
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute("SELECT name, date, start, finish FROM mentoringlesson WHERE type = 'lesson'")
+                    lessons = cursor.fetchall()
 
-                for row in reader:
-                    cls.table_lesson.insertRow(row_number)
-                    for column_number, info in enumerate(row):
-                        cls.table_lesson.setItem(row_number, column_number, QTableWidgetItem(info))
-                    row_number += 1
-        
-        except Exception as e:
-            print(f"Error in getting lesson: {e}")
+                    cls.table_lesson.setRowCount(0)
+
+                    for row_number, lesson in enumerate(lessons):
+                        cls.table_lesson.insertRow(row_number)
+                        for column_number, info in enumerate(lesson):
+                            cls.table_lesson.setItem(row_number, column_number, QTableWidgetItem(str(info)))
+
+            except Exception as e:
+                print(f"Error: {e}")
 
         return cls.table_lesson
     
@@ -265,24 +267,24 @@ class User():
             cls.table_lesson = QTableWidget()
             cls.table_lesson.setColumnCount(2) 
 
-        try:
-            with open(cls.FILE_LESSON, 'r', newline='') as file:
-                reader = csv.reader(file)
-                cls.table_lesson.setRowCount(0)
-                row_number = 0
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute("SELECT name FROM mentoringlesson WHERE type = 'lesson'") 
+                    lessons = cursor.fetchall()
+                    cls.table_lesson.setRowCount(0)
 
-                for row in reader:
-                    if len(row) > 1:
+                    for row_number, lesson in enumerate(lessons):
                         cls.table_lesson.insertRow(row_number)
-                        lesson_name = row[1]
-                        cls.table_lesson.setItem(row_number, 0, QTableWidgetItem(lesson_name)) 
-                        button = QPushButton("List")
-                        button.clicked.connect(lambda _, lesson=lesson_name: cls.open_students_page_lesson(lesson))
-                        cls.table_lesson.setCellWidget(row_number, 1, button) 
-                        row_number += 1
+                        for column_number, info in enumerate(lesson):
+                            cls.table_lesson.setItem(row_number, column_number, QTableWidgetItem(str(info)))
+
+                        list_button = QPushButton("List")
+                        list_button.clicked.connect(lambda _, lesson_name=lesson[0]: cls.open_students_page_lesson(lesson_name))
+                        cls.table_lesson.setCellWidget(row_number, 2, list_button)
             
-        except Exception as e:
-            print(f"Error in getting lesson: {e}")
+            except Exception as e:
+                print(f"Error in getting lesson: {e}")
 
         return cls.table_lesson
     
@@ -290,51 +292,59 @@ class User():
     def get_Lesson_Attendance_Student(cls, email):
         if cls.table_lesson is None:
             cls.table_lesson = QTableWidget()
-            cls.table_lesson.setColumnCount(5)
-        try:
-            with open(cls.FILE_ATT_LESSON, 'r', newline='') as file:
-                reader = csv.reader(file)
-                cls.table_lesson.setRowCount(0)
-                row_number = 0
-                for row in reader:
-                    if len(row) > 1 and row[1] == email:
+            cls.table_lesson.setColumnCount(4)
+
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute('''
+                        SELECT us.name, us.last_name, att.status, ml.name 
+                        FROM "user" AS us
+                        JOIN attendance AS att ON us.user_id = att.user_id
+                        JOIN mentoringlesson AS ml ON att.mentoringlesson_id = ml.id
+                        WHERE ml.type = 'lesson' AND us.email = %s
+                    ''', (email,))
+                    lessons = cursor.fetchall()
+
+                    cls.table_lesson.setRowCount(0)
+
+                    for row_number, lesson in enumerate(lessons):
                         cls.table_lesson.insertRow(row_number)
-                        lesson_name, student_email, name, surname, attendance_status = row
-                        cls.table_lesson.setItem(row_number, 0, QTableWidgetItem(name))
-                        cls.table_lesson.setItem(row_number, 1, QTableWidgetItem(surname))
-                        cls.table_lesson.setItem(row_number, 2, QTableWidgetItem(attendance_status))  # Değiştirildi
-                        cls.table_lesson.setItem(row_number, 3, QTableWidgetItem(lesson_name))
-                        cls.table_lesson.setItem(row_number, 4, QTableWidgetItem(student_email))  # Değiştirildi
-                        row_number += 1
-                        print(f"Row {row_number}: {name}, {surname}, {attendance_status}, {lesson_name}, {student_email}")
-        except Exception as e:
-            print(f"Error: {e}")
+                        for column_number, info in enumerate(lesson):
+                            cls.table_lesson.setItem(row_number, column_number, QTableWidgetItem(str(info)))
+
+            except Exception as e:
+                print(f"Error: {e}")
+
         return cls.table_lesson
     
     @classmethod
     def get_Mentor_Attendance_Student(cls, email):
-        if cls.table_lesson is None:
-            cls.table_lesson = QTableWidget()
-            cls.table_lesson.setColumnCount(5)
-        try:
-            with open(cls.FILE_ATT_MENTOR, 'r', newline='') as file:
-                reader = csv.reader(file)
-                cls.table_lesson.setRowCount(0)
-                row_number = 0
-                for row in reader:
-                    if len(row) > 1 and row[1] == email:
-                        cls.table_lesson.insertRow(row_number)
-                        mentoring_name, student_email, name, surname, attendance_status = row
-                        cls.table_lesson.setItem(row_number, 0, QTableWidgetItem(name))
-                        cls.table_lesson.setItem(row_number, 1, QTableWidgetItem(surname))
-                        cls.table_lesson.setItem(row_number, 2, QTableWidgetItem(attendance_status))  # Değiştirildi
-                        cls.table_lesson.setItem(row_number, 3, QTableWidgetItem(mentoring_name))
-                        cls.table_lesson.setItem(row_number, 4, QTableWidgetItem(student_email))  # Değiştirildi
-                        row_number += 1
-                        print(f"Row {row_number}: {name}, {surname}, {attendance_status}, {mentoring_name}, {student_email}")
-        except Exception as e:
-            print(f"Error: {e}")
-        return cls.table_lesson
+        if cls.table_mentoring is None:
+            cls.table_mentoring = QTableWidget()
+            cls.table_mentoring.setColumnCount(4)
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute('''
+                        SELECT us.name, us.last_name, att.status, ml.name 
+                        FROM "user" AS us
+                        JOIN attendance AS att ON us.user_id = att.user_id
+                        JOIN mentoringlesson AS ml ON att.mentoringlesson_id = ml.id
+                        WHERE ml.type = 'mentor' AND us.email = %s
+                    ''', (email,))
+                    mentors = cursor.fetchall()
+
+                    cls.table_mentoring.setRowCount(0)
+
+                    for row_number, mentor in enumerate(mentors):
+                        cls.table_mentoring.insertRow(row_number)
+                        for column_number, info in enumerate(mentor):
+                            cls.table_mentoring.setItem(row_number, column_number, QTableWidgetItem(str(info)))
+
+            except Exception as e:
+                print(f"Error: {e}")
+        return cls.table_mentoring
     
     @classmethod
     def get_Mentor_Attendance(cls):
@@ -405,27 +415,30 @@ class User():
 
     @classmethod
     def mark_attendance_lesson(cls, lesson_name, row, attendance_status):
+
+        btn_widget = cls.students_table.cellWidget(row, 3)
+        attended_btn = btn_widget.layout().itemAt(0).widget()
+        not_attended_btn = btn_widget.layout().itemAt(1).widget()
+        attended_btn.setEnabled(False)
+        not_attended_btn.setEnabled(False)
+
         student_email = cls.students_table.item(row, 0).text()
-        student_name = cls.students_table.item(row, 1).text()
-        student_surname = cls.students_table.item(row, 2).text()
 
-        existing_lesson = False
-        updated_students = []
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute("SELECT user_id FROM user WHERE email = %s", (student_email,))
+                    user_id = cursor.fetchone()[0]
+                    cursor.execute("SELECT id FROM mentoringlesson WHERE name = %s", (lesson_name,))
+                    lesson_id = cursor.fetchone()[0]
+                    cursor.execute('''
+                        INSERT INTO attendance (mentoringlesson_id, user_id, status)
+                        VALUES (%s, %s, %s)
+                        ON CONFLICT (mentoringlesson_id, user_id) DO UPDATE SET status = %s
+                    ''', (lesson_id, user_id, attendance_status))
 
-        with open(cls.FILE_ATT_LESSON, newline="") as file:
-            reader = csv.reader(file)
-            for existing_row in reader:
-                if existing_row[0] == lesson_name and existing_row[1] == student_email:
-                    existing_lesson = True
-                    existing_row[-1] = attendance_status
-                updated_students.append(existing_row)
-
-        if not existing_lesson:
-            updated_students.append([lesson_name, student_email, student_name, student_surname, attendance_status])
-
-        with open(cls.FILE_ATT_LESSON, "w", newline="") as file:
-            writer = csv.writer(file)
-            writer.writerows(updated_students)
+            except Exception as e:
+                print(f"Error in marking attendance: {e}")
     
     
     @classmethod
@@ -477,40 +490,77 @@ class User():
         not_attended_btn.setEnabled(False)
 
         student_email = cls.students_table.item(row, 0).text()
-        student_name = cls.students_table.item(row, 1).text()
-        student_surname = cls.students_table.item(row, 2).text()
 
-        existing_mentor = False
-        updated_students = []
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute("SELECT user_id FROM user WHERE email = %s", (student_email,))
+                    user_id = cursor.fetchone()[0]
+                    cursor.execute("SELECT id FROM mentoringlesson WHERE name = %s", (mentor_name,))
+                    mentor_id = cursor.fetchone()[0]
+                    cursor.execute('''
+                        INSERT INTO attendance (mentoringlesson_id, user_id, status)
+                        VALUES (%s, %s, %s)
+                        ON CONFLICT (mentoringlesson_id, user_id) DO UPDATE SET status = %s
+                    ''', (mentor_id, user_id, attendance_status))
 
-        with open(cls.FILE_ATT_MENTOR, newline="") as file:
-            reader = csv.reader(file)
-            for existing_row in reader:
-                if existing_row[0] == mentor_name and existing_row[1] == student_email:
-                    existing_mentor = True
-                    existing_row[-1] = attendance_status
-                updated_students.append(existing_row)
-
-        if not existing_mentor:
-            updated_students.append([mentor_name, student_email, student_name, student_surname, attendance_status])
-
-        with open(cls.FILE_ATT_MENTOR, "w", newline="") as file:
-            writer = csv.writer(file)
-            writer.writerows(updated_students)
+            except Exception as e:
+                print(f"Error in marking attendance: {e}")
 
     @classmethod
     def get_students(cls):
         students = []
-        with open(cls.FILE_PATH, 'r') as file:
-            data = file.readlines()
-            for line in data:
-                user_data = json.loads(line)
-                if user_data.get('user_type') == 'student':
-                    name = user_data.get('name')
-                    surname = user_data.get('surname')
-                    email = user_data.get('email')
-                    students.append((email, name, surname))
+
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute("SELECT email, name, last_name FROM user WHERE user_type = 'student'")
+                    student_records = cursor.fetchall()
+
+                    for record in student_records:
+                        email, name, surname = record
+                        students.append((email, name, surname))
+
+            except Exception as e:
+                print(f"Error in getting students: {e}")
+
         return students
+    
+    @classmethod
+    def get_lesson_names(cls):
+        lesson_names = []
+
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute("SELECT name FROM mentoringlesson WHERE type = 'lesson'")
+                    lessons = cursor.fetchall()
+
+                    for lesson in lessons:
+                        lesson_names.append(lesson[0])
+
+            except Exception as e:
+                print(f"Error in getting lesson names: {e}")
+
+        return lesson_names
+    
+    @classmethod
+    def get_lesson_names(cls):
+        mentor_names = []
+
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute("SELECT name FROM mentoringlesson WHERE type = 'mentor'")
+                    mentors = cursor.fetchall()
+
+                    for mentor in mentors:
+                        mentor_names.append(mentor[0])
+
+            except Exception as e:
+                print(f"Error in getting mentor names: {e}")
+
+        return mentor_names
 
     @classmethod
     def create_mentor(cls, mentor_info):
@@ -548,20 +598,21 @@ class User():
             cls.table_mentoring = QTableWidget()
             cls.table_mentoring.setColumnCount(4)
 
-        try:
-            with open(cls.FILE_MENTOR, 'r', newline='') as file:
-                reader = csv.reader(file)
-                cls.table_mentoring.setRowCount(0)
-                row_number = 0
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute("SELECT name, date, start, finish FROM mentoringlesson WHERE type = 'mentor'")
+                    mentors = cursor.fetchall()
 
-                for row in reader:
-                    cls.table_mentoring.insertRow(row_number)
-                    for column_number, info in enumerate(row):
-                        cls.table_mentoring.setItem(row_number, column_number, QTableWidgetItem(info))
-                    row_number += 1
-        
-        except Exception as e:
-            print(f"Error in getting lesson: {e}")
+                    cls.table_mentoring.setRowCount(0)
+
+                    for row_number, lesson in enumerate(mentors):
+                        cls.table_mentoring.insertRow(row_number)
+                        for column_number, info in enumerate(lesson):
+                            cls.table_mentoring.setItem(row_number, column_number, QTableWidgetItem(str(info)))
+
+            except Exception as e:
+                print(f"Error: {e}")
 
         return cls.table_mentoring
     

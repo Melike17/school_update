@@ -22,9 +22,9 @@ class User():
     table_mentoring = None
     table_student = None
     
-    def __init__(self,user_id, name, surname, email, birthdate, city, phone_number, password, user_type,status, avatar_path):
+    def __init__(self, name, last_name, email, birthdate, city, phone_number, password, user_type,status, avatar_path):
         self.name = name
-        self.surname = surname
+        self.surname = last_name
         self.email = email
         self.birthdate = birthdate
         self.city = city
@@ -35,7 +35,7 @@ class User():
         self.avatar_path = avatar_path
 
     @classmethod
-    def create_user(cls, name, surname, email, birthdate, city, phone_number, password, user_type,status):
+    def create_user(cls, name, last_name, email, birthdate, city, phone_number, password, user_type,status, avatar_path):
         with get_db_connection() as conn:
             try:
                 with conn.cursor() as cursor:
@@ -52,7 +52,7 @@ class User():
                             VALUES (%s, %s, %s, %s, %s,%s, %s, %s, %s, %s)
                             RETURNING user_id
                         """
-                        cursor.execute(query, (name, surname, email, birthdate, city, phone_number, password, user_type,status,avatar_path))
+                        cursor.execute(query, (name, last_name, email, birthdate, city, phone_number, password, user_type,status,avatar_path))
                         # Show a success message
                         conn.commit()
                         QMessageBox.information(None, 'Success', 'User created successfully.', QMessageBox.Ok)
@@ -124,23 +124,30 @@ class User():
         try:
             with get_db_connection() as conn:
                 with conn.cursor() as cursor:
-                    query = "SELECT * FROM school.user WHERE email = %s AND password_hash = %s "
+                    query = '''
+                    SELECT name, last_name, email, birthdate, city, phone_number, password_hash, user_type, status, avatar_path
+                    FROM school.user
+                    WHERE email = %s AND password_hash = %s
+                    
+                    '''
+                    
                     cursor.execute(query, (email, password))
                     result = cursor.fetchone()
+                    # Print the result for debugging
+                    #print("Query Result:", result)
                     
                     if result:
                         user_data = {
-                            "user_id": result[0],
-                            "name": result[1],
-                            "last_name": result[2],
-                            "email": result[3],
-                            "birthdate": result[4],
-                            "city": result[5],
-                            "phone_number": result[6],
-                            "password_hash": result[7],
-                            "user_type": result[8],
-                            "status": result[9],
-                            "avatar_path":result[10]
+                            "name": result[0],
+                            "last_name": result[1],
+                            "email": result[2],
+                            "birthdate": result[3],
+                            "city": result[4],
+                            "phone_number": result[5],
+                            "password_hash": result[6],
+                            "user_type": result[7],
+                            "status": result[8],
+                            "avatar_path":result[9]
                         }
                         return user_data
         except Exception as e:
@@ -155,7 +162,8 @@ class User():
             try:
                 with conn.cursor() as cursor:
                     sql_query = '''
-                    SELECT * FROM school.user WHERE email = %s
+                    SELECT name, last_name, email, birthdate, city, phone_number, password_hash, user_type, status, avatar_path
+                    FROM school.user WHERE email = %s
                     '''
                     cursor.execute(sql_query, (email,))
                     user_data = cursor.fetchone()
@@ -607,81 +615,182 @@ class User():
 
         return cls.table_mentoring
     
+    # @classmethod
+    # def get_announcements(cls):
+    #     announcements = []
+    #     try:
+    #         with open(cls.ANNOUNCEMENT_FILE_PATH, 'r') as file:
+    #             for line in file:
+    #                 announcement_data = json.loads(line)
+    #                 announcements.append(announcement_data)
+    #         sorted_announcements = sorted(announcements, key=lambda x: x.get("timestamp"), reverse=True)
+
+    #     except Exception as e:
+    #         print(f"Error reading announcements from file: {e}")
+    #     return sorted_announcements
     @classmethod
     def get_announcements(cls):
         announcements = []
         try:
-            with open(cls.ANNOUNCEMENT_FILE_PATH, 'r') as file:
-                for line in file:
-                    announcement_data = json.loads(line)
-                    announcements.append(announcement_data)
-            sorted_announcements = sorted(announcements, key=lambda x: x.get("timestamp"), reverse=True)
+            with get_db_connection() as conn:
+                with conn.cursor() as cursor:
+                    query = '''
+                        SELECT user_id, expression, expiry_date
+                        FROM school.duyuru
+                        ORDER BY expiry_date DESC
+                    '''
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+
+                    for row in result:
+                        announcement_data = {
+                            "user_id": row[0],
+                            "announcement": row[1],
+                            "expiry_date": QDateTime.fromString(row[2], Qt.ISODate).toString(Qt.ISODate),  
+                            #"due_date":row[3].isoformat()
+                        }
+                        announcements.append(announcement_data)
 
         except Exception as e:
-            print(f"Error reading announcements from file: {e}")
-        return sorted_announcements
+            print(f"Error reading announcements from database: {e}")
+
+        return announcements
     
+    # @classmethod
+    # def get_announcements_to_delete(cls, email, user_type):
+    #     announcements = []
+    #     try:
+    #         with open(cls.ANNOUNCEMENT_FILE_PATH, 'r') as file:
+    #             for line in file:
+    #                 announcement_data = json.loads(line)
+    #                 created_by = announcement_data.get('created_by')
+    #                 # Check user type and email conditions
+    #                 if (user_type == "admin") or (user_type == "teacher" and created_by == email):
+    #                     announcements.append(announcement_data)
+    #     except Exception as e:
+    #         print(f"Error reading announcements from file: {e}")
+    #     return announcements
     @classmethod
     def get_announcements_to_delete(cls, email, user_type):
         announcements = []
         try:
-            with open(cls.ANNOUNCEMENT_FILE_PATH, 'r') as file:
-                for line in file:
-                    announcement_data = json.loads(line)
-                    created_by = announcement_data.get('created_by')
-                    # Check user type and email conditions
-                    if (user_type == "admin") or (user_type == "teacher" and created_by == email):
-                        announcements.append(announcement_data)
+            with get_db_connection() as conn:
+                with conn.cursor() as cursor:
+                    # Find user_id associated with the given email
+                    user_query = "SELECT user_id FROM school.user WHERE email = %s"
+                    cursor.execute(user_query, (email,))
+                    user_id = cursor.fetchone()[0] if email else None
+                    query = '''
+                        SELECT user_id, expression, expiry_date
+                        FROM school.duyuru
+                    '''
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+
+                    for row in result:
+                        announcement_data = {
+                            "user_id": row[0],
+                            "announcement": row[1],
+                            "expiry_date": QDateTime.fromString(row[2], Qt.ISODate).toString(Qt.ISODate),
+                            #"due_date": row[3].isoformat()
+                        }
+                        # Check user type and email conditions
+                        if (user_type == "admin") or (user_type == "teacher" and announcement_data["user_id"] == user_id):
+                            announcements.append(announcement_data)
+
         except Exception as e:
-            print(f"Error reading announcements from file: {e}")
+            print(f"Error reading announcements from database: {e}")
+
         return announcements
+
     
+    # @classmethod
+    # def delete_announcement(cls, text):
+    #     try:
+    #         # Read existing announcements
+    #         with open(cls.ANNOUNCEMENT_FILE_PATH, 'r') as file:
+    #             announcements = [json.loads(line) for line in file]
+
+    #         # Find and remove the announcement based on the name
+    #         updated_announcements = [announcement for announcement in announcements
+    #                                 if announcement.get('announcement') != text]
+
+    #         # Write the updated announcements back to the file
+    #         with open(cls.ANNOUNCEMENT_FILE_PATH, 'w') as file:
+    #             for announcement in updated_announcements:
+    #                 json.dump(announcement, file)
+    #                 file.write('\n')
+
+    #         print(f"Announcement '{text}' deleted.")
+    #     except Exception as e:
+    #         print(f"Error deleting announcement: {e}")
     @classmethod
     def delete_announcement(cls, text):
         try:
-            # Read existing announcements
-            with open(cls.ANNOUNCEMENT_FILE_PATH, 'r') as file:
-                announcements = [json.loads(line) for line in file]
+            with get_db_connection() as conn:
+                with conn.cursor() as cursor:
+                    # Delete announcement from the database
+                    query = '''
+                        DELETE FROM school.duyuru
+                        WHERE expression = %s
+                    '''
+                    cursor.execute(query, (text,))
+                    conn.commit()
 
-            # Find and remove the announcement based on the name
-            updated_announcements = [announcement for announcement in announcements
-                                    if announcement.get('announcement') != text]
-
-            # Write the updated announcements back to the file
-            with open(cls.ANNOUNCEMENT_FILE_PATH, 'w') as file:
-                for announcement in updated_announcements:
-                    json.dump(announcement, file)
-                    file.write('\n')
-
-            print(f"Announcement '{text}' deleted.")
+            print(f"Announcement '{text}' deleted from the database.")
         except Exception as e:
             print(f"Error deleting announcement: {e}")
 
+
+    # @classmethod
+    # def create_announcement(cls, announcement, created_by):
+    #     try:
+    #         # Read existing announcements
+    #         with open(cls.ANNOUNCEMENT_FILE_PATH, 'r') as file:
+    #             existing_announcements = [json.loads(line) for line in file]
+
+    #         # Check if the announcement with the same name already exists
+    #         if any(existing_announcement['announcement'] == announcement for existing_announcement in existing_announcements):
+    #             return False, "Error: Announcement with the same name already exists."
+
+    #         # Append the announcement data to the JSON file
+    #         with open(cls.ANNOUNCEMENT_FILE_PATH, 'a') as file:
+    #             announcement_data = {
+    #                 'announcement': announcement,
+    #                 'created_by': created_by,
+    #                 'timestamp': QDateTime.currentDateTime().toString(Qt.ISODate)
+    #             }
+    #             json.dump(announcement_data, file)
+    #             file.write('\n')
+            
+    #         return True, "Announcement created"
+    #     except Exception as e:
+    #         print(f"Error creating announcement: {e}")
+    
     @classmethod
     def create_announcement(cls, announcement, created_by):
         try:
-            # Read existing announcements
-            with open(cls.ANNOUNCEMENT_FILE_PATH, 'r') as file:
-                existing_announcements = [json.loads(line) for line in file]
+            with get_db_connection() as conn:
+                with conn.cursor() as cursor:
+                    user_query = "SELECT user_id FROM school.user WHERE email = %s"
+                    cursor.execute(user_query, (cls._current_user.email,))
+                    user_id = cursor.fetchone()[0] if cls._current_user else None
+                    # Insert announcement into the database
+                    query = f'''
+                        INSERT INTO school.duyuru
+                        (user_id, expression, expiry_date) 
+                        VALUES (%s, %s, %s)
+                    '''
+                    expiry_date = QDateTime.currentDateTime().toString(Qt.ISODate)
+                    cursor.execute(query, (user_id, announcement,  expiry_date))
+                    conn.commit()
 
-            # Check if the announcement with the same name already exists
-            if any(existing_announcement['announcement'] == announcement for existing_announcement in existing_announcements):
-                return False, "Error: Announcement with the same name already exists."
-
-            # Append the announcement data to the JSON file
-            with open(cls.ANNOUNCEMENT_FILE_PATH, 'a') as file:
-                announcement_data = {
-                    'announcement': announcement,
-                    'created_by': created_by,
-                    'timestamp': QDateTime.currentDateTime().toString(Qt.ISODate)
-                }
-                json.dump(announcement_data, file)
-                file.write('\n')
-            
             return True, "Announcement created"
         except Exception as e:
             print(f"Error creating announcement: {e}")
-        
+            return False, f"Error creating announcement: {e}"
+
+
 
 
 

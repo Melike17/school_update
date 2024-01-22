@@ -133,6 +133,7 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
         student_checked = self.ui_main_3.student_radioButton.isChecked()
         teacher_checked = self.ui_main_3.teacher_radioButton.isChecked()
         
+        
         if not all([name, surname, birthday, city, email, phone_number, password, repassword]):
             QMessageBox.warning(None, 'Warning', 'Please fill in all the fields!', QMessageBox.Ok)
         elif not self.is_valid_email(email):

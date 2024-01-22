@@ -134,7 +134,7 @@ class User():
                     cursor.execute(query, (email, password))
                     result = cursor.fetchone()
                     # Print the result for debugging
-                    print("Query Result:", result)
+                    #print("Query Result:", result)
                     
                     if result:
                         user_data = {
@@ -593,19 +593,19 @@ class User():
             with get_db_connection() as conn:
                 with conn.cursor() as cursor:
                     query = '''
-                        SELECT expression, created_by, timestamp, due_date
+                        SELECT user_id, expression, expiry_date
                         FROM school.duyuru
-                        ORDER BY timestamp DESC
+                        ORDER BY expiry_date DESC
                     '''
                     cursor.execute(query)
                     result = cursor.fetchall()
 
                     for row in result:
                         announcement_data = {
-                            "announcement": row[0],
-                            "created_by": row[1],
-                            "timestamp": row[2].isoformat(),  
-                            "due_date":row[3].isoformat()
+                            "user_id": row[0],
+                            "announcement": row[1],
+                            "expiry_date": QDateTime.fromString(row[2], Qt.ISODate).toString(Qt.ISODate),  
+                            #"due_date":row[3].isoformat()
                         }
                         announcements.append(announcement_data)
 
@@ -634,8 +634,12 @@ class User():
         try:
             with get_db_connection() as conn:
                 with conn.cursor() as cursor:
+                    # Find user_id associated with the given email
+                    user_query = "SELECT user_id FROM school.user WHERE email = %s"
+                    cursor.execute(user_query, (email,))
+                    user_id = cursor.fetchone()[0] if email else None
                     query = '''
-                        SELECT expression, created_by, timestamp, due_date
+                        SELECT user_id, expression, expiry_date
                         FROM school.duyuru
                     '''
                     cursor.execute(query)
@@ -643,13 +647,13 @@ class User():
 
                     for row in result:
                         announcement_data = {
-                            "announcement": row[0],
-                            "created_by": row[1],
-                            "timestamp": row[2].isoformat(),
-                            "due_date": row[3].isoformat()
+                            "user_id": row[0],
+                            "announcement": row[1],
+                            "expiry_date": QDateTime.fromString(row[2], Qt.ISODate).toString(Qt.ISODate),
+                            #"due_date": row[3].isoformat()
                         }
                         # Check user type and email conditions
-                        if (user_type == "admin") or (user_type == "teacher" and announcement_data["created_by"] == email):
+                        if (user_type == "admin") or (user_type == "teacher" and announcement_data["user_id"] == user_id):
                             announcements.append(announcement_data)
 
         except Exception as e:
@@ -726,15 +730,17 @@ class User():
         try:
             with get_db_connection() as conn:
                 with conn.cursor() as cursor:
+                    user_query = "SELECT user_id FROM school.user WHERE email = %s"
+                    cursor.execute(user_query, (cls._current_user.email,))
+                    user_id = cursor.fetchone()[0] if cls._current_user else None
                     # Insert announcement into the database
                     query = f'''
                         INSERT INTO school.duyuru
-                        (expression, created_by, timestamp) 
+                        (user_id, expression, expiry_date) 
                         VALUES (%s, %s, %s)
                     '''
-                    timestamp = QDateTime.currentDateTime().toString(Qt.ISODate)
-                    created_by = cls._current_user.email if cls._current_user else None
-                    cursor.execute(query, (announcement, created_by, timestamp))
+                    expiry_date = QDateTime.currentDateTime().toString(Qt.ISODate)
+                    cursor.execute(query, (user_id, announcement,  expiry_date))
                     conn.commit()
 
             return True, "Announcement created"

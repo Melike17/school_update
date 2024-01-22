@@ -7,9 +7,15 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem
 from db_connect import get_db_connection
+import logging
 
 class User():
     
+    logFile = 'data/logging.log'
+    logFormat = '%(asctime)s - %(levelname)s - %(message)s'
+
+    logging.basicConfig(filename=logFile, level=logging.DEBUG, format=logFormat)
+
     FILE_PATH = "data/users.txt"
     ANNOUNCEMENT_FILE_PATH = "data/announcements.txt"
 
@@ -222,16 +228,16 @@ class User():
                 try:
                     with conn.cursor() as cursor:
                         
-                        cursor.execute("SELECT user_id FROM user WHERE email = %s", (email,))
+                        cursor.execute("SELECT user_id FROM school.user WHERE email = %s", (email,))
                         user_id = cursor.fetchone()[0]
 
                         
                         cursor.execute('''
-                            INSERT INTO mentoringlesson (name, date, start, finish, type, user_id)
+                            INSERT INTO school.mentoringlesson (name, date, start, finish, type, user_id)
                             VALUES (%s, %s, %s, %s, %s, %s)
                         ''', (lesson, date, start, finish, 'lesson', user_id))
 
-                                    
+                        logging.info(f"Lesson created successfully by email {email}: {lesson_info}")            
                 except Exception as e:
                     print(f"Error in create lesson: {e}")
 
@@ -249,7 +255,7 @@ class User():
         with get_db_connection() as conn:
             try:
                 with conn.cursor() as cursor:
-                    cursor.execute("SELECT name, date, start, finish FROM mentoringlesson WHERE type = 'lesson'")
+                    cursor.execute("SELECT name, date, start, finish FROM school.mentoringlesson WHERE type = 'lesson'")
                     lessons = cursor.fetchall()
 
                     cls.table_lesson.setRowCount(0)
@@ -273,7 +279,7 @@ class User():
         with get_db_connection() as conn:
             try:
                 with conn.cursor() as cursor:
-                    cursor.execute("SELECT name FROM mentoringlesson WHERE type = 'lesson'") 
+                    cursor.execute("SELECT name FROM school.mentoringlesson WHERE type = 'lesson'") 
                     lessons = cursor.fetchall()
                     cls.table_lesson.setRowCount(0)
 
@@ -302,9 +308,9 @@ class User():
                 with conn.cursor() as cursor:
                     cursor.execute('''
                         SELECT us.name, us.last_name, att.status, ml.name 
-                        FROM "user" AS us
-                        JOIN attendance AS att ON us.user_id = att.user_id
-                        JOIN mentoringlesson AS ml ON att.mentoringlesson_id = ml.id
+                        FROM school.user AS us
+                        JOIN school.attendance AS att ON us.user_id = att.user_id
+                        JOIN school.mentoringlesson AS ml ON att.mentoringlesson_id = ml.id
                         WHERE ml.type = 'lesson' AND us.email = %s
                     ''', (email,))
                     lessons = cursor.fetchall()
@@ -331,9 +337,9 @@ class User():
                 with conn.cursor() as cursor:
                     cursor.execute('''
                         SELECT us.name, us.last_name, att.status, ml.name 
-                        FROM "user" AS us
-                        JOIN attendance AS att ON us.user_id = att.user_id
-                        JOIN mentoringlesson AS ml ON att.mentoringlesson_id = ml.id
+                        FROM school.user AS us
+                        JOIN school.attendance AS att ON us.user_id = att.user_id
+                        JOIN school.mentoringlesson AS ml ON att.mentoringlesson_id = ml.id
                         WHERE ml.type = 'mentor' AND us.email = %s
                     ''', (email,))
                     mentors = cursor.fetchall()
@@ -430,12 +436,12 @@ class User():
         with get_db_connection() as conn:
             try:
                 with conn.cursor() as cursor:
-                    cursor.execute("SELECT user_id FROM user WHERE email = %s", (student_email,))
+                    cursor.execute("SELECT user_id FROM school.user WHERE email = %s", (student_email,))
                     user_id = cursor.fetchone()[0]
-                    cursor.execute("SELECT id FROM mentoringlesson WHERE name = %s", (lesson_name,))
+                    cursor.execute("SELECT id FROM school.mentoringlesson WHERE name = %s", (lesson_name,))
                     lesson_id = cursor.fetchone()[0]
                     cursor.execute('''
-                        INSERT INTO attendance (mentoringlesson_id, user_id, status)
+                        INSERT INTO school.attendance (mentoringlesson_id, user_id, status)
                         VALUES (%s, %s, %s)
                         ON CONFLICT (mentoringlesson_id, user_id) DO UPDATE SET status = %s
                     ''', (lesson_id, user_id, attendance_status))
@@ -497,12 +503,12 @@ class User():
         with get_db_connection() as conn:
             try:
                 with conn.cursor() as cursor:
-                    cursor.execute("SELECT user_id FROM user WHERE email = %s", (student_email,))
+                    cursor.execute("SELECT user_id FROM school.user WHERE email = %s", (student_email,))
                     user_id = cursor.fetchone()[0]
-                    cursor.execute("SELECT id FROM mentoringlesson WHERE name = %s", (mentor_name,))
+                    cursor.execute("SELECT id FROM school.mentoringlesson WHERE name = %s", (mentor_name,))
                     mentor_id = cursor.fetchone()[0]
                     cursor.execute('''
-                        INSERT INTO attendance (mentoringlesson_id, user_id, status)
+                        INSERT INTO school.attendance (mentoringlesson_id, user_id, status)
                         VALUES (%s, %s, %s)
                         ON CONFLICT (mentoringlesson_id, user_id) DO UPDATE SET status = %s
                     ''', (mentor_id, user_id, attendance_status))
@@ -517,7 +523,7 @@ class User():
         with get_db_connection() as conn:
             try:
                 with conn.cursor() as cursor:
-                    cursor.execute("SELECT email, name, last_name FROM user WHERE user_type = 'student'")
+                    cursor.execute("SELECT email, name, last_name FROM school.user WHERE user_type = 'student'")
                     student_records = cursor.fetchall()
 
                     for record in student_records:
@@ -536,7 +542,7 @@ class User():
         with get_db_connection() as conn:
             try:
                 with conn.cursor() as cursor:
-                    cursor.execute("SELECT name FROM mentoringlesson WHERE type = 'lesson'")
+                    cursor.execute("SELECT name FROM school.mentoringlesson WHERE type = 'lesson'")
                     lessons = cursor.fetchall()
 
                     for lesson in lessons:
@@ -554,7 +560,7 @@ class User():
         with get_db_connection() as conn:
             try:
                 with conn.cursor() as cursor:
-                    cursor.execute("SELECT name FROM mentoringlesson WHERE type = 'mentor'")
+                    cursor.execute("SELECT name FROM school.mentoringlesson WHERE type = 'mentor'")
                     mentors = cursor.fetchall()
 
                     for mentor in mentors:
@@ -574,16 +580,16 @@ class User():
                 try:
                     with conn.cursor() as cursor:
                         
-                        cursor.execute("SELECT user_id FROM user WHERE email = %s", (email,))
+                        cursor.execute("SELECT user_id FROM school.user WHERE email = %s", (email,))
                         user_id = cursor.fetchone()[0]
 
                         
                         cursor.execute('''
-                            INSERT INTO mentoringlesson (name, date, start, finish, type, user_id)
+                            INSERT INTO school.mentoringlesson (name, date, start, finish, type, user_id)
                             VALUES (%s, %s, %s, %s, %s, %s)
                         ''', (mentor, date, start, finish, 'mentor', user_id))
 
-                                    
+                        logging.info(f"Mentor created successfully by {email}: {mentor_info}")            
                 except Exception as e:
                     print(f"Error in create mentor: {e}")
 
@@ -600,7 +606,7 @@ class User():
         with get_db_connection() as conn:
             try:
                 with conn.cursor() as cursor:
-                    cursor.execute("SELECT name, date, start, finish FROM mentoringlesson WHERE type = 'mentor'")
+                    cursor.execute("SELECT name, date, start, finish FROM school.mentoringlesson WHERE type = 'mentor'")
                     mentors = cursor.fetchall()
 
                     cls.table_mentoring.setRowCount(0)

@@ -89,7 +89,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
             # Format announcements with gaps
             formatted_announcements = "<hr>".join(
         f"<p style='font-size:14pt;'>{announcement['announcement']}</p>"
-        f"<p style='font-size:12pt; font-style:italic;'>Announcement by {announcement['created_by']} ({announcement['timestamp']})</p>"
+        f"<p style='font-size:12pt; font-style:italic;'>Announcement by {announcement['user_id']} ({announcement['expiry_date']})</p>"
         for announcement in announcements
     )
         # Set the formatted text in the QTextBrowser

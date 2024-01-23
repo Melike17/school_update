@@ -7,9 +7,14 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem
 from db_connect import get_db_connection
+import logging
 
 class User():
     
+    logFile = 'data/logging.log'
+    logFormat = '%(asctime)s - %(levelname)s - %(message)s'
+
+    logging.basicConfig(filename=logFile, level=logging.DEBUG, format=logFormat)
     FILE_PATH = "data/users.txt"
     ANNOUNCEMENT_FILE_PATH = "data/announcements.txt"
 
@@ -97,6 +102,7 @@ class User():
 
                     cursor.execute(update_query, tuple(values))
                     conn.commit()
+                    
 
                     #QMessageBox.information(None, 'Success', 'User information updated successfully.', QMessageBox.Ok)
 
@@ -694,8 +700,10 @@ class User():
                     '''
                     cursor.execute(query, (text,))
                     conn.commit()
+                    #Add log file
+                    logging.info(f"Announcement  deleted successfully by {User._current_user.name}")
 
-            print(f"Announcement '{text}' deleted from the database.")
+            print(f"Announcement '{text}' deleted from the database ")
         except Exception as e:
             print(f"Error deleting announcement: {e}")
 
@@ -742,8 +750,11 @@ class User():
                     expiry_date = QDateTime.currentDateTime().toString(Qt.ISODate)
                     cursor.execute(query, (user_id, announcement,  expiry_date))
                     conn.commit()
+                    #Add log file
+                    logging.info(f"Announcement  created successfully by {User._current_user.name} ")
 
             return True, "Announcement created"
+            
         except Exception as e:
             print(f"Error creating announcement: {e}")
             return False, f"Error creating announcement: {e}"

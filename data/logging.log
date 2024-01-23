@@ -1,0 +1,20 @@
+2024-01-23 10:39:49,221 - INFO - Admin login successfully
+2024-01-23 10:42:30,859 - INFO - Announcement created successfully by admin@example.com
+2024-01-23 10:43:35,999 - INFO - Announcement created successfully by admin@example.com
+2024-01-23 10:45:58,232 - INFO - Admin login successfully
+2024-01-23 10:46:05,597 - INFO - Announcement  deleted successfully 
+2024-01-23 10:59:33,231 - INFO - Teacher created successfully by melek: melek@example.com
+2024-01-23 10:59:46,454 - INFO - Admin login successfully
+2024-01-23 10:59:57,419 - INFO - One teacher account rejected!
+2024-01-23 11:00:10,543 - INFO - One teacher account approved!
+2024-01-23 11:00:23,877 - INFO - Announcement  created successfully 
+2024-01-23 11:00:35,114 - INFO - Announcement  deleted successfully 
+2024-01-23 11:04:04,059 - INFO - One teacher account rejected!
+2024-01-23 11:05:25,415 - INFO - One teacher account rejected!
+2024-01-23 11:07:26,662 - INFO - Teacher login successfully 
+2024-01-23 11:07:51,681 - INFO - Teacher account updated!
+2024-01-23 11:10:31,900 - INFO - Teacher login successfully 
+2024-01-23 11:10:41,317 - INFO - Teacher account updated by teacher active
+2024-01-23 11:13:17,975 - INFO - Admin login successfully
+2024-01-23 11:13:27,172 - INFO - Announcement  created successfully by Admin 
+2024-01-23 11:13:33,840 - INFO - Announcement  deleted successfully 

@@ -1,5 +1,5 @@
 import sys, os
-
+import logging
 sys.path.append(os.getcwd())
 
 import re
@@ -32,6 +32,8 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
         if not (User.email_exists(email)):
             User.create_user(name, surname, email, birthday, city, phone_number, password, user_type="student",status=status,avatar_path=avatar_path)
             print("User created successfully.")
+            #Add log file
+            logging.info(f"Student created successfully by {name}: {email}")
             # Close this window after saving the user
             self.ui_main_3_window.close()
             # Open the login screen
@@ -43,6 +45,8 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
         if not User.email_exists(email):
             User.create_user(name, surname, email, birthday, city, phone_number, password, user_type="teacher",status=status, avatar_path=avatar_path)
             QMessageBox.warning(None, 'Warning', 'Please wait for admin to confirm!', QMessageBox.Ok)
+            #Add log file
+            logging.info(f"Teacher created successfully by {name}: {email}")
             self.ui_main_3_window.close()
             # Open the login screen
             self.open_login()
@@ -95,7 +99,8 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
     def open_main_window(self, user_type):
         if user_type == 'admin':
             # Open Admin account in Teacher UI
-            
+            #Add log file
+            logging.info(f"Admin login successfully")
             self.ui_main_3_window = QtWidgets.QMainWindow()
             self.ui_main_3 = Ui_MainWindow_6()
             self.ui_main_3.setupUi(self.ui_main_3_window)
@@ -104,6 +109,8 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
         elif user_type == 'teacher':
             print("Opening teacher window with status:", User._current_user.status) 
             if  User._current_user.status =='active':
+                #Add log file
+                logging.info(f"Teacher login successfully ")
                 self.ui_main_3_window = QtWidgets.QMainWindow()
                 self.ui_main_3 = Ui_MainWindow_6()
                 self.ui_main_3.setupUi(self.ui_main_3_window)
@@ -111,6 +118,8 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
                 self.ui_main_3_window.resize(440,400)
             
         elif user_type == 'student':
+            #Add log file
+            logging.info(f"Student login successfully ")
             self.ui_main_3_window = QtWidgets.QMainWindow()
             self.ui_main_3 = Ui_MainWindow_5()
             self.ui_main_3.setupUi(self.ui_main_3_window)

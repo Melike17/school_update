@@ -3,7 +3,7 @@ import os
 import re
 from pathlib import Path
 sys.path.append(os.getcwd())
-
+import logging
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from Teacher_UI.Ui_teacher_v1 import *
@@ -92,6 +92,8 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         updated_info = {"phone_number": new_tel, "city": new_city  }
         User.update_user_information(User._current_user.email, **updated_info)
         self.showUpdateAlert("Information is updated")
+        #Add log file
+        logging.info(f"Information updated by {User._current_user.name}") 
 
     #--------------- Create Teacher Account------------------
     def check_enter_signup(self):
@@ -202,6 +204,8 @@ class Main_Window(QMainWindow, Ui_MainWindow):
             self.findChild(QListWidget, "listWidget").takeItem(selected_row)
             # Success Message
             QMessageBox.information(self, "Warning", "Teacher status changed successfully!")
+            #Add log file
+            logging.info(f"One teacher account approved by {User._current_user.name}") 
 
     def reject_teacher(self):
         selected_item = self.findChild(QListWidget, "listWidget").currentItem()
@@ -229,7 +233,9 @@ class Main_Window(QMainWindow, Ui_MainWindow):
                             selected_row = self.findChild(QListWidget, "listWidget").row(selected_item)
                             self.findChild(QListWidget, "listWidget").takeItem(selected_row)      
                             # Success Message
-                            QMessageBox.information(self, "Warning", "Teacher deleted successfully!") 
+                            QMessageBox.information(self, "Warning", "Teacher deleted successfully!")
+                            #Add log file
+                            logging.info(f"One teacher account rejected by {User._current_user.name}") 
 
             except Exception as e:
                 print(f"Error getting teachers by status: {e}")

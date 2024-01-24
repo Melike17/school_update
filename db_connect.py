@@ -1,8 +1,5 @@
 import psycopg2
-<<<<<<< HEAD
 import time
-=======
->>>>>>> main
 from db_config import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
 
 def get_db_connection():
@@ -20,7 +17,6 @@ def get_db_connection():
     except psycopg2.OperationalError as e:
         print(f"Error: {e}")
         return None
-<<<<<<< HEAD
 
 def retry_db_connection(func, max_retries=3, retry_delay=5, *args, **kwargs):
     retries = 0
@@ -39,5 +35,3 @@ def retry_db_connection(func, max_retries=3, retry_delay=5, *args, **kwargs):
 
     print(f"Maximum retries reached. Unable to establish a database connection.")
     return None
-=======
->>>>>>> main

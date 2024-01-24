@@ -1,7 +1,7 @@
 import sys, os
 sys.path.append(os.getcwd())
 from pathlib import Path
-
+import logging
 from Classes.user import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
@@ -273,6 +273,8 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         updated_info = {"phone_number": new_tel, "city": new_city  }
         User.update_user_information(User._current_user.email, **updated_info)
         self.showUpdateAlert("Information is updated")
+        #Add log file
+        logging.info(f"{User._current_user.name} Update successfully ")
 
     def show_information(self):
         user = User._current_user
@@ -351,7 +353,6 @@ if __name__ == "__main__":
 
     except:
         print("Exiting")
-
 
 
 

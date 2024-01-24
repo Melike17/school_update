@@ -7,23 +7,26 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>500</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>500</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>500</height>
+    <width>800</width>
+    <height>800</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:qconicalgradient(cx:0, cy:0, angle:135, stop:0.129353 rgba(27, 27, 141, 255), stop:0.375 rgba(0, 0, 127, 69), stop:0.412935 rgba(107, 107, 178, 255), stop:0.423533 rgba(148, 148, 201, 145), stop:0.457711 rgba(74, 74, 163, 255), stop:0.518717 rgba(153, 153, 230, 255), stop:0.55 rgba(144, 144, 199, 255), stop:0.57754 rgba(117, 117, 182, 255), stop:0.625 rgba(108, 108, 181, 255), stop:1 rgba(255, 255, 0, 69));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -52,8 +55,8 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>600</width>
-        <height>500</height>
+        <width>681</width>
+        <height>498</height>
        </size>
       </property>
       <property name="sizeIncrement">
@@ -63,8 +66,7 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">
-background-image: url(:/newPrefix/back2.png);</string>
+       <string notr="true">background-color:transparent;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
@@ -72,72 +74,81 @@ background-image: url(:/newPrefix/back2.png);</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QFrame" name="frame_2">
+      <widget class="QPushButton" name="login_Button">
        <property name="geometry">
         <rect>
-         <x>100</x>
-         <y>100</y>
-         <width>321</width>
-         <height>341</height>
+         <x>303</x>
+         <y>320</y>
+         <width>131</width>
+         <height>41</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Comic Sans MS</family>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">background-image: url(:/newPrefix/C:/Users/MainUser/Desktop/tech_groupproject/school-management-system/sign/assets/back2.png);</string>
+        <string notr="true">background-color:rgb(255, 255, 255) ;
+border-radius:10px;
+color: rgb(0, 0, 0);
+</string>
        </property>
-       <property name="frameShape">
-        <enum>QFrame::NoFrame</enum>
+       <property name="text">
+        <string>LOGIN</string>
        </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
+      </widget>
+      <widget class="QPushButton" name="signup_Button">
+       <property name="geometry">
+        <rect>
+         <x>440</x>
+         <y>320</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
        </property>
-       <widget class="QPushButton" name="login_Button">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>230</y>
-          <width>121</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Comic Sans MS</family>
-          <pointsize>14</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(249, 186, 50);</string>
-        </property>
-        <property name="text">
-         <string>LOGIN</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="signup_Button">
-        <property name="geometry">
-         <rect>
-          <x>180</x>
-          <y>230</y>
-          <width>121</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Comic Sans MS</family>
-          <pointsize>14</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(249, 186, 50);</string>
-        </property>
-        <property name="text">
-         <string>SIGNUP</string>
-        </property>
-       </widget>
+       <property name="font">
+        <font>
+         <family>Comic Sans MS</family>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>SIGNUP</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>50</y>
+         <width>591</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Gabriola</family>
+         <pointsize>72</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent;
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>SCHOOL INFO</string>
+       </property>
       </widget>
      </widget>
     </item>

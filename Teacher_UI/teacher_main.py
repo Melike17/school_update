@@ -526,21 +526,8 @@ class Main_Window(QMainWindow, Ui_MainWindow):
     def refresh_lesson(self):
 
         teacher_plan_tab = self.findChild(QTableWidget, 'teacher_plan_lesson')
-        table = User.get_LessonSchedule() 
-       
-        if isinstance(table, QTableWidget):
-            teacher_plan_tab.clear()  
-
-           
-            teacher_plan_tab.setColumnCount(table.columnCount())
-            teacher_plan_tab.setRowCount(table.rowCount())
-
-            for i in range(table.rowCount()):
-                for j in range(table.columnCount()):
-                    item = table.item(i, j)
-                    if item is not None:
-                        teacher_plan_tab.setItem(i, j, QTableWidgetItem(item.text()))
-            teacher_plan_tab.update()
+        teacher_plan_tab.clearContents()
+        self.show_Lesson_Schedule()   
 
     def refresh_mentor(self):
 

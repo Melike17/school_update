@@ -1,4 +1,12 @@
-
+<<<<<<< HEAD
+{"task_name": "Homework", "due_date": "2023-01-18", "assigned_to_email": "assigned@example.com", "created_by": "created@example.com", "status": "Completed", "created": "2023-12-27"}
+{"task_name": "odev", "due_date": "2023-01-12", "assigned_to_email": "assigned@example.com", "created_by": "created@example.com", "status": "Open", "created": "2023-12-27"}
+{"task_name": "deneme", "due_date": "14/01/2023", "assigned_to_email": "student@example.com", "created_by": "created@example.com", "status": "Completed", "created": "2023-12-28"}
+{"task_name": "task34", "due_date": "02/02/2023", "assigned_to_email": "admin@example.com", "created_by": "created@example.com", "status": "Open", "created": "2023-12-28"}
+{"task_name": "task", "due_date": "02/02/2023", "assigned_to_email": "teacher@example.com", "created_by": "admin@example.com", "status": "Completed", "created": "2024-01-04"}
+{"task_name": "taskdeneme", "due_date": "18/02/2023", "assigned_to_email": "alma@yani.com", "created_by": "teacher@example.com", "status": "In Progress", "created": "2024-01-04"}
+{"task_name": "deneme", "due_date": "01/01/2023", "assigned_to_email": 17, "created_by": "teacher@example.com", "status": "Open", "created": "2024-01-24"}
+=======
 {"task_name": "Homework", "due_date": "2023-01-18", "assigned_to_email": "assigned@example.com", "created_by": "created@example.com", "status": "Completed", "created": "2023-12-27"}
 {"task_name": "odev", "due_date": "2023-01-12", "assigned_to_email": "assigned@example.com", "created_by": "created@example.com", "status": "Open", "created": "2023-12-27"}
 {"task_name": "deneme", "due_date": "14/01/2023", "assigned_to_email": "student@example.com", "created_by": "created@example.com", "status": "Completed", "created": "2023-12-28"}
@@ -6,4 +14,4 @@
 {"task_name": "task", "due_date": "02/02/2023", "assigned_to_email": "teacher@example.com", "created_by": "admin@example.com", "status": "Completed", "created": "2024-01-04"}
 {"task_name": "taskdeneme", "due_date": "18/02/2023", "assigned_to_email": "alma@yani.com", "created_by": "teacher@example.com", "status": "In Progress", "created": "2024-01-04"}
 {"task_name": "New Task", "due_date": "22/01/2024", "assigned_to_email": "sorun2@example.com", "created_by": "afra@example.com", "status": "Open", "created": "2024-01-22"}
-
+>>>>>>> main

@@ -1,4 +1,3 @@
-
 from datetime import datetime
 import json
 from db_connect import get_db_connection, retry_db_connection
@@ -243,7 +242,6 @@ class Task():
         dummy_emails = ["assigned@example.com", "user2@example.com", "user3@example.com"]
         return dummy_emails
         
-
 
 
 

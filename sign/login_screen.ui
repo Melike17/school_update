@@ -26,7 +26,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(57, 57, 57);</string>
+   <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.935, y2:0.965909, stop:0 rgba(0, 0, 127, 255), stop:1 rgba(255, 255, 255, 255));</string>
   </property>
   <widget class="QPushButton" name="enter_Button">
    <property name="geometry">
@@ -39,16 +39,17 @@
    </property>
    <property name="font">
     <font>
-     <family>Comic Sans MS</family>
-     <pointsize>8</pointsize>
-     <weight>50</weight>
+     <family>Arial Black</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
      <italic>false</italic>
-     <bold>false</bold>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(0, 255, 127);
-font: 8pt &quot;Comic Sans MS&quot;;
+color: rgb(255, 255, 255);
+border-radius:10px;
 </string>
    </property>
    <property name="text">
@@ -77,7 +78,8 @@ font: 8pt &quot;Comic Sans MS&quot;;
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;</string>
    </property>
    <property name="inputMask">
     <string/>
@@ -118,6 +120,7 @@ font: 8pt &quot;Comic Sans MS&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;
 </string>
    </property>
    <property name="inputMethodHints">
@@ -133,21 +136,30 @@ font: 8pt &quot;Comic Sans MS&quot;;
     <string>Enter a valid email</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>260</y>
-     <width>81</width>
-     <height>61</height>
+     <x>90</x>
+     <y>250</y>
+     <width>111</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/newPrefix/login.png);
-</string>
+    <string notr="true">background-color:transparent;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>assets/login.png</normaloff>assets/login.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>70</width>
+     <height>100</height>
+    </size>
    </property>
   </widget>
  </widget>

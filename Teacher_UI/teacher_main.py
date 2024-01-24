@@ -26,7 +26,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.setWindowTitle("Teacher Page")
 
-        #User.set_currentuser("admin@example.com")
+        #User.set_currentuser("teacher@example.com")
 
         
         self.current_user_email = User._current_user.email
@@ -56,7 +56,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
 
         current_date_time = QDateTime.currentDateTime()
         formatted_date = current_date_time.toString("dd-MM-yyyy")
-        self.teacher_main_name.setText(f"Welcome {User._current_user.name}")
+        self.teacher_main_name.setText(f" {User._current_user.name}")
         self.teacher_main_date.setText(f"{formatted_date}")
 
         self.show_information()
@@ -349,7 +349,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
 
                 # If there are more announcements, restart the timer for the next update
                 if self.current_announcement_index < len(announcements):
-                    self.timer.start(5000)
+                    self.timer.start(3000)
                 else:
                     # All announcements displayed, stop the timer
                     self.timer.stop()
@@ -358,7 +358,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
             if 'announcement' in announcement and 'user_id' in announcement and 'expiry_date' in announcement:
                 formatted_announcement = (
                     f"<p style='font-size:14pt;'>{announcement['announcement']}</p>"
-                    f"<p style='font-size:12pt; font-style:italic;'>Announcement by {announcement['user_id']} ({announcement['expiry_date']})</p>"
+                    f"<p style='font-size:12pt; font-style:italic;'>Created by {announcement['user_id']} ({announcement['expiry_date']})</p>"
                 )
                 # Set the formatted text in the QTextBrowser
                 ui_element = self.findChild(QtWidgets.QTextBrowser, "announcement_textbrowser")

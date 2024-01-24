@@ -49,8 +49,8 @@ class User():
                    
                     else:
                         
-                        #avatar_path_random=random(["cat.png","koala.png"])
-                        avatar_path="avatars/cat.png"
+                        #avatar_list=./sign/assets
+                        #avatar_path=random.choice(avatar_list)
                         
                         query = """
                             INSERT INTO school.user (name, last_name, email, birthdate, city, phone_number, password_hash, user_type,status,avatar_path)

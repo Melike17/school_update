@@ -1,5 +1,6 @@
 from datetime import datetime
 import json
+from db_connect import get_db_connection, retry_db_connection
 
 class Task():
     FILE_PATH = "data/tasks.txt"
@@ -19,12 +20,40 @@ class Task():
             self.created = created
 
     @classmethod
-    def create_task(cls,task_name,due_date,assigned_to_email,created_by):
-        if cls.task_exists(task_name, due_date):
-            raise ValueError(f"A task with the name '{task_name}' and date '{due_date}' already exists.")
+    def create_task(cls,user_id,task_name,due_date,assignees):
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
 
-        new_task = cls(task_name, due_date, assigned_to_email,created_by)
-        cls.save_task_to_file(new_task.__dict__)
+        if connection is None:
+            return None
+
+        with connection as conn:
+            try:
+                with conn.cursor() as cursor:
+                    insert_task = """INSERT INTO school.task
+                                (expression,createdby,duedate,created_at)
+                                VALUES
+                                (%s,%s,%s,%s)
+                                RETURNING task_id
+                                """
+                    current_datetime = datetime.now()
+                    formatted_datetime = current_datetime.strftime("%Y-%m-%d")
+                    cursor.execute(insert_task, (task_name,int(user_id), due_date,formatted_datetime ))
+                    task_id = cursor.fetchone()[0]
+
+                    insert_relation = """INSERT INTO school.task_user
+                                (user_id,task_id,status)
+                                VALUES
+                                (%s,%s,%s)
+                                """
+                    for user in assignees:
+                        cursor.execute(insert_relation, (user, task_id, "In Progress"))
+                    conn.commit()
+            except Exception as e:
+                print(f"Error: {e}")
+                return None
+        
+
+        
 
     @classmethod
     def save_task_to_file(cls,task):
@@ -81,39 +110,103 @@ class Task():
             return []
         
     @classmethod
-    def retrieve_task_per_creator(cls, creator_email):
-        try:
-            tasks_by_creator = []
-            with open(cls.FILE_PATH, 'r') as file:
-                for line in file:
-                    task_data = json.loads(line)
-                    if task_data["created_by"] == creator_email:
-                        tasks_by_creator.append(cls(**task_data))
-            return tasks_by_creator
-        except Exception as e:
-            print(f"Error reading tasks from file: {e}")
-            return []
+    def retrieve_task_per_creator(cls, user_id):
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
+            try:
+                with conn.cursor() as cursor:
+                    sql_query = """SELECT
+                                    t.task_id,
+                                    t.expression,
+                                    t.duedate,
+                                    t.created_at,
+                                    jsonb_agg(jsonb_build_object('user_id', u.user_id, 'status', tu.status, 'name', u.name, 'last_name', u.last_name, 'email', u.email, 'avatar', u.avatar_path)) AS user_info
+                                FROM
+                                    school.task AS t
+                                LEFT JOIN
+                                    school.task_user AS tu ON t.task_id = tu.task_id
+                                LEFT JOIN
+                                    school.user AS u ON tu.user_id = u.user_id
+                                WHERE t.createdby = %s
+                                GROUP BY
+                                    t.task_id;    
+                            """
+                    cursor.execute(sql_query, (user_id,))
+                    result = cursor.fetchall() 
+                    #print(result)
+                    if result:
+                        return result
+                    else:
+                        print("No typing user found.")
+                        return []
+            except Exception as e:
+                print(f"Error: {e}")
+                return None
+            
+    @classmethod
+    def retrieve_student_tasks(cls, user_id):
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
+            try:
+                with conn.cursor() as cursor:
+                    sql_query = """select 
+                                    tu.task_id,
+                                    tu.user_id,
+                                    tu.status,
+                                    t.expression,
+                                    t.duedate,
+                                    t.created_at,
+                                    t.createdby,
+                                    u.name,
+                                    u.last_name,
+                                    u.avatar_path
+                                    from school.task_user as tu
+                                    left join school.task as t ON tu.task_id = t.task_id
+                                    left join school.user as u ON t.createdby = u.user_id
+                                    where tu.user_id = %s 
+                            """
+                    cursor.execute(sql_query, (int(user_id),))
+                    result = cursor.fetchall() 
+                    #print(result)
+                    if result:
+                        return result
+                    else:
+                        print("No typing user found.")
+                        return []
+            except Exception as e:
+                print(f"Error: {e}")
+                return None
+        
+        
 
     @classmethod
-    def update_task_status(cls, task_name, creator_email, new_status):
-        try:
-            with open(cls.FILE_PATH, 'r') as file:
-                tasks = []
-                for line in file:
-                    task_data = json.loads(line)
-                    if task_data["task_name"] == task_name and task_data["created_by"] == creator_email:
-                        # Update the status of the matching task
-                        task_data["status"] = new_status
-                        print("Task updated.")
-                    tasks.append(task_data)
+    def update_task_status(cls, user_id, task_list, new_status):
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
 
-            # Rewrite the entire file with updated tasks
-            with open(cls.FILE_PATH, 'w') as file:
-                for task in tasks:
-                    json.dump(task, file)
-                    file.write('\n')
-        except Exception as e:
-            print(f"Error updating task: {e}")
+        if connection is None:
+            return None
+
+        with connection as conn:
+            try:
+                with conn.cursor() as cursor:
+                    update_status = """UPDATE school.task_user
+                                    SET status = %s
+                                    WHERE user_id = %s AND task_id = %s;
+                                """
+                    for task_id in task_list:
+                        cursor.execute(update_status, (new_status, user_id, task_id))
+                    conn.commit()
+            except Exception as e:
+                print(f"Error: {e}")
+                return None
 
     @classmethod
     def update_task_teacher(cls, task_name_ilk, assigned_to_email, **kwargs):

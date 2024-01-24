@@ -63,7 +63,7 @@
 selection-color: rgb(246, 184, 49);</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="student_main">
      <attribute name="title">
@@ -933,6 +933,29 @@ color: rgb(0, 0, 0);</string>
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="update_status_button">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>20</y>
+        <width>113</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Update Status</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="status_options">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>20</y>
+        <width>241</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="student_attendance">
      <attribute name="title">
@@ -1270,7 +1293,7 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>960</width>
-     <height>24</height>
+     <height>34</height>
     </rect>
    </property>
   </widget>

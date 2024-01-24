@@ -7,7 +7,7 @@ import os
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem
-from db_connect import get_db_connection
+from db_connect import get_db_connection, retry_db_connection
 
 class User():
     FILE_PATH = "data/users.txt"
@@ -38,7 +38,12 @@ class User():
 
     @classmethod
     def get_count_message_for_group(cls,group_id):
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     sql_query = """
@@ -62,7 +67,12 @@ class User():
 
     @classmethod
     def get_other_user_typing_status(cls,group_id,user_id):
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     sql_query = """
@@ -89,7 +99,12 @@ class User():
             
     @classmethod
     def get_typing_count(cls,group_id,user_id):
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     sql_query = """
@@ -115,7 +130,12 @@ class User():
 
     @classmethod
     def update_user_last_seen(cls,user_id, status):
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     sql_query = """
@@ -134,7 +154,12 @@ class User():
     @classmethod
     def check_group_id_of_users(cls,active_user_id, other_user_id):
         #user_id, user_type, group_id, name, last_name, avatar_path = user
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     sql_query = """
@@ -154,7 +179,12 @@ class User():
             
     @classmethod
     def update_user_status(cls, group_id, member_id,status):
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     sql_query = """
@@ -164,14 +194,19 @@ class User():
                     """
                     cursor.execute(sql_query, (status, group_id, member_id))
                     conn.commit()
-                    print("typing status is updated")
+                    #print("typing status is updated in database")
             except Exception as e:
                 print(f"Error: {e}")
                 return None
 
     @classmethod
     def insert_message_read(cls,user_id,message_id_list):
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     sql_query = """
@@ -192,7 +227,12 @@ class User():
 
     @classmethod
     def update_chat_status(cls,current_user_id,group_id,member_list):
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     sql_query = """
@@ -211,7 +251,12 @@ class User():
     @classmethod
     def get_users_for_search_to_message(cls,user_id):
         #user_id, user_type, group_id, name, last_name, avatar_path = user
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     sql_query = """
@@ -236,7 +281,12 @@ class User():
 
     @classmethod
     def get_users_for_group_create(cls, user_id):
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     sql_query = """
@@ -252,7 +302,12 @@ class User():
 
     @classmethod
     def send_message(cls,sender_id,group_id,message,member_list):
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     data_to_insert = {
@@ -296,7 +351,12 @@ class User():
         # Generate a common UUID for all members
         common_uuid = str(uuid.uuid4())
 
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     # Insert records for each member
@@ -314,7 +374,12 @@ class User():
 
     @classmethod
     def get_latest_messages_for_member(cls, user_id):
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     sql_query = """
@@ -408,9 +473,76 @@ class User():
                 return None
             
     @classmethod
+    def check_read_status_for_unread_messages(cls,unread_message_list):
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None or unread_message_list == []:
+            return None
+
+        with connection as conn:
+            try:
+                with conn.cursor() as cursor:
+                    message_read_query =""" SELECT
+                                                message_id
+                                            FROM
+                                                school.chat_status
+                                            WHERE
+                                                message_id IN %s
+                                            GROUP BY
+                                                message_id
+                                            HAVING
+                                                COUNT(*) = SUM(CASE WHEN is_read THEN 1 ELSE 0 END);"""
+
+                    cursor.execute(message_read_query, (tuple(unread_message_list),))
+                    message_read_statuses = cursor.fetchall()
+                    if not message_read_statuses:
+                        return None
+                    else:
+                        return message_read_statuses
+            except Exception as e:
+                print(f"Error: {e}")
+                return None
+
+    @classmethod
+    def get_message_user_info(cls,group_id,member_id):
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
+            try:
+                with conn.cursor() as cursor:
+                    group_query =   """ select 
+                                        cu.id,
+                                        cu.member_id,
+                                        cu.group_name,
+                                        u.name,
+                                        u.last_name,
+                                        u.user_type,
+                                        u.avatar_path,
+                                        u.chat_status
+                                        from school.chat_user cu 
+                                        left join school."user" u on cu.member_id = u.user_id
+                                        where group_id = %s and member_id != %s"""
+
+                    cursor.execute(group_query, (group_id,member_id))
+                    group_info = cursor.fetchall()
+                    return group_info
+            except Exception as e:
+                print(f"Error: {e}")
+                return None
+            
+            
+    @classmethod
     def get_specific_communication(cls,group_id,member_id):
         print(f"requested group_id for message is = {group_id}")
-        with get_db_connection() as conn:
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
             try:
                 with conn.cursor() as cursor:
                     message_query = """
@@ -445,26 +577,10 @@ class User():
                     ORDER BY c.created_datetime ASC
                     """
 
-                    group_query =   """ select 
-                                        cu.id,
-                                        cu.member_id,
-                                        cu.group_name,
-                                        u.name,
-                                        u.last_name,
-                                        u.user_type,
-                                        u.avatar_path,
-                                        u.chat_status
-                                        from school.chat_user cu 
-                                        left join school."user" u on cu.member_id = u.user_id
-                                        where group_id = %s and member_id != %s"""
-
                     cursor.execute(message_query, (member_id,group_id,))
                     messages = cursor.fetchall()
                     #print(messages)
-
-                    cursor.execute(group_query, (group_id,member_id))
-                    group_info = cursor.fetchall()
-                    return messages, group_info
+                    return messages
             except Exception as e:
                 print(f"Error: {e}")
                 return None
@@ -522,16 +638,36 @@ class User():
 
     @classmethod
     def get_emails_for_task_assign(cls):
-        emails = []
-        try:
-            with open(cls.FILE_PATH, 'r') as file:
-                for line in file:
-                    user_data = json.loads(line)
-                    emails.append(user_data.get('email'))
-        except Exception as e:
-            print(f"Error reading emails from file: {e}")
-        return emails
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+        if connection is None:
+            return None
+
+        with connection as conn:
+            try:
+                with conn.cursor() as cursor:
+                    sql_query= """select 
+                                user_id,
+                                name,
+                                last_name,
+                                user_type,
+                                avatar_path
+                                FROM school.user
+                                where user_type = 'student'
+                                """
+                    cursor.execute(sql_query)
+                    result = cursor.fetchall() 
+                    #print(result)
+                    if result:
+                        return result
+                    else:
+                        print("No user for task assign found.")
+                        return []
+            except Exception as e:
+                print(f"Error: {e}")
+                return None
     
+    
+
     @classmethod
     def login(cls, email, password):
         try:

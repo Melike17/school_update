@@ -63,7 +63,7 @@
 color: rgb(0, 0, 0);</string>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="teacher_main">
      <attribute name="title">
@@ -968,9 +968,9 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>220</y>
+        <y>230</y>
         <width>891</width>
-        <height>192</height>
+        <height>381</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -983,8 +983,8 @@ color: rgb(0, 0, 0);</string>
        <rect>
         <x>20</x>
         <y>30</y>
-        <width>409</width>
-        <height>143</height>
+        <width>471</width>
+        <height>144</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="create_task_form_layout">
@@ -1151,6 +1151,19 @@ color: rgb(0, 0, 0);</string>
         </widget>
        </item>
       </layout>
+     </widget>
+     <widget class="QListWidget" name="task_user_list">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>20</y>
+        <width>361</width>
+        <height>192</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255)</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="teacher_attendance">
@@ -2200,7 +2213,7 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>960</width>
-     <height>26</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>

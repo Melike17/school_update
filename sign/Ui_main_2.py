@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/onur/Documents/GitHub/school-management-system/sign/main_2.ui'
+# Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\Sema\school_update\sign\main_2.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -14,9 +14,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(600, 500)
-        MainWindow.setMinimumSize(QtCore.QSize(600, 500))
-        MainWindow.setMaximumSize(QtCore.QSize(600, 500))
+        MainWindow.resize(600, 800)
+        MainWindow.setMinimumSize(QtCore.QSize(0, 0))
+        MainWindow.setMaximumSize(QtCore.QSize(800, 800))
+        MainWindow.setStyleSheet("background-color:qconicalgradient(cx:0, cy:0, angle:135, stop:0.129353 rgba(27, 27, 141, 255), stop:0.375 rgba(0, 0, 127, 69), stop:0.412935 rgba(107, 107, 178, 255), stop:0.423533 rgba(148, 148, 201, 145), stop:0.457711 rgba(74, 74, 163, 255), stop:0.518717 rgba(153, 153, 230, 255), stop:0.55 rgba(144, 144, 199, 255), stop:0.57754 rgba(117, 117, 182, 255), stop:0.625 rgba(108, 108, 181, 255), stop:1 rgba(255, 255, 0, 69));")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -25,39 +26,46 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setMinimumSize(QtCore.QSize(600, 500))
-        self.frame.setMaximumSize(QtCore.QSize(600, 500))
+        self.frame.setMaximumSize(QtCore.QSize(681, 498))
         self.frame.setSizeIncrement(QtCore.QSize(600, 500))
-        self.frame.setStyleSheet("\n"
-"background-image: url(sign/assets/back2.png);")
+        self.frame.setStyleSheet("background-color:transparent;")
         self.frame.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
-        self.frame_2 = QtWidgets.QFrame(self.frame)
-        self.frame_2.setGeometry(QtCore.QRect(100, 100, 321, 341))
-        self.frame_2.setStyleSheet("background-image: url(:/newPrefix/C:/Users/MainUser/Desktop/tech_groupproject/school-management-system/sign/assets/back2.png);")
-        self.frame_2.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_2.setObjectName("frame_2")
-        self.login_Button = QtWidgets.QPushButton(self.frame_2)
-        self.login_Button.setGeometry(QtCore.QRect(50, 230, 121, 71))
+        self.login_Button = QtWidgets.QPushButton(self.frame)
+        self.login_Button.setGeometry(QtCore.QRect(303, 320, 131, 41))
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.login_Button.setFont(font)
-        self.login_Button.setStyleSheet("background-color: rgb(249, 186, 50);")
+        self.login_Button.setStyleSheet("background-color:rgb(255, 255, 255) ;\n"
+"border-radius:10px;\n"
+"color: rgb(0, 0, 0);\n"
+"")
         self.login_Button.setObjectName("login_Button")
-        self.signup_Button = QtWidgets.QPushButton(self.frame_2)
-        self.signup_Button.setGeometry(QtCore.QRect(180, 230, 121, 71))
+        self.signup_Button = QtWidgets.QPushButton(self.frame)
+        self.signup_Button.setGeometry(QtCore.QRect(440, 320, 131, 41))
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.signup_Button.setFont(font)
-        self.signup_Button.setStyleSheet("background-color: rgb(249, 186, 50);")
+        self.signup_Button.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius:10px;\n"
+"color: rgb(0, 0, 0);")
         self.signup_Button.setObjectName("signup_Button")
+        self.label = QtWidgets.QLabel(self.frame)
+        self.label.setGeometry(QtCore.QRect(20, 50, 591, 91))
+        font = QtGui.QFont()
+        font.setFamily("Gabriola")
+        font.setPointSize(72)
+        self.label.setFont(font)
+        self.label.setStyleSheet("background-color: transparent;\n"
+"color: rgb(0, 0, 0);")
+        self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.frame)
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -69,4 +77,5 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.login_Button.setText(_translate("MainWindow", "LOGIN"))
         self.signup_Button.setText(_translate("MainWindow", "SIGNUP"))
-#import b_rc
+        self.label.setText(_translate("MainWindow", "SCHOOL INFO"))
+

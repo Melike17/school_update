@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 # Form implementation generated from reading ui file '/Users/onur/Documents/GitHub/school_update/Teacher_UI/teacher_v1.ui'
+
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -424,6 +426,7 @@ class Ui_MainWindow(object):
         self.task_user_list.setGeometry(QtCore.QRect(530, 20, 361, 192))
         self.task_user_list.setStyleSheet("background-color: rgb(255, 255, 255)")
         self.task_user_list.setObjectName("task_user_list")
+
         self.tabWidget.addTab(self.teacher_to_do, "")
         self.teacher_attendance = QtWidgets.QWidget()
         self.teacher_attendance.setObjectName("teacher_attendance")

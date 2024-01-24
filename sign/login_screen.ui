@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Form</class>
@@ -37,11 +38,11 @@
      <height>31</height>
     </rect>
    </property>
-      <property name="font">
+   <property name="font">
     <font>
      <family>Comic Sans MS</family>
      <pointsize>8</pointsize>
-<weight>50</weight>
+     <weight>50</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -78,7 +79,7 @@ font: 8pt &quot;Comic Sans MS&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
-</property>
+   </property>
    <property name="inputMask">
     <string/>
    </property>
@@ -123,7 +124,7 @@ font: 8pt &quot;Comic Sans MS&quot;;
    <property name="inputMethodHints">
     <set>Qt::ImhEmailCharactersOnly</set>
    </property>
-<property name="text">
+   <property name="text">
     <string/>
    </property>
    <property name="maxLength">
@@ -154,6 +155,7 @@ font: 8pt &quot;Comic Sans MS&quot;;
  <resources>
   <include location="assets/d.qrc"/>
   <include location="assets/b.qrc"/>
-</resources>
+ </resources>
  <connections/>
 </ui>
+

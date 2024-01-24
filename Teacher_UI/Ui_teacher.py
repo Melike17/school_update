@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\school-management-system\Teacher_UI\teacher.ui'
@@ -917,3 +918,4 @@ class Ui_MainWindow(object):
         self.label_profile_tel_admin.setText(_translate("MainWindow", "Tel :"))
         self.create_teacher_account_button.setText(_translate("MainWindow", "Create Teacher Account"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.admin_page), _translate("MainWindow", "Admin"))
+

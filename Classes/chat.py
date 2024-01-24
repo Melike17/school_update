@@ -1,6 +1,6 @@
+
 import sys, os
 sys.path.append(os.getcwd())
-
 import csv
 import os
 import ast
@@ -11,15 +11,9 @@ import psycopg2
 import uuid
 from db_connect import get_db_connection
 
-
-
 class Chat():
     FILE_PATH = "data/chat.txt"
-    
-    # PostgreSQL bağlantısını sınıf düzeyinde tanımlayın
-    conn = psycopg2.connect("postgres://wqkprbpj:75qiQUbf9e5JKKz4P_HxTbD2aViCmxl4@snuffleupagus.db.elephantsql.com/wqkprbpj")
 
-    def __init__(self, message_id, sender_user_id, created_datetime,receiver_name, message_text ):
         self.message_id = message_id
         self.sender_user_id = sender_user_id
         self.created_datetime = created_datetime
@@ -34,8 +28,10 @@ class Chat():
         # created_datetime'i ayrıştır ve tarih ile saat olarak ayır
         self.date = self.created_datetime.date()
         self.time = self.created_datetime.time()
+
     @classmethod
     def create_chat(cls):
+
         # PostgreSQL connection
         cursor = cls.conn.cursor()
         
@@ -73,6 +69,7 @@ class Chat():
 
         # Close connection
         cursor.close()
+
         
     #@classmethod
     #def get_chat(cls):
@@ -240,6 +237,5 @@ def create_group(user_list, group_name):
 user_list = [3, 4]  # Replace with actual user IDs
 group_name = "NewGroup"  # Replace with the desired group name
 create_group(user_list, group_name)
-
 
 

@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Form</class>
@@ -52,14 +53,14 @@
    </property>
    <property name="font">
     <font>
-<family>Comic Sans MS</family>
+     <family>Comic Sans MS</family>
      <pointsize>12</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">
 background-color: rgb(255, 255, 255);</string>
-</property>
+   </property>
    <property name="placeholderText">
     <string>Name</string>
    </property>
@@ -87,13 +88,13 @@ background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="font">
     <font>
-<family>Comic Sans MS</family>
+     <family>Comic Sans MS</family>
      <pointsize>12</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
-</property>
+   </property>
    <property name="placeholderText">
     <string>Surname</string>
    </property>
@@ -127,13 +128,13 @@ background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="font">
     <font>
-<family>Comic Sans MS</family>
+     <family>Comic Sans MS</family>
      <pointsize>12</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
-</property>
+   </property>
    <property name="placeholderText">
     <string>City</string>
    </property>
@@ -208,7 +209,7 @@ background-color: rgb(255, 255, 255);</string>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
    </property>
-<property name="placeholderText">
+   <property name="placeholderText">
     <string>Password</string>
    </property>
   </widget>
@@ -298,7 +299,7 @@ background-color: rgb(118, 181, 203);
      <height>100</height>
     </size>
    </property>
-     </widget>
+  </widget>
   <widget class="QLineEdit" name="phone_number">
    <property name="geometry">
     <rect>
@@ -331,7 +332,7 @@ background-color: rgb(118, 181, 203);
    <property name="inputMask">
     <string>(999)999 99 99</string>
    </property>
-<property name="placeholderText">
+   <property name="placeholderText">
     <string/>
    </property>
   </widget>
@@ -358,7 +359,7 @@ background-color: rgb(118, 181, 203);
    </property>
    <property name="font">
     <font>
-<family>Comic Sans MS</family>
+     <family>Comic Sans MS</family>
      <pointsize>12</pointsize>
     </font>
    </property>
@@ -383,7 +384,7 @@ background-color: rgb(118, 181, 203);
     </date>
    </property>
   </widget>
-    <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -620,7 +621,7 @@ background-color: rgb(118, 181, 203);
     <string>*</string>
    </property>
   </widget>
-    <widget class="QLabel" name="label_11">
+  <widget class="QLabel" name="label_11">
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -653,7 +654,7 @@ background-color: rgb(118, 181, 203);
     <string>*</string>
    </property>
   </widget>
-<widget class="QLabel" name="label">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -707,6 +708,7 @@ background-color: rgb(57, 57, 57);</string>
  </widget>
  <resources>
   <include location="assets/b.qrc"/>
-</resources>
+ </resources>
  <connections/>
 </ui>
+

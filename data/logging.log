@@ -88,3 +88,5 @@
 2024-01-24 18:11:28,528 - INFO - One teacher account approved by Admin
 2024-01-24 18:18:52,934 - INFO - Admin login successfully
 2024-01-24 18:21:29,525 - INFO - Admin login successfully
+2024-01-22 18:01:04,059 - INFO - Lesson created successfully by email data@example.com: ['01.02.2024', 'Pyhton Giris', '12:00', '17:00']
+2024-01-22 18:04:16,430 - INFO - Mentor created successfully by data@example.com: ['12.02.2024', 'Resume hazirlama', '19:00', '21:00']

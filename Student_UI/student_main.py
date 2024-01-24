@@ -63,12 +63,12 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.setWindowTitle("Student Page")
 
-        User.set_currentuser("student@example.com")
+        #User.set_currentuser("student@example.com")
 
 
         current_date_time = QDateTime.currentDateTime()
         formatted_date = current_date_time.toString("dd-MM-yyyy")
-        self.student_main_name.setText(f"Welcome {User._current_user.name}")
+        self.student_main_name.setText(f" {User._current_user.name}")
         self.student_main_date.setText(f"{formatted_date}")
         
         tab_widget = self.tabWidget
@@ -286,7 +286,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         self.student_profil_tel_edit.setText(user.phone_number)
 
 
-    def display_announcements(self):
+    def display_announcements(self,announcement=None):
         # Get announcements
         announcements = User.get_announcements()
 
@@ -297,15 +297,13 @@ class Main_Window(QMainWindow, Ui_MainWindow):
             # Format announcements with gaps
             formatted_announcements = "<hr>".join(
         f"<p style='font-size:14pt;'>{announcement['announcement']}</p>"
-        f"<p style='font-size:12pt; font-style:italic;'>Announcement by {announcement['created_by']} ({announcement['timestamp']})</p>"
+        f"<p style='font-size:12pt; font-style:italic;'>Announcement by {announcement['user_id']} ({announcement['expiry_date']})</p>"
         for announcement in announcements
     )
         # Set the formatted text in the QTextBrowser
         ui_element= self.findChild(QtWidgets.QTextBrowser, "announcements_textBrowser")
         ui_element.setHtml(formatted_announcements)
         #self.announcements_textBrowser.setHtml(formatted_announcements)
-
-
 
     def show_Lesson_Schedule(self):
 

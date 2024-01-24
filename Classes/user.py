@@ -1205,8 +1205,9 @@ class User():
             with get_db_connection() as conn:
                 with conn.cursor() as cursor:
                     query = '''
-                        SELECT user_id, expression, expiry_date
-                        FROM school.duyuru
+                        SELECT u.name, d.expression, d.expiry_date
+                        FROM school.duyuru as d
+                        LEFT JOIN school.user as u ON d.user_id = u.user_id
                         ORDER BY expiry_date DESC
                     '''
                     cursor.execute(query)

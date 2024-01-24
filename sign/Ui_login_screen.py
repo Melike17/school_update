@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\school-management-system\sign\login_screen.ui'

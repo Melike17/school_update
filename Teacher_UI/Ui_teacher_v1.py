@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\Sema\school_update\Teacher_UI\teacher_v1.ui'
+
+# Form implementation generated from reading ui file '/Users/onur/Documents/GitHub/school_update/Teacher_UI/teacher_v1.ui'
+
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -420,6 +422,11 @@ class Ui_MainWindow(object):
 "color: rgb(0, 0, 0);")
         self.create_task_button.setObjectName("create_task_button")
         self.create_task_form_layout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.create_task_button)
+        self.task_user_list = QtWidgets.QListWidget(self.teacher_to_do)
+        self.task_user_list.setGeometry(QtCore.QRect(530, 20, 361, 192))
+        self.task_user_list.setStyleSheet("background-color: rgb(255, 255, 255)")
+        self.task_user_list.setObjectName("task_user_list")
+
         self.tabWidget.addTab(self.teacher_to_do, "")
         self.teacher_attendance = QtWidgets.QWidget()
         self.teacher_attendance.setObjectName("teacher_attendance")

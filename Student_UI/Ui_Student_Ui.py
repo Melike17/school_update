@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\school-management-system\Student_UI\Student_Ui.ui'
@@ -359,6 +360,12 @@ class Ui_MainWindow(object):
         self.tasks_tableWidget.setObjectName("tasks_tableWidget")
         self.tasks_tableWidget.setColumnCount(0)
         self.tasks_tableWidget.setRowCount(0)
+        self.update_status_button = QtWidgets.QPushButton(self.student_to_do)
+        self.update_status_button.setGeometry(QtCore.QRect(310, 20, 113, 32))
+        self.update_status_button.setObjectName("update_status_button")
+        self.status_options = QtWidgets.QComboBox(self.student_to_do)
+        self.status_options.setGeometry(QtCore.QRect(60, 20, 241, 26))
+        self.status_options.setObjectName("status_options")
         self.tabWidget.addTab(self.student_to_do, "")
         self.student_attendance = QtWidgets.QWidget()
         self.student_attendance.setObjectName("student_attendance")
@@ -469,6 +476,10 @@ class Ui_MainWindow(object):
         self.student_chat_send_button.setObjectName("student_chat_send_button")
         self.tabWidget.addTab(self.student_dance, "")
         MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 960, 34))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
@@ -497,6 +508,7 @@ class Ui_MainWindow(object):
         self.lesson_attendance.setText(_translate("MainWindow", "Lesson Attendance"))
         self.mentor_attendance.setText(_translate("MainWindow", "Mentor Attendance"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.student_plan), _translate("MainWindow", "Lesson / Mentor Plan"))
+        self.update_status_button.setText(_translate("MainWindow", "Update Status"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.student_to_do), _translate("MainWindow", "To do List"))
         self.label_lesson_status.setText(_translate("MainWindow", "Lesson Attendance Status"))
         self.label_mentor_status.setText(_translate("MainWindow", "Mentor Meeting Attendance Status"))

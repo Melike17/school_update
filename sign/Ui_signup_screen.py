@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\Sema\school_update\sign\signup_screen.ui'
@@ -239,4 +240,3 @@ class Ui_Form(object):
         self.label_11.setText(_translate("Form", "*"))
         self.student_radioButton.setText(_translate("Form", "Student"))
         self.teacher_radioButton.setText(_translate("Form", "Teacher"))
-

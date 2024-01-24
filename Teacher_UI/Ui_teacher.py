@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\school-management-system\Teacher_UI\teacher.ui'
@@ -840,6 +841,10 @@ class Ui_MainWindow(object):
         self.formLayout.setWidget(10, QtWidgets.QFormLayout.FieldRole, self.create_teacher_account_button)
         self.tabWidget.addTab(self.admin_page, "")
         MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 960, 24))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
@@ -913,3 +918,4 @@ class Ui_MainWindow(object):
         self.label_profile_tel_admin.setText(_translate("MainWindow", "Tel :"))
         self.create_teacher_account_button.setText(_translate("MainWindow", "Create Teacher Account"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.admin_page), _translate("MainWindow", "Admin"))
+

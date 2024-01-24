@@ -1,3 +1,4 @@
+
 import sys, os
 
 sys.path.append(os.getcwd())
@@ -177,4 +178,5 @@ if __name__ == "__main__":
     #app_window.setStyleSheet(Path("lightstyle.qss").read_text())
     app_window.show()
     sys.exit(app.exec_())
+
 

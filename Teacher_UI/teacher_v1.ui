@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
@@ -1152,6 +1153,19 @@ color: rgb(0, 0, 0);</string>
        </item>
       </layout>
      </widget>
+     <widget class="QListWidget" name="task_user_list">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>20</y>
+        <width>361</width>
+        <height>192</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255)</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="teacher_attendance">
      <attribute name="title">
@@ -1709,47 +1723,47 @@ color: rgb(0, 0, 0);</string>
         <width>800</width>
         <height>341</height>
        </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>800</width>
-        <height>500</height>
-       </size>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="approve_Button">
-      <property name="geometry">
-       <rect>
-        <x>790</x>
-        <y>390</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string>Approve</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="reject_Button">
-      <property name="geometry">
-       <rect>
-        <x>670</x>
-        <y>390</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string>Reject</string>
-      </property>
-     </widget>
-    </widget>
+               </property>
+         <property name="maximumSize">
+          <size>
+           <width>800</width>
+           <height>500</height>
+          </size>
+         </property>
+                 </widget>
+       <widget class="QPushButton" name="approve_Button">
+         <property name="geometry">
+          <rect>
+           <x>790</x>
+           <y>390</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Approve</string>
+         </property>
+        </widget>
+       <widget class="QPushButton" name="reject_Button">
+         <property name="geometry">
+          <rect>
+           <x>670</x>
+           <y>390</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Reject</string>
+         </property>
+        </widget>
+           </widget>
    </widget>
    <widget class="QPushButton" name="teacher_singout_button">
     <property name="geometry">
@@ -1804,3 +1818,4 @@ color: rgb(0, 0, 0);</string>
  <resources/>
  <connections/>
 </ui>
+

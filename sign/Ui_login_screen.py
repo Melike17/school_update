@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\school-management-system\sign\login_screen.ui'
+# Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\Sema\school_update\sign\login_screen.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -17,25 +17,27 @@ class Ui_Form(object):
         Form.resize(300, 400)
         Form.setMinimumSize(QtCore.QSize(300, 400))
         Form.setMaximumSize(QtCore.QSize(300, 400))
-        Form.setStyleSheet("background-color: rgb(57, 57, 57);")
+        Form.setStyleSheet("background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.935, y2:0.965909, stop:0 rgba(0, 0, 127, 255), stop:1 rgba(255, 255, 255, 255));")
         self.enter_Button = QtWidgets.QPushButton(Form)
         self.enter_Button.setGeometry(QtCore.QRect(20, 180, 251, 31))
         font = QtGui.QFont()
-        font.setFamily("Comic Sans MS")
-        font.setPointSize(8)
-        font.setBold(False)
+        font.setFamily("Arial Black")
+        font.setPointSize(12)
+        font.setBold(True)
         font.setItalic(False)
-        font.setWeight(50)
+        font.setWeight(75)
         self.enter_Button.setFont(font)
         self.enter_Button.setStyleSheet("background-color: rgb(0, 255, 127);\n"
-"font: 8pt \"Comic Sans MS\";\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius:10px;\n"
 "")
         self.enter_Button.setObjectName("enter_Button")
         self.password = QtWidgets.QLineEdit(Form)
         self.password.setGeometry(QtCore.QRect(20, 120, 250, 30))
         self.password.setMinimumSize(QtCore.QSize(250, 30))
         self.password.setMaximumSize(QtCore.QSize(250, 30))
-        self.password.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.password.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius:10px;")
         self.password.setInputMask("")
         self.password.setText("")
         self.password.setMaxLength(8)
@@ -46,17 +48,21 @@ class Ui_Form(object):
         self.email.setMinimumSize(QtCore.QSize(250, 30))
         self.email.setMaximumSize(QtCore.QSize(250, 30))
         self.email.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius:10px;\n"
 "")
         self.email.setInputMethodHints(QtCore.Qt.ImhEmailCharactersOnly)
         self.email.setText("")
         self.email.setMaxLength(32764)
         self.email.setObjectName("email")
-        self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(110, 260, 81, 61))
-        self.label.setStyleSheet("border-image: url(./sign/assets/login.png);\n"
-"")
-        self.label.setText("")
-        self.label.setObjectName("label")
+        self.pushButton = QtWidgets.QPushButton(Form)
+        self.pushButton.setGeometry(QtCore.QRect(90, 250, 111, 71))
+        self.pushButton.setStyleSheet("background-color:transparent;")
+        self.pushButton.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("./sign/assets/password.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton.setIcon(icon)
+        self.pushButton.setIconSize(QtCore.QSize(70, 100))
+        self.pushButton.setObjectName("pushButton")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -67,3 +73,4 @@ class Ui_Form(object):
         self.enter_Button.setText(_translate("Form", "LOGIN"))
         self.password.setPlaceholderText(_translate("Form", "Enter a valid password"))
         self.email.setPlaceholderText(_translate("Form", "Enter a valid email"))
+

@@ -64,7 +64,7 @@ background-color: rgb(255, 255, 255);
 color: rgb(57, 57, 57);</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="teacher_main">
      <attribute name="title">
@@ -1666,8 +1666,9 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(245, 245, 250);
+color: rgb(0, 0, 0);
 border-radius:10px;
-color: rgb(255, 255, 255);</string>
+</string>
       </property>
      </widget>
      <widget class="QPushButton" name="approve_Button">

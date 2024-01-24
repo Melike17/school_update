@@ -80,3 +80,11 @@
 2024-01-24 15:26:40,408 - INFO - student login successfully 
 2024-01-24 15:36:09,878 - INFO - student login successfully 
 2024-01-24 16:06:37,285 - INFO - Admin login successfully
+2024-01-24 18:08:03,144 - INFO - Admin login successfully
+2024-01-24 18:08:33,499 - INFO - Announcement  created successfully by Admin 
+2024-01-24 18:08:51,069 - INFO - Information updated by Admin
+2024-01-24 18:10:47,956 - INFO - Teacher created successfully by Adem: adem@example.com
+2024-01-24 18:11:02,816 - INFO - Admin login successfully
+2024-01-24 18:11:28,528 - INFO - One teacher account approved by Admin
+2024-01-24 18:18:52,934 - INFO - Admin login successfully
+2024-01-24 18:21:29,525 - INFO - Admin login successfully

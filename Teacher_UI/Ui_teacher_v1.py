@@ -635,8 +635,9 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.listWidget.setFont(font)
         self.listWidget.setStyleSheet("background-color: rgb(245, 245, 250);\n"
+"color: rgb(0, 0, 0);\n"
 "border-radius:10px;\n"
-"color: rgb(255, 255, 255);")
+"")
         self.listWidget.setObjectName("listWidget")
         self.approve_Button = QtWidgets.QPushButton(self.admin_page)
         self.approve_Button.setGeometry(QtCore.QRect(400, 460, 93, 28))
@@ -701,7 +702,7 @@ class Ui_MainWindow(object):
         self.chat_teacher_button.setStyleSheet("background-color: transparent")
         self.chat_teacher_button.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("./sign/assets/meeting.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\MainUser\\Documents\\GitHub\\Sema\\school_update\\Teacher_UI\\../sign/assets/meeting.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.chat_teacher_button.setIcon(icon)
         self.chat_teacher_button.setIconSize(QtCore.QSize(100, 100))
         self.chat_teacher_button.setObjectName("chat_teacher_button")
@@ -718,7 +719,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(6)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

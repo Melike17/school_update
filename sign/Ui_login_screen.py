@@ -59,7 +59,7 @@ class Ui_Form(object):
         self.pushButton.setStyleSheet("background-color:transparent;")
         self.pushButton.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("./sign/assets/login.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("./sign/assets/password.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton.setIcon(icon)
         self.pushButton.setIconSize(QtCore.QSize(70, 100))
         self.pushButton.setObjectName("pushButton")

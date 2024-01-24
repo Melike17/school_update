@@ -90,3 +90,17 @@
 2024-01-24 18:21:29,525 - INFO - Admin login successfully
 2024-01-22 18:01:04,059 - INFO - Lesson created successfully by email data@example.com: ['01.02.2024', 'Pyhton Giris', '12:00', '17:00']
 2024-01-22 18:04:16,430 - INFO - Mentor created successfully by data@example.com: ['12.02.2024', 'Resume hazirlama', '19:00', '21:00']
+2024-01-24 20:06:48,733 - INFO - Admin login successfully
+2024-01-24 20:07:23,468 - INFO - Announcement  created successfully by Admin 
+2024-01-24 20:07:29,744 - INFO - Announcement  deleted successfully by Admin
+2024-01-24 20:07:40,322 - INFO - Information updated by Admin
+2024-01-24 20:16:11,833 - INFO - Admin login successfully
+2024-01-24 20:17:21,835 - INFO - student login successfully 
+2024-01-24 20:19:45,188 - INFO - student login successfully 
+2024-01-24 20:21:44,737 - INFO - student login successfully 
+2024-01-24 20:27:33,415 - INFO - student login successfully 
+2024-01-24 20:29:10,104 - INFO - fatma login successfully 
+2024-01-24 20:32:51,926 - INFO - teacher active login successfully 
+2024-01-24 20:39:59,066 - INFO - Admin login successfully
+2024-01-24 20:40:20,157 - INFO - student login successfully 
+2024-01-24 20:40:40,716 - INFO - teacher active login successfully 

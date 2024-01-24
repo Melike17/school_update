@@ -200,4 +200,3 @@ if __name__ == "__main__":
     app_window.show()
     sys.exit(app.exec_())
 
-

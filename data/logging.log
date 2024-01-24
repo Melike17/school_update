@@ -18,3 +18,57 @@
 2024-01-23 11:13:17,975 - INFO - Admin login successfully
 2024-01-23 11:13:27,172 - INFO - Announcement  created successfully by Admin 
 2024-01-23 11:13:33,840 - INFO - Announcement  deleted successfully 
+2024-01-23 11:20:30,277 - INFO - Teacher login successfully 
+2024-01-23 11:28:31,283 - INFO - Teacher login successfully 
+2024-01-23 11:30:30,485 - INFO - Teacher login successfully 
+2024-01-23 11:41:05,470 - INFO - Teacher login successfully 
+2024-01-23 11:41:59,277 - INFO - Admin login successfully
+2024-01-23 11:42:22,539 - INFO - Announcement  created successfully by Admin 
+2024-01-23 11:46:50,994 - INFO - Admin login successfully
+2024-01-23 11:47:14,593 - INFO - Announcement  created successfully by Admin 
+2024-01-23 11:50:00,859 - INFO - Admin login successfully
+2024-01-23 11:50:13,244 - INFO - Announcement  created successfully by Admin 
+2024-01-23 11:52:43,655 - INFO - Admin login successfully
+2024-01-23 11:53:03,043 - INFO - Announcement  created successfully by Admin 
+2024-01-23 11:53:26,039 - INFO - Announcement  deleted successfully by Admin
+2024-01-23 11:57:00,665 - INFO - Admin login successfully
+2024-01-23 11:57:13,857 - INFO - Announcement  created successfully by Admin 
+2024-01-23 11:57:27,163 - INFO - Announcement  deleted successfully by Admin
+2024-01-23 11:58:11,249 - INFO - Teacher login successfully 
+2024-01-23 12:03:34,117 - INFO - Student login successfully 
+2024-01-23 12:13:20,213 - INFO - Student login successfully 
+2024-01-23 12:15:15,161 - INFO - Teacher login successfully 
+2024-01-23 12:17:31,711 - INFO - Student login successfully 
+2024-01-23 12:20:08,970 - INFO - Student login successfully 
+2024-01-23 12:20:25,596 - INFO - student Update successfully 
+2024-01-23 12:31:47,593 - INFO - Student created successfully by ayse: ayse@example.com
+2024-01-23 12:32:03,052 - INFO - Student login successfully 
+2024-01-23 12:32:18,126 - INFO - ayse Update successfully 
+2024-01-23 12:38:45,924 - INFO - Teacher created successfully by fatma: fatma@example.com
+2024-01-23 19:11:59,174 - INFO - Student login successfully 
+2024-01-23 19:12:30,428 - INFO - ayse Update successfully 
+2024-01-23 19:24:44,965 - INFO - Admin login successfully
+2024-01-23 19:25:29,014 - INFO - Announcement  created successfully by Admin 
+2024-01-23 19:25:45,899 - INFO - Announcement  deleted successfully by Admin
+2024-01-23 19:25:53,297 - INFO - Announcement  deleted successfully by Admin
+2024-01-23 19:27:31,439 - INFO - ayse login successfully 
+2024-01-23 19:30:59,363 - INFO - Admin login successfully
+2024-01-23 19:36:50,130 - INFO - Admin login successfully
+2024-01-23 19:37:17,155 - INFO - Announcement  created successfully by Admin 
+2024-01-23 19:37:43,830 - INFO - Announcement  deleted successfully by Admin
+2024-01-24 09:15:47,153 - INFO - Admin login successfully
+2024-01-24 09:16:07,942 - INFO - One teacher account approved by Admin
+2024-01-24 10:17:48,220 - INFO - Admin login successfully
+2024-01-24 10:22:57,315 - INFO - Admin login successfully
+2024-01-24 10:26:42,648 - INFO - Admin login successfully
+2024-01-24 10:30:50,020 - INFO - Admin login successfully
+2024-01-24 10:31:18,586 - INFO - Announcement  created successfully by Admin 
+2024-01-24 10:33:34,289 - INFO - Announcement  created successfully by teacher active 
+2024-01-24 10:35:48,797 - INFO - Announcement  created successfully by teacher active 
+2024-01-24 10:41:51,584 - INFO - Announcement  created successfully by Admin 
+2024-01-24 10:45:17,723 - INFO - Announcement  created successfully by Admin 
+2024-01-24 10:48:56,017 - INFO - Announcement  created successfully by Admin 
+2024-01-24 10:49:11,129 - INFO - Announcement  deleted successfully by Admin
+2024-01-24 10:49:25,866 - INFO - Announcement  created successfully by Admin 
+2024-01-24 10:49:35,628 - INFO - Announcement  deleted successfully by Admin
+2024-01-24 12:35:12,446 - INFO - Admin login successfully

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\school-management-system\Student_UI\Student_Ui.ui'
+# Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\Sema\school_update\Student_UI\Student_Ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -38,40 +38,44 @@ class Ui_MainWindow(object):
         self.student_main_name.setGeometry(QtCore.QRect(30, 30, 401, 50))
         self.student_main_name.setMinimumSize(QtCore.QSize(250, 50))
         font = QtGui.QFont()
-        font.setFamily("Comic Sans MS")
+        font.setFamily("Arial Black")
         font.setPointSize(16)
         font.setBold(True)
         font.setWeight(75)
         self.student_main_name.setFont(font)
-        self.student_main_name.setStyleSheet("\n"
-"background-color: rgb(255, 255, 255);")
+        self.student_main_name.setStyleSheet("background-color: rgb(27, 27, 27);\n"
+"color: rgb(255, 255, 255);\n"
+"")
         self.student_main_name.setObjectName("student_main_name")
         self.student_main_date = QtWidgets.QLabel(self.student_main)
         self.student_main_date.setGeometry(QtCore.QRect(650, 30, 250, 50))
         self.student_main_date.setMinimumSize(QtCore.QSize(250, 50))
         font = QtGui.QFont()
-        font.setFamily("Comic Sans MS")
+        font.setFamily("Arial Black")
         font.setPointSize(16)
         font.setBold(True)
         font.setWeight(75)
         self.student_main_date.setFont(font)
-        self.student_main_date.setStyleSheet("\n"
-"background-color: rgb(255, 255, 255);")
+        self.student_main_date.setStyleSheet("background-color: rgb(27, 27, 27);\n"
+"color: rgb(255, 255, 255);\n"
+"")
         self.student_main_date.setObjectName("student_main_date")
         self.label_main_announcements = QtWidgets.QLabel(self.student_main)
-        self.label_main_announcements.setGeometry(QtCore.QRect(30, 220, 200, 40))
+        self.label_main_announcements.setGeometry(QtCore.QRect(10, 250, 200, 40))
         self.label_main_announcements.setMinimumSize(QtCore.QSize(200, 40))
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(14)
         self.label_main_announcements.setFont(font)
-        self.label_main_announcements.setStyleSheet("background-color: rgb(246, 184, 49);")
+        self.label_main_announcements.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+"border-radius: 10px;")
         self.label_main_announcements.setObjectName("label_main_announcements")
         self.announcements_textBrowser = QtWidgets.QTextBrowser(self.student_main)
-        self.announcements_textBrowser.setGeometry(QtCore.QRect(30, 270, 721, 192))
-        self.announcements_textBrowser.setStyleSheet("\n"
-"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
+        self.announcements_textBrowser.setGeometry(QtCore.QRect(220, 240, 721, 71))
+        self.announcements_textBrowser.setStyleSheet("background-color: rgb(27, 27, 27);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
+        self.announcements_textBrowser.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.announcements_textBrowser.setObjectName("announcements_textBrowser")
         self.tabWidget.addTab(self.student_main, "")
         self.student_profile = QtWidgets.QWidget()
@@ -417,8 +421,10 @@ class Ui_MainWindow(object):
         self.chat_list.setGeometry(QtCore.QRect(30, 30, 230, 50))
         self.chat_list.setMinimumSize(QtCore.QSize(230, 50))
         font = QtGui.QFont()
-        font.setFamily("Comic Sans MS")
-        font.setPointSize(12)
+        font.setFamily("Arial Black")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
         self.chat_list.setFont(font)
         self.chat_list.setStyleSheet("background-color: rgb(249, 186, 50);\n"
 "color: rgb(0, 0, 0);")
@@ -442,7 +448,8 @@ class Ui_MainWindow(object):
         font.setFamily("Comic Sans MS")
         self.student_chat_message_panel.setFont(font)
         self.student_chat_message_panel.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
+"color: rgb(0, 0, 0);\n"
+"border-radius: 10px;")
         self.student_chat_message_panel.setObjectName("student_chat_message_panel")
         self.student_chat_message = QtWidgets.QTextEdit(self.student_dance)
         self.student_chat_message.setGeometry(QtCore.QRect(280, 470, 650, 100))
@@ -452,20 +459,22 @@ class Ui_MainWindow(object):
         font.setFamily("Comic Sans MS")
         self.student_chat_message.setFont(font)
         self.student_chat_message.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
+"color: rgb(0, 0, 0);\n"
+"border-radius: 10px;")
         self.student_chat_message.setObjectName("student_chat_message")
         self.student_chat_send_button = QtWidgets.QPushButton(self.student_dance)
-        self.student_chat_send_button.setGeometry(QtCore.QRect(50, 470, 200, 100))
-        self.student_chat_send_button.setMinimumSize(QtCore.QSize(200, 100))
+        self.student_chat_send_button.setGeometry(QtCore.QRect(830, 610, 101, 50))
+        self.student_chat_send_button.setMinimumSize(QtCore.QSize(50, 50))
         self.student_chat_send_button.setMaximumSize(QtCore.QSize(200, 100))
         font = QtGui.QFont()
-        font.setFamily("Comic Sans MS")
-        font.setPointSize(26)
+        font.setFamily("Arial Black")
+        font.setPointSize(9)
         font.setBold(True)
         font.setWeight(75)
         self.student_chat_send_button.setFont(font)
         self.student_chat_send_button.setStyleSheet("background-color: rgb(249, 186, 50);\n"
-"color: rgb(0, 0, 0);")
+"color: rgb(0, 0, 0);\n"
+"border-radius: 10px;")
         self.student_chat_send_button.setObjectName("student_chat_send_button")
         self.tabWidget.addTab(self.student_dance, "")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -474,7 +483,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(5)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

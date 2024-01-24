@@ -27,7 +27,7 @@ class Ui_Form(object):
         font.setFamily("Comic Sans MS")
         font.setPointSize(12)
         self.name.setFont(font)
-        self.name.setStyleSheet("\n"
+        self.name.setStyleSheet("border-radius:10px;\n"
 "background-color: rgb(255, 255, 255);")
         self.name.setObjectName("name")
         self.surname = QtWidgets.QLineEdit(Form)
@@ -38,7 +38,9 @@ class Ui_Form(object):
         font.setFamily("Comic Sans MS")
         font.setPointSize(12)
         self.surname.setFont(font)
-        self.surname.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.surname.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius:10px;\n"
+"")
         self.surname.setObjectName("surname")
         self.city = QtWidgets.QLineEdit(Form)
         self.city.setGeometry(QtCore.QRect(100, 400, 300, 30))
@@ -49,7 +51,8 @@ class Ui_Form(object):
         font.setFamily("Comic Sans MS")
         font.setPointSize(12)
         self.city.setFont(font)
-        self.city.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.city.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius:10px;")
         self.city.setObjectName("city")
         self.email = QtWidgets.QLineEdit(Form)
         self.email.setGeometry(QtCore.QRect(100, 280, 300, 30))
@@ -59,7 +62,8 @@ class Ui_Form(object):
         font.setFamily("Comic Sans MS")
         font.setPointSize(12)
         self.email.setFont(font)
-        self.email.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.email.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius:10px;")
         self.email.setObjectName("email")
         self.password = QtWidgets.QLineEdit(Form)
         self.password.setGeometry(QtCore.QRect(100, 520, 300, 30))
@@ -69,7 +73,8 @@ class Ui_Form(object):
         font.setFamily("Comic Sans MS")
         font.setPointSize(12)
         self.password.setFont(font)
-        self.password.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.password.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius:10px;")
         self.password.setMaxLength(8)
         self.password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.password.setObjectName("password")
@@ -81,7 +86,8 @@ class Ui_Form(object):
         font.setFamily("Comic Sans MS")
         font.setPointSize(12)
         self.repassword.setFont(font)
-        self.repassword.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.repassword.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius:10px;")
         self.repassword.setMaxLength(8)
         self.repassword.setEchoMode(QtWidgets.QLineEdit.Password)
         self.repassword.setObjectName("repassword")
@@ -110,7 +116,8 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.phone_number.setFont(font)
-        self.phone_number.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.phone_number.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius:10px;")
         self.phone_number.setPlaceholderText("")
         self.phone_number.setObjectName("phone_number")
         self.birthday = QtWidgets.QDateEdit(Form)
@@ -121,7 +128,8 @@ class Ui_Form(object):
         font.setFamily("Comic Sans MS")
         font.setPointSize(12)
         self.birthday.setFont(font)
-        self.birthday.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.birthday.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius:10px;")
         self.birthday.setMinimumDate(QtCore.QDate(1900, 1, 1))
         self.birthday.setCalendarPopup(True)
         self.birthday.setDate(QtCore.QDate(2024, 1, 1))

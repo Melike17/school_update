@@ -57,7 +57,7 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">
+    <string notr="true">border-radius:10px;
 background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="placeholderText">
@@ -92,7 +92,9 @@ background-color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;
+</string>
    </property>
    <property name="placeholderText">
     <string>Surname</string>
@@ -132,7 +134,8 @@ background-color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;</string>
    </property>
    <property name="placeholderText">
     <string>City</string>
@@ -166,7 +169,8 @@ background-color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;</string>
    </property>
    <property name="placeholderText">
     <string>Email</string>
@@ -200,7 +204,8 @@ background-color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;</string>
    </property>
    <property name="maxLength">
     <number>8</number>
@@ -240,7 +245,8 @@ background-color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;</string>
    </property>
    <property name="maxLength">
     <number>8</number>
@@ -326,7 +332,8 @@ background-color: rgb(118, 181, 203);
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;</string>
    </property>
    <property name="inputMask">
     <string>(999)999 99 99</string>
@@ -363,7 +370,8 @@ background-color: rgb(118, 181, 203);
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:10px;</string>
    </property>
    <property name="minimumDate">
     <date>

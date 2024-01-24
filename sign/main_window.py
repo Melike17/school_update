@@ -1,7 +1,7 @@
 import sys, os
 import logging
 sys.path.append(os.getcwd())
-
+import hashlib
 import re
 from pathlib import Path
 from PyQt5.QtWidgets import QMessageBox
@@ -27,6 +27,10 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
         self.signup_Button.clicked.connect(self.close)
        
         
+    def hash_password(self, password):
+        # Hash the password using SHA-256
+        hashed_password = hashlib.sha256(password.encode()).hexdigest()
+        return hashed_password
     
     def create_Student(self,name, surname, email, birthday, city,phone_number, password,status, avatar_path):
         if not (User.email_exists(email)):
@@ -75,6 +79,9 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
     def check_enter(self):
         email = self.ui_main_3.email.text()
         password = self.ui_main_3.password.text()
+        # Şifreyi hash'leme
+        hashed_password = self.hash_password(password)
+        password=hashed_password
         if (email == '' or password == ''):
             QMessageBox.warning(None, 'Warning', f'Please fill in the blanks!', QMessageBox.Ok)
             #self.ui_main_3_window.statusBar().showMessage("Please fill in the blanks!", 2000)
@@ -110,7 +117,7 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
             print("Opening teacher window with status:", User._current_user.status) 
             if  User._current_user.status =='active':
                 #Add log file
-                logging.info(f"Teacher login successfully ")
+                logging.info(f"{User._current_user.name} login successfully ")
                 self.ui_main_3_window = QtWidgets.QMainWindow()
                 self.ui_main_3 = Ui_MainWindow_6()
                 self.ui_main_3.setupUi(self.ui_main_3_window)
@@ -119,7 +126,7 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
             
         elif user_type == 'student':
             #Add log file
-            logging.info(f"Student login successfully ")
+            logging.info(f"{User._current_user.name} login successfully ")
             self.ui_main_3_window = QtWidgets.QMainWindow()
             self.ui_main_3 = Ui_MainWindow_5()
             self.ui_main_3.setupUi(self.ui_main_3_window)
@@ -143,6 +150,8 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
         teacher_checked = self.ui_main_3.teacher_radioButton.isChecked()
         
         
+        
+        
         if not all([name, surname, birthday, city, email, phone_number, password, repassword]):
             QMessageBox.warning(None, 'Warning', 'Please fill in all the fields!', QMessageBox.Ok)
         elif not self.is_valid_email(email):
@@ -152,10 +161,14 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
         elif not self.is_equal_password(password, repassword):
             QMessageBox.warning(None, 'Warning', 'Passwords do not match. Please check your password!', QMessageBox.Ok)
         elif student_checked:
-            
+            # Password to hash'leme
+            hashed_password = self.hash_password(password)
+            password= hashed_password
             self.create_Student(name, surname, email, birthday, city, phone_number, password,status='active', avatar_path='./assets/login.png')
         elif teacher_checked:
-            
+            # Password to hash'leme
+            hashed_password = self.hash_password(password)
+            password= hashed_password
             self.create_Teacher(name, surname, email, birthday, city, phone_number, password,status='passive', avatar_path='./assets/login.png')
             
         else:

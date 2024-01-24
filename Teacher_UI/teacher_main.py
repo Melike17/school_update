@@ -15,6 +15,8 @@ from Teacher_UI.LessonAttendance import *
 from Teacher_UI.MentorAttendance import *
 from Teacher_UI.ShowAttendanceLesson import *
 from Teacher_UI.ShowAttendanceMentor import *
+from PyQt5.QtCore import QTimer
+from datetime import datetime, timedelta
 
 class Main_Window(QMainWindow, Ui_MainWindow):
 
@@ -37,8 +39,16 @@ class Main_Window(QMainWindow, Ui_MainWindow):
             self.display_status()
         tab_widget.removeTab(5)
         
+        # Create a QTimer instance
+        self.timer = QTimer(self)
+        # Connect the timeout signal of the timer to your update_announcements function
+        self.timer.timeout.connect(self.update_announcements)
+        # Set the timeout interval to 5000 milliseconds (5 seconds)
+        self.timer.start(1000)
+        # Initialize a counter to keep track of the current announcement
+        self.current_announcement_index = 0
 
-        self.display_announcements()
+        #self.display_announcements()
         self.display_announcement_to_delete()
         #if User._current_user.user_type == "admin":
             
@@ -284,48 +294,146 @@ class Main_Window(QMainWindow, Ui_MainWindow):
             User.delete_announcement(announcement)
             self.display_announcement_to_delete()
             self.announcement_to_delete_combobox.setCurrentIndex(0)
-            self.display_announcements()
-            self.showUpdateAlert(f"{announcement} is deleted!")
 
+            # İndeks kontrolü yaparak hatanın önüne geç
+            if self.current_announcement_index < len(User.get_announcements()):
+                self.display_announcements(User.get_announcements()[self.current_announcement_index])
+                self.showUpdateAlert(f"{announcement} is deleted!")
+            else:
+                # Eğer daha fazla anons yoksa, timer'ı durdur
+                self.timer.stop()
+                self.showUpdateAlert(f"{announcement} is deleted, no more announcements.")
         else:
             self.showUpdateAlert("Please select announcement to delete!")
-        
+
+       
+            
 
     def create_announcement(self):
-        ui_element= self.findChild(QtWidgets.QLineEdit, "announcement_lineEdit")
+        ui_element = self.findChild(QtWidgets.QLineEdit, "announcement_lineEdit")
         text = ui_element.text()
         email = User._current_user.email
         if text != "":
             success, message = User.create_announcement(text, email)
             if success:
-                self.display_announcements()
+                self.display_announcements()  # announcement argümanını sağlamadan çağırın
                 self.display_announcement_to_delete()
                 self.showUpdateAlert(f"{message}")
+                # Check the reference and clear the text
+                check_ui_element = self.findChild(QtWidgets.QLineEdit, "announcement_lineEdit")
+                if check_ui_element is not None:
+                    check_ui_element.clear()
+                else:
+                    print("Reference to QLineEdit not found.")
             else:
                 self.showUpdateAlert(f"{message}")
-        
+                
         else:
             self.showUpdateAlert(f"Announcement text cannot be empty!")
         
         
-    def display_announcements(self):
+    def display_announcements(self,announcement=None):
+        if announcement is None:
+            # announcement belirtilmemişse, mevcut anonsları al
+            announcements = User.get_announcements()
+
+            if announcements is None or not announcements:
+                print("No announcement found.")
+                formatted_announcement = "No announcement"
+            else:
+                # Display the current announcement
+                self.display_announcements(announcements[self.current_announcement_index])
+
+                # Increment the counter for the next announcement
+                self.current_announcement_index += 1
+
+                # If there are more announcements, restart the timer for the next update
+                if self.current_announcement_index < len(announcements):
+                    self.timer.start(5000)
+                else:
+                    # All announcements displayed, stop the timer
+                    self.timer.stop()
+        else:
+            # announcement belirtilmişse, sadece belirtilen anonsu göster
+            if 'announcement' in announcement and 'user_id' in announcement and 'expiry_date' in announcement:
+                formatted_announcement = (
+                    f"<p style='font-size:14pt;'>{announcement['announcement']}</p>"
+                    f"<p style='font-size:12pt; font-style:italic;'>Announcement by {announcement['user_id']} ({announcement['expiry_date']})</p>"
+                )
+                # Set the formatted text in the QTextBrowser
+                ui_element = self.findChild(QtWidgets.QTextBrowser, "announcement_textbrowser")
+                ui_element.setHtml(formatted_announcement)
+            else:
+                print("Invalid announcement format")
+        
+    def update_announcements(self):
         # Get announcements
         announcements = User.get_announcements()
 
         if announcements is None or not announcements:
             print("No announcement found.")
-            formatted_announcements = "No announcement"
+            formatted_announcement = "No announcement"
         else:
-            # Format announcements with gaps
-            formatted_announcements = "<hr>".join(
-        f"<p style='font-size:14pt;'>{announcement['announcement']}</p>"
-        f"<p style='font-size:12pt; font-style:italic;'>Announcement by {announcement['user_id']} ({announcement['expiry_date']})</p>"
-        for announcement in announcements
-    )
-        # Set the formatted text in the QTextBrowser
-        ui_element= self.findChild(QtWidgets.QTextBrowser, "announcement_textbrowser")
-        ui_element.setHtml(formatted_announcements)
+           #if User.get_announcements[{self.expiry_date}]>User.get_announcements[{self.expiry_date}]>:
+           # Display the current announcement
+                self.display_announcements(announcements[self.current_announcement_index])
 
+            # Increment the counter for the next announcement
+                self.current_announcement_index += 1
+
+           # If there are more announcements, restart the timer for the next update
+                if self.current_announcement_index < len(announcements):
+                   self.timer.start(5000)
+                else:
+               # All announcements displayed, stop the timer
+                   self.timer.stop()
+    
+    # def update_announcements(self):
+    # # Get announcements
+    #     announcements = User.get_announcements()
+
+    #     if announcements is None or not announcements:
+    #         print("No announcement found.")
+    #         formatted_announcement = "No announcement"
+    #     else:
+    #         # Filter announcements based on expiry_date or creation_date if available
+    #         current_time = datetime.now()
+    #         filtered_announcements = []
+
+    #         for announcement in announcements:
+    #             if 'expiry_date' in announcement:
+    #                 date_field = 'expiry_date'
+    #             elif 'creation_date' in announcement:
+    #                 date_field = 'creation_date'
+    #             else:
+    #                 print("Invalid announcement format - missing expiry_date or creation_date")
+    #                 continue
+
+    #             try:
+    #                 announcement_date = datetime.fromisoformat(announcement[date_field])
+    #             except ValueError:
+    #                 print(f"Invalid date format for {date_field} in announcement.")
+    #                 continue
+
+    #             if announcement_date > current_time:
+    #                 filtered_announcements.append(announcement)
+
+    #         if not filtered_announcements:
+    #             print("No active announcement found.")
+    #             formatted_announcement = "No active announcement"
+    #         else:
+    #             # Display the current announcement
+    #             self.display_announcements(filtered_announcements[self.current_announcement_index])
+
+    #             # Increment the counter for the next announcement
+    #             self.current_announcement_index += 1
+
+    #             # If there are more announcements, restart the timer for the next update
+    #             if self.current_announcement_index < len(filtered_announcements):
+    #                 self.timer.start(5000)
+    #             else:
+    #                 # All announcements displayed, stop the timer
+    #                 self.timer.stop()
     def open_create_lesson(self):
 
         self.open_create_lesson_window = CreateLesson()

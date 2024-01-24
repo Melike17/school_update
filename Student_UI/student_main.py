@@ -68,7 +68,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         User.update_user_information(User._current_user.email, **updated_info)
         self.showUpdateAlert("Information is updated")
         #Add log file
-        logging.info(f"{self.email} Update successfully ")
+        logging.info(f"{User._current_user.name} Update successfully ")
 
     def show_information(self):
         user = User._current_user
@@ -219,7 +219,6 @@ if __name__ == "__main__":
 
     except:
         print("Exiting")
-
 
 
 

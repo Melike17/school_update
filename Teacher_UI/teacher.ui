@@ -26,7 +26,8 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(10, 98, 38);</string>
+   <string notr="true">
+background-color: rgb(99, 0, 149);</string>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
@@ -38,28 +39,31 @@
       <x>0</x>
       <y>10</y>
       <width>960</width>
-      <height>650</height>
+      <height>950</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
       <width>960</width>
-      <height>650</height>
+      <height>950</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
       <width>960</width>
-      <height>650</height>
+      <height>950</height>
      </size>
     </property>
     <property name="font">
      <font>
+      <family>Arial</family>
       <pointsize>16</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(10, 98, 38);
+     <string notr="true">background-color: rgb(27, 27, 27);
 color: rgb(0, 0, 0);</string>
     </property>
     <property name="currentIndex">
@@ -86,15 +90,15 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
+        <family>Arial Black</family>
         <pointsize>16</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(241, 180, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(27, 27, 27);
+color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
        <string>HOŞGELDİN AHMET</string>
@@ -117,15 +121,16 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
+        <family>Arial Black</family>
         <pointsize>16</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(241, 180, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">
+background-color: rgb(27, 27, 27);
+color: rgb(255,255,255);</string>
       </property>
       <property name="text">
        <string>26/12/2023</string>
@@ -134,21 +139,21 @@ color: rgb(0, 0, 0);</string>
      <widget class="QLabel" name="label_main_announcements">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>120</y>
-        <width>200</width>
+        <x>10</x>
+        <y>140</y>
+        <width>181</width>
         <height>40</height>
        </rect>
       </property>
       <property name="minimumSize">
        <size>
-        <width>200</width>
+        <width>150</width>
         <height>40</height>
        </size>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
+        <family>Arial Black</family>
         <pointsize>12</pointsize>
         <weight>75</weight>
         <bold>true</bold>
@@ -156,7 +161,8 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(241, 180, 49);
-color: rgb(0, 0, 0);</string>
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="text">
        <string>Announcements</string>
@@ -165,15 +171,18 @@ color: rgb(0, 0, 0);</string>
      <widget class="QTextBrowser" name="announcement_textbrowser">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>180</y>
-        <width>651</width>
-        <height>192</height>
+        <x>200</x>
+        <y>140</y>
+        <width>741</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(241, 180, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(27, 27, 27);
+color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
       </property>
      </widget>
      <widget class="QWidget" name="formLayoutWidget_2">
@@ -181,7 +190,7 @@ color: rgb(0, 0, 0);</string>
        <rect>
         <x>20</x>
         <y>390</y>
-        <width>642</width>
+        <width>655</width>
         <height>87</height>
        </rect>
       </property>
@@ -190,7 +199,9 @@ color: rgb(0, 0, 0);</string>
         <widget class="QLabel" name="annuncement_label">
          <property name="font">
           <font>
-           <family>Comic Sans MS</family>
+           <family>Arial Black</family>
+           <weight>75</weight>
+           <bold>true</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -216,8 +227,9 @@ color: rgb(0, 0, 0);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(241, 180, 49);
-color: rgb(0, 0, 0);</string>
+          <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
          </property>
          <property name="text">
           <string/>
@@ -231,7 +243,9 @@ color: rgb(0, 0, 0);</string>
         <widget class="QPushButton" name="create_announcement_button">
          <property name="font">
           <font>
-           <family>Comic Sans MS</family>
+           <family>Arial Black</family>
+           <weight>75</weight>
+           <bold>true</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -258,7 +272,7 @@ color: rgb(0, 0, 0);</string>
        <item row="1" column="0" colspan="2">
         <widget class="QComboBox" name="announcement_to_delete_combobox">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(241, 180, 49);
+          <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
          </property>
         </widget>
@@ -320,7 +334,7 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
+        <family>Arial Black</family>
         <pointsize>16</pointsize>
         <weight>75</weight>
         <bold>true</bold>
@@ -328,7 +342,8 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(246, 184, 49);</string>
+background-color: rgb(255, 255, 255);
+border-radius: 10px;</string>
       </property>
       <property name="text">
        <string>Name :</string>
@@ -357,15 +372,16 @@ background-color: rgb(246, 184, 49);</string>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
+        <family>Arial Black</family>
         <pointsize>16</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="text">
        <string>Surname :</string>
@@ -394,15 +410,16 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
+        <family>Arial Black</family>
         <pointsize>16</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="text">
        <string>Date of Birth :</string>
@@ -431,15 +448,16 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
+        <family>Arial Black</family>
         <pointsize>16</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="text">
        <string>E-Mail :</string>
@@ -468,15 +486,16 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
+        <family>Arial Black</family>
         <pointsize>16</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="text">
        <string>City :</string>
@@ -505,15 +524,16 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
+        <family>Arial Black</family>
         <pointsize>16</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="text">
        <string>Tel :</string>
@@ -546,8 +566,9 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -583,8 +604,9 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -620,8 +642,9 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -657,8 +680,9 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -694,8 +718,9 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="readOnly">
        <bool>false</bool>
@@ -731,8 +756,9 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="readOnly">
        <bool>false</bool>
@@ -764,16 +790,19 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
+        <family>Arial Black</family>
         <pointsize>16</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(246, 184, 49);
-color: rgb(0, 0, 0);</string>
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="text">
-       <string>Update Information</string>
+       <string>Update</string>
       </property>
      </widget>
     </widget>
@@ -877,7 +906,7 @@ color: rgb(0, 0, 0);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
@@ -903,7 +932,7 @@ color: rgb(0, 0, 0);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
@@ -1070,7 +1099,7 @@ color: rgb(0, 0, 0);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
@@ -1731,15 +1760,16 @@ color: rgb(0, 0, 0);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(249, 186, 50);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
      </widget>
      <widget class="QTextEdit" name="teacher_chat_message">
       <property name="geometry">
        <rect>
         <x>280</x>
-        <y>470</y>
+        <y>530</y>
         <width>650</width>
         <height>100</height>
        </rect>
@@ -1757,8 +1787,9 @@ color: rgb(0, 0, 0);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(249, 186, 50);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
      </widget>
      <widget class="QPushButton" name="teacher_chat_send_button">
@@ -1786,7 +1817,8 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(249, 186, 50);
-color: rgb(0, 0, 0);</string>
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="text">
        <string>SEND</string>
@@ -2252,16 +2284,6 @@ color: rgb(0, 0, 0);</string>
      </widget>
     </widget>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>960</width>
-     <height>24</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

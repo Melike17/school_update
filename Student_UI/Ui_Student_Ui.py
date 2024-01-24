@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/onur/Documents/GitHub/school_update/Student_UI/Student_Ui.ui'
+# Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\school-management-system\Student_UI\Student_Ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -17,18 +17,19 @@ class Ui_MainWindow(object):
         MainWindow.resize(960, 800)
         MainWindow.setMinimumSize(QtCore.QSize(960, 800))
         MainWindow.setMaximumSize(QtCore.QSize(960, 800))
-        MainWindow.setStyleSheet("background-color: rgb(10, 98, 38);")
+        MainWindow.setStyleSheet("background-color: rgb(99, 0, 149);\n"
+"")
         MainWindow.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget.setGeometry(QtCore.QRect(0, 10, 960, 650))
-        self.tabWidget.setMinimumSize(QtCore.QSize(960, 650))
-        self.tabWidget.setMaximumSize(QtCore.QSize(960, 650))
+        self.tabWidget.setGeometry(QtCore.QRect(0, 10, 960, 950))
+        self.tabWidget.setMinimumSize(QtCore.QSize(960, 950))
+        self.tabWidget.setMaximumSize(QtCore.QSize(960, 950))
         font = QtGui.QFont()
         font.setPointSize(16)
         self.tabWidget.setFont(font)
-        self.tabWidget.setStyleSheet("background-color: rgb(10, 98, 38);\n"
+        self.tabWidget.setStyleSheet("background-color: rgb(27, 27, 27);\n"
 "selection-color: rgb(246, 184, 49);")
         self.tabWidget.setObjectName("tabWidget")
         self.student_main = QtWidgets.QWidget()
@@ -42,7 +43,8 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.student_main_name.setFont(font)
-        self.student_main_name.setStyleSheet("background-color: rgb(246, 184, 49);")
+        self.student_main_name.setStyleSheet("\n"
+"background-color: rgb(255, 255, 255);")
         self.student_main_name.setObjectName("student_main_name")
         self.student_main_date = QtWidgets.QLabel(self.student_main)
         self.student_main_date.setGeometry(QtCore.QRect(650, 30, 250, 50))
@@ -53,7 +55,8 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.student_main_date.setFont(font)
-        self.student_main_date.setStyleSheet("background-color: rgb(246, 184, 49);")
+        self.student_main_date.setStyleSheet("\n"
+"background-color: rgb(255, 255, 255);")
         self.student_main_date.setObjectName("student_main_date")
         self.label_main_announcements = QtWidgets.QLabel(self.student_main)
         self.label_main_announcements.setGeometry(QtCore.QRect(30, 220, 200, 40))
@@ -66,7 +69,8 @@ class Ui_MainWindow(object):
         self.label_main_announcements.setObjectName("label_main_announcements")
         self.announcements_textBrowser = QtWidgets.QTextBrowser(self.student_main)
         self.announcements_textBrowser.setGeometry(QtCore.QRect(30, 270, 721, 192))
-        self.announcements_textBrowser.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.announcements_textBrowser.setStyleSheet("\n"
+"background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.announcements_textBrowser.setObjectName("announcements_textBrowser")
         self.tabWidget.addTab(self.student_main, "")
@@ -85,7 +89,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.label_profile_name.setFont(font)
-        self.label_profile_name.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.label_profile_name.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.label_profile_name.setObjectName("label_profile_name")
         self.label_profile_surname = QtWidgets.QLabel(self.student_profile)
@@ -98,7 +102,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.label_profile_surname.setFont(font)
-        self.label_profile_surname.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.label_profile_surname.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.label_profile_surname.setObjectName("label_profile_surname")
         self.label_profile_birth = QtWidgets.QLabel(self.student_profile)
@@ -111,7 +115,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.label_profile_birth.setFont(font)
-        self.label_profile_birth.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.label_profile_birth.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.label_profile_birth.setObjectName("label_profile_birth")
         self.label_profile_mail = QtWidgets.QLabel(self.student_profile)
@@ -124,7 +128,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.label_profile_mail.setFont(font)
-        self.label_profile_mail.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.label_profile_mail.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.label_profile_mail.setObjectName("label_profile_mail")
         self.label_profile_city = QtWidgets.QLabel(self.student_profile)
@@ -137,7 +141,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_profile_city.setFont(font)
         self.label_profile_city.setStyleSheet("color: rgb(0, 0, 0);\n"
-"background-color: rgb(246, 184, 49);")
+"background-color: rgb(255, 255, 255);")
         self.label_profile_city.setObjectName("label_profile_city")
         self.label_profile_tel = QtWidgets.QLabel(self.student_profile)
         self.label_profile_tel.setGeometry(QtCore.QRect(40, 340, 250, 50))
@@ -149,7 +153,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.label_profile_tel.setFont(font)
-        self.label_profile_tel.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.label_profile_tel.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.label_profile_tel.setObjectName("label_profile_tel")
         self.student_profil_name_edit = QtWidgets.QTextEdit(self.student_profile)
@@ -162,7 +166,8 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.student_profil_name_edit.setFont(font)
-        self.student_profil_name_edit.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.student_profil_name_edit.setStyleSheet("\n"
+"background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.student_profil_name_edit.setReadOnly(True)
         self.student_profil_name_edit.setOverwriteMode(False)
@@ -177,7 +182,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.student_profil_surname_edit.setFont(font)
-        self.student_profil_surname_edit.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.student_profil_surname_edit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.student_profil_surname_edit.setReadOnly(True)
         self.student_profil_surname_edit.setOverwriteMode(False)
@@ -192,7 +197,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.student_profil_birth_edit.setFont(font)
-        self.student_profil_birth_edit.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.student_profil_birth_edit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.student_profil_birth_edit.setReadOnly(True)
         self.student_profil_birth_edit.setOverwriteMode(False)
@@ -207,7 +212,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.student_profil_mail_edit.setFont(font)
-        self.student_profil_mail_edit.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.student_profil_mail_edit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.student_profil_mail_edit.setReadOnly(True)
         self.student_profil_mail_edit.setOverwriteMode(False)
@@ -222,7 +227,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.student_profil_city_edit.setFont(font)
-        self.student_profil_city_edit.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.student_profil_city_edit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.student_profil_city_edit.setReadOnly(False)
         self.student_profil_city_edit.setOverwriteMode(False)
@@ -237,7 +242,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.student_profil_tel_edit.setFont(font)
-        self.student_profil_tel_edit.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.student_profil_tel_edit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.student_profil_tel_edit.setReadOnly(False)
         self.student_profil_tel_edit.setOverwriteMode(False)
@@ -292,7 +297,8 @@ class Ui_MainWindow(object):
         font.setFamily("Comic Sans MS")
         font.setPointSize(10)
         self.student_plan_lesson_list.setFont(font)
-        self.student_plan_lesson_list.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.student_plan_lesson_list.setStyleSheet("\n"
+"background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.student_plan_lesson_list.setObjectName("student_plan_lesson_list")
         self.student_plan_lesson_list.setColumnCount(0)
@@ -305,7 +311,8 @@ class Ui_MainWindow(object):
         font.setFamily("Comic Sans MS")
         font.setPointSize(10)
         self.student_plan_mentor_list.setFont(font)
-        self.student_plan_mentor_list.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.student_plan_mentor_list.setStyleSheet("\n"
+"background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.student_plan_mentor_list.setObjectName("student_plan_mentor_list")
         self.student_plan_mentor_list.setColumnCount(0)
@@ -382,7 +389,7 @@ class Ui_MainWindow(object):
         font.setFamily("Comic Sans MS")
         font.setPointSize(10)
         self.student_attendance_lesson_list.setFont(font)
-        self.student_attendance_lesson_list.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.student_attendance_lesson_list.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.student_attendance_lesson_list.setObjectName("student_attendance_lesson_list")
         self.label_mentor_status = QtWidgets.QLabel(self.student_attendance)
@@ -406,7 +413,7 @@ class Ui_MainWindow(object):
         font.setFamily("Comic Sans MS")
         font.setPointSize(10)
         self.student_attendance_mentor_list.setFont(font)
-        self.student_attendance_mentor_list.setStyleSheet("background-color: rgb(246, 184, 49);\n"
+        self.student_attendance_mentor_list.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.student_attendance_mentor_list.setObjectName("student_attendance_mentor_list")
         self.tabWidget.addTab(self.student_attendance, "")
@@ -440,7 +447,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         self.student_chat_message_panel.setFont(font)
-        self.student_chat_message_panel.setStyleSheet("background-color: rgb(249, 186, 50);\n"
+        self.student_chat_message_panel.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.student_chat_message_panel.setObjectName("student_chat_message_panel")
         self.student_chat_message = QtWidgets.QTextEdit(self.student_dance)
@@ -450,7 +457,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         self.student_chat_message.setFont(font)
-        self.student_chat_message.setStyleSheet("background-color: rgb(249, 186, 50);\n"
+        self.student_chat_message.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);")
         self.student_chat_message.setObjectName("student_chat_message")
         self.student_chat_send_button = QtWidgets.QPushButton(self.student_dance)
@@ -477,7 +484,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

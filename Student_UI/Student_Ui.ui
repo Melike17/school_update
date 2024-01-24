@@ -26,7 +26,8 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(10, 98, 38);</string>
+   <string notr="true">background-color: rgb(99, 0, 149);
+</string>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
@@ -38,19 +39,19 @@
       <x>0</x>
       <y>10</y>
       <width>960</width>
-      <height>650</height>
+      <height>950</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
       <width>960</width>
-      <height>650</height>
+      <height>950</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
       <width>960</width>
-      <height>650</height>
+      <height>950</height>
      </size>
     </property>
     <property name="font">
@@ -59,11 +60,11 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(10, 98, 38);
+     <string notr="true">background-color: rgb(27, 27, 27);
 selection-color: rgb(246, 184, 49);</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="student_main">
      <attribute name="title">
@@ -86,14 +87,16 @@ selection-color: rgb(246, 184, 49);</string>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
+        <family>Arial Black</family>
         <pointsize>16</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);</string>
+       <string notr="true">background-color: rgb(27, 27, 27);
+color: rgb(255, 255, 255);
+</string>
       </property>
       <property name="text">
        <string>HOŞGELDİN AHMET</string>
@@ -116,14 +119,16 @@ selection-color: rgb(246, 184, 49);</string>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
+        <family>Arial Black</family>
         <pointsize>16</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);</string>
+       <string notr="true">background-color: rgb(27, 27, 27);
+color: rgb(255, 255, 255);
+</string>
       </property>
       <property name="text">
        <string>26/12/2023</string>
@@ -132,8 +137,8 @@ selection-color: rgb(246, 184, 49);</string>
      <widget class="QLabel" name="label_main_announcements">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>220</y>
+        <x>10</x>
+        <y>250</y>
         <width>200</width>
         <height>40</height>
        </rect>
@@ -151,7 +156,8 @@ selection-color: rgb(246, 184, 49);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);</string>
+       <string notr="true">background-color: rgb(246, 184, 49);
+border-radius: 10px;</string>
       </property>
       <property name="text">
        <string>Announcements</string>
@@ -160,15 +166,19 @@ selection-color: rgb(246, 184, 49);</string>
      <widget class="QTextBrowser" name="announcements_textBrowser">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>270</y>
+        <x>220</x>
+        <y>240</y>
         <width>721</width>
-        <height>192</height>
+        <height>71</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(27, 27, 27);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
       </property>
      </widget>
     </widget>
@@ -211,7 +221,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
@@ -248,7 +258,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
@@ -285,7 +295,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
@@ -322,7 +332,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
@@ -359,7 +369,7 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(246, 184, 49);</string>
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
        <string>City :</string>
@@ -395,7 +405,7 @@ background-color: rgb(246, 184, 49);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
@@ -432,7 +442,8 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">
+background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="readOnly">
@@ -472,7 +483,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="readOnly">
@@ -512,7 +523,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="readOnly">
@@ -552,7 +563,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="readOnly">
@@ -592,7 +603,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="readOnly">
@@ -632,7 +643,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="readOnly">
@@ -786,7 +797,8 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">
+background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
@@ -818,7 +830,8 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">
+background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
@@ -1026,7 +1039,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
@@ -1095,7 +1108,7 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(246, 184, 49);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
      </widget>
@@ -1121,8 +1134,10 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
-        <pointsize>12</pointsize>
+        <family>Arial Black</family>
+        <pointsize>9</pointsize>
+<weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
@@ -1212,8 +1227,9 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(249, 186, 50);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
      </widget>
      <widget class="QTextEdit" name="student_chat_message">
@@ -1243,23 +1259,24 @@ color: rgb(0, 0, 0);</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(249, 186, 50);
-color: rgb(0, 0, 0);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
      </widget>
      <widget class="QPushButton" name="student_chat_send_button">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>470</y>
-        <width>200</width>
-        <height>100</height>
+        <x>830</x>
+        <y>610</y>
+        <width>101</width>
+        <height>50</height>
        </rect>
       </property>
       <property name="minimumSize">
        <size>
-        <width>200</width>
-        <height>100</height>
+        <width>50</width>
+        <height>50</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -1270,15 +1287,16 @@ color: rgb(0, 0, 0);</string>
       </property>
       <property name="font">
        <font>
-        <family>Comic Sans MS</family>
-        <pointsize>26</pointsize>
+        <family>Arial Black</family>
+        <pointsize>9</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(249, 186, 50);
-color: rgb(0, 0, 0);</string>
+color: rgb(0, 0, 0);
+border-radius: 10px;</string>
       </property>
       <property name="text">
        <string>SEND</string>
@@ -1287,17 +1305,7 @@ color: rgb(0, 0, 0);</string>
     </widget>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>960</width>
-     <height>34</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+    <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

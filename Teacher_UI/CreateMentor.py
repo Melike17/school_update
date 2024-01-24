@@ -5,8 +5,9 @@ from Classes.user import User
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QPushButton, QVBoxLayout, QWidget
 
 class CreateMentor(QMainWindow):
-    def __init__(self):
+    def __init__(self, email):
         super().__init__()
+        self.email = email
 
         self.setWindowTitle("Create Mentoring")
         self.setGeometry(100, 100, 400, 300)
@@ -52,7 +53,7 @@ class CreateMentor(QMainWindow):
         start = self.textbox_baslama.text()
         finish = self.textbox_bitis.text()
 
-        User.create_mentor([date, mentor, start, finish])
+        User.create_mentor(self.email, [date, mentor, start, finish])
         self.close()
 
 def ders_planini_al():

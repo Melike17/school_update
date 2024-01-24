@@ -3,14 +3,8 @@ import sys
 import os
 sys.path.append(os.getcwd())
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget, QLabel, QComboBox
-
-def read_csv(file_path):
-    table_data = []
-    with open(file_path, newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            table_data.append(row)
-    return table_data
+from db_connect import get_db_connection
+import logging
 
 class ShowAttLesson(QMainWindow):
     def __init__(self):
@@ -22,10 +16,8 @@ class ShowAttLesson(QMainWindow):
 
         layout = QVBoxLayout(central_widget)
 
-        self.data = read_csv(file_path)
-
         self.filter_combo = QComboBox()
-        self.filter_combo.addItems(list(set(entry['Lesson Name'] for entry in self.data)))
+        self.filter_combo.addItems(self.get_distinct_lesson_names())
         self.filter_combo.currentIndexChanged.connect(self.update_table)
         layout.addWidget(self.filter_combo)
 
@@ -34,27 +26,51 @@ class ShowAttLesson(QMainWindow):
 
         self.update_table(0)
 
+    def get_distinct_lesson_names(self):
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute("SELECT DISTINCT name FROM school.mentoringlesson WHERE type = 'lesson'")
+                    lesson_names = [row[0] for row in cursor.fetchall()]
+                    return lesson_names
+            except Exception as e:
+                print(f"Error fetching lesson names: {e}")
+                return []
+
     def update_table(self, index):
         current_text = self.filter_combo.currentText()
-        filtered_data = [entry for entry in self.data if entry['Lesson Name'] == current_text]
+
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    # Get users who attended the selected lesson
+                    cursor.execute('''
+                        SELECT us.name, us.last_name, att.status
+                        FROM school.user as us
+                        JOIN school.attendance as att ON us.user_id = att.user_id
+                        JOIN school.mentoringlesson as men ON att.mentoringlesson_id = men.id
+                        WHERE men.name = %s AND men.type = 'lesson'
+                    ''', (current_text,))
+                    filtered_data = cursor.fetchall()
+            except Exception as e:
+                print(f"Error fetching data: {e}")
+                filtered_data = []
 
         self.table_widget.clear()
         self.table_widget.setRowCount(len(filtered_data))
         self.table_widget.setColumnCount(len(filtered_data[0]))
 
-        headers = list(filtered_data[0].keys())
+        headers = [desc[0] for desc in cursor.description]
         self.table_widget.setHorizontalHeaderLabels(headers)
 
         for i, row_data in enumerate(filtered_data):
-            for j, key in enumerate(headers):
-                self.table_widget.setItem(i, j, QTableWidgetItem(str(row_data[key])))
+            for j, info in enumerate(row_data):
+                self.table_widget.setItem(i, j, QTableWidgetItem(str(info)))
 
-
-def show_attendance_ui(file_path):
+def show_attendance_ui():
     app = QApplication([])
     window = ShowAttLesson()
     window.show()
     app.exec_()
 
-file_path = "data/lesson_attendance.csv"
-#show_attendance_ui(file_path)
+#show_attendance_ui()

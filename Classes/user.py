@@ -925,24 +925,24 @@ class User():
             cls.table_mentoring = QTableWidget()
             cls.table_mentoring.setColumnCount(2) 
 
-        try:
-            with open(cls.FILE_MENTOR, 'r', newline='') as file:
-                reader = csv.reader(file)
-                cls.table_mentoring.setRowCount(0)
-                row_number = 0
+        with get_db_connection() as conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute("SELECT name FROM school.mentoringlesson WHERE type = 'mentor'") 
+                    mentors = cursor.fetchall()
+                    cls.table_mentoring.setRowCount(0)
 
-                for row in reader:
-                    if len(row) > 1:
+                    for row_number, mentor in enumerate(mentors):
                         cls.table_mentoring.insertRow(row_number)
-                        mentor_name = row[1]
-                        cls.table_mentoring.setItem(row_number, 0, QTableWidgetItem(mentor_name)) 
-                        button = QPushButton("List")
-                        button.clicked.connect(lambda _, mentor=mentor_name: cls.open_students_page_mentor(mentor))
-                        cls.table_mentoring.setCellWidget(row_number, 1, button) 
-                        row_number += 1
+                        for column_number, info in enumerate(mentor):
+                            cls.table_mentoring.setItem(row_number, column_number, QTableWidgetItem(str(info)))
+
+                        list_button = QPushButton("List")
+                        list_button.clicked.connect(lambda _, lesson_name=mentor[0]: cls.open_students_page_lesson(lesson_name))
+                        cls.table_mentoring.setCellWidget(row_number, 2, list_button)
             
-        except Exception as e:
-            print(f"Error in getting lesson: {e}")
+            except Exception as e:
+                print(f"Error in getting lesson: {e}")
 
         return cls.table_mentoring
     
@@ -988,7 +988,6 @@ class User():
 
     @classmethod
     def mark_attendance_lesson(cls, lesson_name, row, attendance_status):
-
         btn_widget = cls.students_table.cellWidget(row, 3)
         attended_btn = btn_widget.layout().itemAt(0).widget()
         not_attended_btn = btn_widget.layout().itemAt(1).widget()
@@ -1001,14 +1000,22 @@ class User():
             try:
                 with conn.cursor() as cursor:
                     cursor.execute("SELECT user_id FROM school.user WHERE email = %s", (student_email,))
-                    user_id = cursor.fetchone()[0]
-                    cursor.execute("SELECT id FROM school.mentoringlesson WHERE name = %s", (lesson_name,))
-                    lesson_id = cursor.fetchone()[0]
-                    cursor.execute('''
-                        INSERT INTO school.attendance (mentoringlesson_id, user_id, status)
-                        VALUES (%s, %s, %s)
-                        ON CONFLICT (mentoringlesson_id, user_id) DO UPDATE SET status = %s
-                    ''', (lesson_id, user_id, attendance_status))
+                    user_data = cursor.fetchone()
+                    if user_data:
+                        user_id = user_data[0]
+                        cursor.execute("SELECT id FROM school.mentoringlesson WHERE name = %s", (lesson_name,))
+                        lesson_data = cursor.fetchone()
+                        if lesson_data:
+                            lesson_id = lesson_data[0]
+                            cursor.execute('''
+                                INSERT INTO school.attendance (mentoringlesson_id, user_id, status)
+                                VALUES (%s, %s, %s)
+                                ON CONFLICT (mentoringlesson_id, user_id) DO UPDATE SET status = %s
+                            ''', (lesson_id, user_id, attendance_status, attendance_status))
+                        else:
+                            print(f"Lesson with name {lesson_name} not found.")
+                    else:
+                        print(f"User with email {student_email} not found.")
 
             except Exception as e:
                 print(f"Error in marking attendance: {e}")
@@ -1068,14 +1075,22 @@ class User():
             try:
                 with conn.cursor() as cursor:
                     cursor.execute("SELECT user_id FROM school.user WHERE email = %s", (student_email,))
-                    user_id = cursor.fetchone()[0]
-                    cursor.execute("SELECT id FROM school.mentoringlesson WHERE name = %s", (mentor_name,))
-                    mentor_id = cursor.fetchone()[0]
-                    cursor.execute('''
-                        INSERT INTO school.attendance (mentoringlesson_id, user_id, status)
-                        VALUES (%s, %s, %s)
-                        ON CONFLICT (mentoringlesson_id, user_id) DO UPDATE SET status = %s
-                    ''', (mentor_id, user_id, attendance_status))
+                    user_data = cursor.fetchone()
+                    if user_data:
+                        user_id = user_data[0]
+                        cursor.execute("SELECT id FROM school.mentoringlesson WHERE name = %s", (mentor_name,))
+                        mentor_data = cursor.fetchone()
+                        if mentor_data:
+                            lesson_id = mentor_data[0]
+                            cursor.execute('''
+                                INSERT INTO school.attendance (mentoringlesson_id, user_id, status)
+                                VALUES (%s, %s, %s)
+                                ON CONFLICT (mentoringlesson_id, user_id) DO UPDATE SET status = %s
+                            ''', (lesson_id, user_id, attendance_status, attendance_status))
+                        else:
+                            print(f"Lesson with name {mentor_name} not found.")
+                    else:
+                        print(f"User with email {student_email} not found.")
 
             except Exception as e:
                 print(f"Error in marking attendance: {e}")

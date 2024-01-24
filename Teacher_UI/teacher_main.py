@@ -78,6 +78,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
 
         
         self.current_user_email = User._current_user.email
+        logging.info(f"Admin Login : {User._current_user.email}")
 
         #hide admin tab if user is not admin
         tab_widget = self.tabWidget

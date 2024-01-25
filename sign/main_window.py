@@ -108,30 +108,26 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
             # Open Admin account in Teacher UI
             #Add log file
             logging.info(f"Admin login successfully")
-            self.ui_main_3_window = QtWidgets.QMainWindow()
+            self.ui_main_3_window.close()
+            self.ui_main_3 = QtWidgets.QMainWindow()
             self.ui_main_3 = Ui_MainWindow_6()
-            self.ui_main_3.setupUi(self.ui_main_3_window)
             self.ui_main_3.show()
-            self.ui_main_3_window.resize(440,400)
         elif user_type == 'teacher':
             print("Opening teacher window with status:", User._current_user.status) 
             if  User._current_user.status =='active':
                 #Add log file
                 logging.info(f"{User._current_user.name} login successfully ")
-                self.ui_main_3_window = QtWidgets.QMainWindow()
+                self.ui_main_3_window.close()
+                self.ui_main_3 = QtWidgets.QMainWindow()
                 self.ui_main_3 = Ui_MainWindow_6()
-                self.ui_main_3.setupUi(self.ui_main_3_window)
                 self.ui_main_3.show()
-                self.ui_main_3_window.resize(440,400)
-            
         elif user_type == 'student':
             #Add log file
             logging.info(f"{User._current_user.name} login successfully ")
-            self.ui_main_3_window = QtWidgets.QMainWindow()
+            self.ui_main_3_window.close()
+            self.ui_main_3 = QtWidgets.QMainWindow()
             self.ui_main_3 = Ui_MainWindow_5()
-            self.ui_main_3.setupUi(self.ui_main_3_window)
             self.ui_main_3.show()
-            self.ui_main_3_window.resize(440,400)
         else:
             print("Unknown user type!")
         

@@ -4,9 +4,10 @@ from itertools import zip_longest
 
 from PyQt5.QtWidgets import QSpacerItem, QSizePolicy,QMessageBox,QGroupBox, QAbstractItemView, QApplication, QMainWindow, QVBoxLayout, QLabel, QListWidgetItem, QListWidget, QHBoxLayout, QWidget, QCheckBox
 from PyQt5 import QtGui, QtCore
-from Ui_chat_mobil import Ui_MainWindow
+#from Ui_chat_mobil import Ui_MainWindow
 from Classes.user import User
 import datetime, time
+from PyQt5 import uic
 
 selected_usersfor_group_creation = set()
 
@@ -490,10 +491,11 @@ class UserItemWidget(QWidget):
         layout.addWidget(self.username_label)
         layout.addWidget(self.user_type_label)
 
-class MainWindow(QMainWindow, Ui_MainWindow):
+class MainWindow(QMainWindow, ): #Ui_MainWindow
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.setupUi(self)
+        self.ui = uic.loadUi('Chat_UI/chat_mobil.ui', self)
+        #self.setupUi(self)
 
         User.update_user_last_seen(User._current_user.user_id,"Online")
         self.user_list_to_message = User.get_users_for_search_to_message(User._current_user.user_id)

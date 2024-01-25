@@ -16,12 +16,14 @@ from Teacher_UI.MentorAttendance import *
 from Teacher_UI.ShowAttendanceLesson import *
 from Teacher_UI.ShowAttendanceMentor import *
 from PyQt5.QtCore import QTimer
+from PyQt5 import uic
 from datetime import datetime, timedelta
 from PyQt5.QtWidgets import (
     QTableWidget, QTableWidgetItem, QWidget, QLabel, QHBoxLayout, QVBoxLayout
 )
 from PyQt5.QtGui import QPixmap, QBitmap, QFont, QPainter
 from PyQt5.QtCore import Qt
+from Chat_UI.chat_mobile import MainWindow as Chat_Main_Window
 
 
 class TeacherUserListItemWidget(QWidget):
@@ -73,6 +75,7 @@ class Teacher_Main_Window(QMainWindow, Ui_MainWindow):
         super(Teacher_Main_Window,self).__init__()
 
         #User.set_currentuser("teacher@example.com")
+        self.ui = uic.loadUi('Teacher_UI/teacher_v1.ui', self)
 
         self.setupUi(self)
         self.setWindowTitle("Teacher Page")
@@ -157,19 +160,32 @@ class Teacher_Main_Window(QMainWindow, Ui_MainWindow):
 
         self.update_information_button.clicked.connect(self.update_information)
 
-        User.selected_user_ids = []
+        self.selected_user_ids = []
         self.task_user_list.itemSelectionChanged.connect(self.handle_selection_change)
 
         self.tabWidget.setCurrentIndex(0)
 
+        self.chat_teacher_button.clicked.connect(self.open_chat)
+
+    def open_chat(self):
+        if not hasattr(self, 'ui_main_4') or not self.ui_main_4.isVisible():
+            # If ui_main_4 is not defined or is not visible, create and show it
+            self.ui_main_4 = QtWidgets.QMainWindow()
+            self.ui_main_4 = Chat_Main_Window()
+            self.ui_main_4.show()
+        else:
+            # If ui_main_4 is already visible, bring it to the front
+            self.ui_main_4.raise_()
+            self.ui_main_4.activateWindow()
+
     def handle_selection_change(self):
-        User.selected_user_ids = []
+        self.selected_user_ids = []
         for item in self.task_user_list.selectedItems():
             user_item_widget = self.task_user_list.itemWidget(item)
             if user_item_widget:
                 self.selected_user_ids.append(user_item_widget.user_id)
 
-        print("Selected User IDs:", User.selected_user_ids)    
+        print("Selected User IDs:", self.selected_user_ids)    
 
     def update_information(self):
         self.teacher_profil_tel_edit = self.findChild(QtWidgets.QTextEdit,"teacher_profil_tel_edit")

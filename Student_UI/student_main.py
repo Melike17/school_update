@@ -6,12 +6,15 @@ import logging
 from PyQt5.QtCore import *
 #from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem
+
+from PyQt5 import uic
 from Student_UI.Ui_Student_Ui import *
 from Classes.task import Task
 from Classes.user import User
 from Student_UI.LessonAttendance import *
 from Student_UI.MentorAttendance import *
 from sign.Ui_login_screen import Ui_Form as Ui_MainWindow_3
+from Chat_UI.chat_mobile import MainWindow as Chat_Main_Window
 
 
 user_selected_task_ids = []
@@ -61,13 +64,14 @@ class StudentUserListItemWidget(QWidget):
         
 
 
-class Student_Main_Window(QMainWindow, Ui_MainWindow):
+class Student_Main_Window(QMainWindow, Student_Ui_MainWindow):
     def __init__(self):
         super(Student_Main_Window,self).__init__()
-        self.setupUi(self)
+        self.ui = uic.loadUi('Student_UI/Student_Ui.ui', self)
+        #self.setupUi(self)
         self.setWindowTitle("Student Page")
 
-        User.set_currentuser("student@example.com")
+        #User.set_currentuser("student@example.com")
 
         avatar_pixmap = QPixmap(User._current_user.avatar_path).scaledToWidth(60).scaledToHeight(60, Qt.SmoothTransformation)
         # Circular mask for the avatar
@@ -110,10 +114,23 @@ class Student_Main_Window(QMainWindow, Ui_MainWindow):
 
         self.tabWidget.setCurrentIndex(0)
         
-        self.student_tasks_tableWidget.setStyleSheet("") 
+        self.tasks_tableWidget.setStyleSheet("") 
         status_options_list = ["Select a Status", "Assigned", "In Progress", "Completed"]
         self.status_options.addItems(status_options_list)
         self.update_status_button.clicked.connect(self.update_task_status)
+
+        self.chat_student_button.clicked.connect(self.open_chat)
+
+    def open_chat(self):
+        if not hasattr(self, 'ui_main_4') or not self.ui_main_4.isVisible():
+            # If ui_main_4 is not defined or is not visible, create and show it
+            self.ui_main_4 = QtWidgets.QMainWindow()
+            self.ui_main_4 = Chat_Main_Window()
+            self.ui_main_4.show()
+        else:
+            # If ui_main_4 is already visible, bring it to the front
+            self.ui_main_4.raise_()
+            self.ui_main_4.activateWindow()
         
 
     def update_task_status(self):
@@ -149,14 +166,14 @@ class Student_Main_Window(QMainWindow, Ui_MainWindow):
         QTimer.singleShot(0, self.process_selection_change)
 
     def process_selection_change(self):
-        selected_indexes = self.student_tasks_tableWidget.selectionModel().selectedIndexes()
+        selected_indexes = self.tasks_tableWidget.selectionModel().selectedIndexes()
         print("Selected Indexes:", selected_indexes)
 
         
-        selected_rows = [row.row() for row in self.student_tasks_tableWidget.selectionModel().selectedRows()]
-        self.selected_task_ids = [self.student_tasks_tableWidget.item(row, 0).data(Qt.UserRole) for row in selected_rows]
+        selected_rows = [row.row() for row in self.tasks_tableWidget.selectionModel().selectedRows()]
+        self.selected_task_ids = [self.tasks_tableWidget.item(row, 0).data(Qt.UserRole) for row in selected_rows]
         
-        selection_model = self.student_tasks_tableWidget.selectionModel()
+        selection_model = self.tasks_tableWidget.selectionModel()
         print("Selection model:", selection_model)
 
         # Update background color of the "Assigned To" column
@@ -177,10 +194,10 @@ class Student_Main_Window(QMainWindow, Ui_MainWindow):
             return
         
         #self.student_tasks_tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
-        task_widget = self.findChild(QTableWidget, 'student_tasks_tableWidget')
+        task_widget = self.findChild(QTableWidget, 'tasks_tableWidget')
         task_widget.clear()
         task_widget.setSelectionBehavior(QAbstractItemView.SelectRows)
-        task_widget.setSelectionMode(QAbstractItemView.SingleSelection)
+        task_widget.setSelectionMode(QAbstractItemView.MultiSelection)
         task_widget.itemSelectionChanged.connect(self.on_item_selection_changed)
 
 
@@ -276,7 +293,7 @@ class Student_Main_Window(QMainWindow, Ui_MainWindow):
                 color: black;  /* Set the text color for alternate rows */
             }
         """
-        self.student_tasks_tableWidget.setStyleSheet(style_sheet)
+        self.tasks_tableWidget.setStyleSheet(style_sheet)
 
     def open_login(self):
         self.ui_main_3_window = QtWidgets.QMainWindow()

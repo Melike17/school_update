@@ -16,17 +16,19 @@ from Teacher_UI.MentorAttendance import *
 from Teacher_UI.ShowAttendanceLesson import *
 from Teacher_UI.ShowAttendanceMentor import *
 from PyQt5.QtCore import QTimer
+from PyQt5 import uic
 from datetime import datetime, timedelta
 from PyQt5.QtWidgets import (
     QTableWidget, QTableWidgetItem, QWidget, QLabel, QHBoxLayout, QVBoxLayout
 )
 from PyQt5.QtGui import QPixmap, QBitmap, QFont, QPainter
 from PyQt5.QtCore import Qt
+from Chat_UI.chat_mobile import MainWindow as Chat_Main_Window
 
 
-class UserListItemWidget(QWidget):
+class TeacherUserListItemWidget(QWidget):
     def __init__(self, user_id, user_name, last_name, user_type, avatar_path):
-        super(UserListItemWidget, self).__init__()
+        super(TeacherUserListItemWidget, self).__init__()
 
         layout = QHBoxLayout(self)
 
@@ -66,15 +68,34 @@ class UserListItemWidget(QWidget):
         self.setStyleSheet("background-color: transparent;")
 
 
-class Main_Window(QMainWindow, Ui_MainWindow):
+class Teacher_Main_Window(QMainWindow, Ui_MainWindow):
 
 
     def __init__(self):
-        super(Main_Window,self).__init__()
+        super(Teacher_Main_Window,self).__init__()
+
+        #User.set_currentuser("teacher@example.com")
+        self.ui = uic.loadUi('Teacher_UI/teacher_v1.ui', self)
+
         self.setupUi(self)
         self.setWindowTitle("Teacher Page")
 
-        #User.set_currentuser("teacher@example.com")
+        avatar_pixmap = QPixmap(User._current_user.avatar_path).scaledToWidth(60).scaledToHeight(60, Qt.SmoothTransformation)
+
+        # Circular mask for the avatar
+        mask = QBitmap(avatar_pixmap.size())
+        mask.fill(Qt.color0)
+        painter = QPainter(mask)
+        painter.setBrush(Qt.color1)
+        painter.drawEllipse(0, 0, mask.width(), mask.height())
+        painter.end()
+
+        avatar_pixmap.setMask(mask)
+        self.user_avatar.setPixmap(avatar_pixmap)
+        self.user_avatar.setFixedSize(60, 60)
+        self.user_avatar.setScaledContents(True)
+
+        
 
         
         self.current_user_email = User._current_user.email
@@ -144,6 +165,19 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         self.task_user_list.itemSelectionChanged.connect(self.handle_selection_change)
 
         self.tabWidget.setCurrentIndex(0)
+
+        self.chat_teacher_button.clicked.connect(self.open_chat)
+
+    def open_chat(self):
+        if not hasattr(self, 'ui_main_4') or not self.ui_main_4.isVisible():
+            # If ui_main_4 is not defined or is not visible, create and show it
+            self.ui_main_4 = QtWidgets.QMainWindow()
+            self.ui_main_4 = Chat_Main_Window()
+            self.ui_main_4.show()
+        else:
+            # If ui_main_4 is already visible, bring it to the front
+            self.ui_main_4.raise_()
+            self.ui_main_4.activateWindow()
 
     def handle_selection_change(self):
         self.selected_user_ids = []
@@ -526,8 +560,21 @@ class Main_Window(QMainWindow, Ui_MainWindow):
     def refresh_lesson(self):
 
         teacher_plan_tab = self.findChild(QTableWidget, 'teacher_plan_lesson')
-        teacher_plan_tab.clearContents()
-        self.show_Lesson_Schedule()   
+        table = User.get_LessonSchedule() 
+       
+        if isinstance(table, QTableWidget):
+            teacher_plan_tab.clear()  
+
+           
+            teacher_plan_tab.setColumnCount(table.columnCount())
+            teacher_plan_tab.setRowCount(table.rowCount())
+
+            for i in range(table.rowCount()):
+                for j in range(table.columnCount()):
+                    item = table.item(i, j)
+                    if item is not None:
+                        teacher_plan_tab.setItem(i, j, QTableWidgetItem(item.text()))
+            teacher_plan_tab.update()
 
     def refresh_mentor(self):
 
@@ -555,7 +602,6 @@ class Main_Window(QMainWindow, Ui_MainWindow):
 
     def show_user_list_for_task(self):
         self.task_user_list.setSelectionMode(QAbstractItemView.MultiSelection)
-
         users = User.get_emails_for_task_assign()
 
         for user_data in users:
@@ -563,7 +609,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
 
             # Create a QListWidgetItem and set the custom widget as its widget
             item = QListWidgetItem(self.task_user_list)
-            user_item_widget = UserListItemWidget(user_id, user_name, last_name, user_type, avatar_path)
+            user_item_widget = TeacherUserListItemWidget(user_id, user_name, last_name, user_type, avatar_path)
             item.setSizeHint(user_item_widget.sizeHint())
 
             self.task_user_list.addItem(item)
@@ -781,7 +827,7 @@ if __name__ == "__main__":
     style_sheet = Path("lightstyle.qss").read_text()
     app.setStyleSheet(style_sheet)
 
-    app_window = Main_Window()
+    app_window = Teacher_Main_Window()
     app_window.show()
 
     widget = QtWidgets.QStackedWidget()

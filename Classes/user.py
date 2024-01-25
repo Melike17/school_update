@@ -12,6 +12,8 @@ import logging
 
 class User():
     
+    selected_user_ids = []
+    
     logFile = 'data/logging.log'
     logFormat = '%(asctime)s - %(levelname)s - %(message)s'
 

@@ -2,7 +2,7 @@ import sys
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from Ui_main_3 import Ui_MainWindow
+#from Ui_main_3 import Ui_MainWindow
 from pathlib import Path
 
 class loginWindow(QMainWindow):

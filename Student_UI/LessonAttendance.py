@@ -28,7 +28,10 @@ class LessonAttendance(QMainWindow):
 
     def show_Lesson_Attendance(self):
         table_lesson = User.get_Lesson_Attendance_Student(self.email)
-        self.table_view.setModel(table_lesson.model())
+        layout = QVBoxLayout()
+        layout.addWidget(table_lesson)
+        self.table_view.setLayout(layout)
+
 
 def lesson_attendance():
     app = QApplication(sys.argv)

@@ -43,7 +43,7 @@ class ShowAttLesson(QMainWindow):
         with get_db_connection() as conn:
             try:
                 with conn.cursor() as cursor:
-                    # Get attendance information based on the selected lesson
+                    # Get users who attended the selected lesson
                     cursor.execute('''
                         SELECT us.name, us.last_name, att.status
                         FROM school.user as us
@@ -57,21 +57,20 @@ class ShowAttLesson(QMainWindow):
                 filtered_data = []
 
         self.table_widget.clear()
-        if filtered_data:
-            self.table_widget.setRowCount(len(filtered_data))
-            self.table_widget.setColumnCount(len(filtered_data[0]))
+        self.table_widget.setRowCount(len(filtered_data))
+        self.table_widget.setColumnCount(len(filtered_data[0]))
 
-            headers = [desc[0] for desc in cursor.description]
-            self.table_widget.setHorizontalHeaderLabels(headers)
+        headers = [desc[0] for desc in cursor.description]
+        self.table_widget.setHorizontalHeaderLabels(headers)
 
-            for i, row_data in enumerate(filtered_data):
-                for j, info in enumerate(row_data):
-                    self.table_widget.setItem(i, j, QTableWidgetItem(str(info)))
+        for i, row_data in enumerate(filtered_data):
+            for j, info in enumerate(row_data):
+                self.table_widget.setItem(i, j, QTableWidgetItem(str(info)))
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
+def show_attendance_ui():
+    app = QApplication([])
     window = ShowAttLesson()
     window.show()
-    sys.exit(app.exec_())
+    app.exec_()
 
 #show_attendance_ui()

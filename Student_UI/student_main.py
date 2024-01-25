@@ -90,8 +90,14 @@ class Student_Main_Window(QMainWindow, Student_Ui_MainWindow):
 
         current_date_time = QDateTime.currentDateTime()
         formatted_date = current_date_time.toString("dd-MM-yyyy")
-        self.student_main_name.setText(f" {User._current_user.name}")
-        self.student_main_date.setText(f"{formatted_date}")
+        try:
+            # Mevcut kodlarınız...
+            self.student_main_name.setText(f" {User._current_user.name}")
+            self.student_main_date.setText(f"{formatted_date}")
+        except Exception as e:
+            print(f"Hata oluştu: {e}")
+        
+        
         
         tab_widget = self.tabWidget
         tab_widget.removeTab(5)

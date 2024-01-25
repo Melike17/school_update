@@ -1451,7 +1451,7 @@ color: rgb(57, 57, 57);</string>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../sign/assets/meeting.png</normaloff>../sign/assets/meeting.png</iconset>
+      <normaloff>../sign/assets/comments.png</normaloff>../sign/assets/comments.png</iconset>
     </property>
     <property name="iconSize">
      <size>

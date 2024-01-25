@@ -10323,3 +10323,901 @@
 2024-01-25 11:11:36,489 - DEBUG - new topwidget <Chat_UI.chat_mobile.MainWindow object at 0x124c92cb0>
 2024-01-25 11:11:36,489 - DEBUG - pop widget MainWindow MainWindow
 2024-01-25 11:11:36,489 - DEBUG - new topwidget None
+2024-01-25 12:38:47,718 - INFO - student login successfully 
+2024-01-25 12:38:48,125 - DEBUG - uiname is MainWindow
+2024-01-25 12:38:48,140 - DEBUG - toplevel widget is Student_Main_Window
+2024-01-25 12:38:48,141 - DEBUG - setting property geometry
+2024-01-25 12:38:48,141 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,142 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,143 - DEBUG - setting property windowTitle
+2024-01-25 12:38:48,145 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,146 - DEBUG - setting property toolButtonStyle
+2024-01-25 12:38:48,146 - DEBUG - push Student_Main_Window MainWindow
+2024-01-25 12:38:48,146 - DEBUG - push QWidget centralwidget
+2024-01-25 12:38:48,149 - DEBUG - setting property geometry
+2024-01-25 12:38:48,149 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,149 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,150 - DEBUG - setting property font
+2024-01-25 12:38:48,151 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,151 - DEBUG - setting property currentIndex
+2024-01-25 12:38:48,151 - DEBUG - push QTabWidget tabWidget
+2024-01-25 12:38:48,152 - DEBUG - push QWidget student_main
+2024-01-25 12:38:48,152 - DEBUG - setting property geometry
+2024-01-25 12:38:48,153 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,153 - DEBUG - setting property font
+2024-01-25 12:38:48,153 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,154 - DEBUG - setting property text
+2024-01-25 12:38:48,154 - DEBUG - push QLabel student_main_date
+2024-01-25 12:38:48,154 - DEBUG - pop widget QLabel student_main_date
+2024-01-25 12:38:48,154 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E2A0>
+2024-01-25 12:38:48,155 - DEBUG - setting property geometry
+2024-01-25 12:38:48,155 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,155 - DEBUG - setting property font
+2024-01-25 12:38:48,155 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,156 - DEBUG - setting property text
+2024-01-25 12:38:48,156 - DEBUG - push QLabel label_main_announcements
+2024-01-25 12:38:48,156 - DEBUG - pop widget QLabel label_main_announcements
+2024-01-25 12:38:48,156 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E2A0>
+2024-01-25 12:38:48,163 - DEBUG - setting property geometry
+2024-01-25 12:38:48,164 - DEBUG - setting property font
+2024-01-25 12:38:48,164 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,166 - DEBUG - setting property frameShape
+2024-01-25 12:38:48,169 - DEBUG - push QTextBrowser announcements_textBrowser
+2024-01-25 12:38:48,169 - DEBUG - pop widget QTextBrowser announcements_textBrowser
+2024-01-25 12:38:48,169 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E2A0>
+2024-01-25 12:38:48,169 - DEBUG - pop widget QWidget student_main
+2024-01-25 12:38:48,169 - DEBUG - new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x000002830EE4E180>
+2024-01-25 12:38:48,185 - DEBUG - setting property font
+2024-01-25 12:38:48,185 - DEBUG - push QWidget student_profile
+2024-01-25 12:38:48,186 - DEBUG - setting property geometry
+2024-01-25 12:38:48,186 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,186 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,186 - DEBUG - setting property font
+2024-01-25 12:38:48,186 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,188 - DEBUG - setting property text
+2024-01-25 12:38:48,188 - DEBUG - push QLabel label_profile_name
+2024-01-25 12:38:48,188 - DEBUG - pop widget QLabel label_profile_name
+2024-01-25 12:38:48,189 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E570>
+2024-01-25 12:38:48,189 - DEBUG - setting property geometry
+2024-01-25 12:38:48,189 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,189 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,189 - DEBUG - setting property font
+2024-01-25 12:38:48,190 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,190 - DEBUG - setting property text
+2024-01-25 12:38:48,190 - DEBUG - push QLabel label_profile_surname
+2024-01-25 12:38:48,190 - DEBUG - pop widget QLabel label_profile_surname
+2024-01-25 12:38:48,190 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E570>
+2024-01-25 12:38:48,191 - DEBUG - setting property geometry
+2024-01-25 12:38:48,191 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,191 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,191 - DEBUG - setting property font
+2024-01-25 12:38:48,191 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,192 - DEBUG - setting property text
+2024-01-25 12:38:48,192 - DEBUG - push QLabel label_profile_birth
+2024-01-25 12:38:48,192 - DEBUG - pop widget QLabel label_profile_birth
+2024-01-25 12:38:48,192 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E570>
+2024-01-25 12:38:48,192 - DEBUG - setting property geometry
+2024-01-25 12:38:48,192 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,193 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,193 - DEBUG - setting property font
+2024-01-25 12:38:48,193 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,194 - DEBUG - setting property text
+2024-01-25 12:38:48,194 - DEBUG - push QLabel label_profile_mail
+2024-01-25 12:38:48,194 - DEBUG - pop widget QLabel label_profile_mail
+2024-01-25 12:38:48,194 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E570>
+2024-01-25 12:38:48,195 - DEBUG - setting property geometry
+2024-01-25 12:38:48,195 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,195 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,195 - DEBUG - setting property font
+2024-01-25 12:38:48,196 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,196 - DEBUG - setting property text
+2024-01-25 12:38:48,197 - DEBUG - push QLabel label_profile_city
+2024-01-25 12:38:48,197 - DEBUG - pop widget QLabel label_profile_city
+2024-01-25 12:38:48,197 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E570>
+2024-01-25 12:38:48,200 - DEBUG - setting property geometry
+2024-01-25 12:38:48,201 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,201 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,201 - DEBUG - setting property font
+2024-01-25 12:38:48,202 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,202 - DEBUG - setting property text
+2024-01-25 12:38:48,202 - DEBUG - push QLabel label_profile_tel
+2024-01-25 12:38:48,203 - DEBUG - pop widget QLabel label_profile_tel
+2024-01-25 12:38:48,204 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E570>
+2024-01-25 12:38:48,206 - DEBUG - setting property geometry
+2024-01-25 12:38:48,207 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,207 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,207 - DEBUG - setting property font
+2024-01-25 12:38:48,208 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,209 - DEBUG - setting property readOnly
+2024-01-25 12:38:48,209 - DEBUG - setting property overwriteMode
+2024-01-25 12:38:48,209 - DEBUG - push QTextEdit student_profil_name_edit
+2024-01-25 12:38:48,209 - DEBUG - pop widget QTextEdit student_profil_name_edit
+2024-01-25 12:38:48,209 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E570>
+2024-01-25 12:38:48,212 - DEBUG - setting property geometry
+2024-01-25 12:38:48,212 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,212 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,213 - DEBUG - setting property font
+2024-01-25 12:38:48,213 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,215 - DEBUG - setting property readOnly
+2024-01-25 12:38:48,215 - DEBUG - setting property overwriteMode
+2024-01-25 12:38:48,216 - DEBUG - push QTextEdit student_profil_surname_edit
+2024-01-25 12:38:48,216 - DEBUG - pop widget QTextEdit student_profil_surname_edit
+2024-01-25 12:38:48,216 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E570>
+2024-01-25 12:38:48,219 - DEBUG - setting property geometry
+2024-01-25 12:38:48,219 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,219 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,219 - DEBUG - setting property font
+2024-01-25 12:38:48,220 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,220 - DEBUG - setting property readOnly
+2024-01-25 12:38:48,220 - DEBUG - setting property overwriteMode
+2024-01-25 12:38:48,220 - DEBUG - push QTextEdit student_profil_birth_edit
+2024-01-25 12:38:48,221 - DEBUG - pop widget QTextEdit student_profil_birth_edit
+2024-01-25 12:38:48,221 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E570>
+2024-01-25 12:38:48,222 - DEBUG - setting property geometry
+2024-01-25 12:38:48,222 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,222 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,223 - DEBUG - setting property font
+2024-01-25 12:38:48,223 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,225 - DEBUG - setting property readOnly
+2024-01-25 12:38:48,225 - DEBUG - setting property overwriteMode
+2024-01-25 12:38:48,225 - DEBUG - push QTextEdit student_profil_mail_edit
+2024-01-25 12:38:48,226 - DEBUG - pop widget QTextEdit student_profil_mail_edit
+2024-01-25 12:38:48,226 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E570>
+2024-01-25 12:38:48,226 - DEBUG - setting property geometry
+2024-01-25 12:38:48,226 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,227 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,227 - DEBUG - setting property font
+2024-01-25 12:38:48,228 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,229 - DEBUG - setting property readOnly
+2024-01-25 12:38:48,230 - DEBUG - setting property overwriteMode
+2024-01-25 12:38:48,230 - DEBUG - push QTextEdit student_profil_city_edit
+2024-01-25 12:38:48,230 - DEBUG - pop widget QTextEdit student_profil_city_edit
+2024-01-25 12:38:48,230 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E570>
+2024-01-25 12:38:48,231 - DEBUG - setting property geometry
+2024-01-25 12:38:48,231 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,231 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,232 - DEBUG - setting property font
+2024-01-25 12:38:48,232 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,233 - DEBUG - setting property readOnly
+2024-01-25 12:38:48,233 - DEBUG - setting property overwriteMode
+2024-01-25 12:38:48,233 - DEBUG - push QTextEdit student_profil_tel_edit
+2024-01-25 12:38:48,233 - DEBUG - pop widget QTextEdit student_profil_tel_edit
+2024-01-25 12:38:48,233 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E570>
+2024-01-25 12:38:48,233 - DEBUG - setting property geometry
+2024-01-25 12:38:48,233 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,233 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,235 - DEBUG - setting property font
+2024-01-25 12:38:48,235 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,235 - DEBUG - setting property text
+2024-01-25 12:38:48,235 - DEBUG - push QPushButton update_information_Button
+2024-01-25 12:38:48,235 - DEBUG - pop widget QPushButton update_information_Button
+2024-01-25 12:38:48,235 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E570>
+2024-01-25 12:38:48,236 - DEBUG - pop widget QWidget student_profile
+2024-01-25 12:38:48,236 - DEBUG - new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x000002830EE4E180>
+2024-01-25 12:38:48,245 - DEBUG - push QWidget student_plan
+2024-01-25 12:38:48,246 - DEBUG - setting property geometry
+2024-01-25 12:38:48,246 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,247 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,248 - DEBUG - setting property font
+2024-01-25 12:38:48,248 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,250 - DEBUG - setting property text
+2024-01-25 12:38:48,250 - DEBUG - push QLabel label_plan_lesson
+2024-01-25 12:38:48,251 - DEBUG - pop widget QLabel label_plan_lesson
+2024-01-25 12:38:48,252 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4EF00>
+2024-01-25 12:38:48,254 - DEBUG - setting property geometry
+2024-01-25 12:38:48,255 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,255 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,255 - DEBUG - setting property font
+2024-01-25 12:38:48,256 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,256 - DEBUG - setting property text
+2024-01-25 12:38:48,257 - DEBUG - push QLabel label_plan_mentor
+2024-01-25 12:38:48,257 - DEBUG - pop widget QLabel label_plan_mentor
+2024-01-25 12:38:48,257 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4EF00>
+2024-01-25 12:38:48,267 - DEBUG - setting property geometry
+2024-01-25 12:38:48,267 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,267 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,268 - DEBUG - setting property font
+2024-01-25 12:38:48,269 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,281 - DEBUG - setting property frameShape
+2024-01-25 12:38:48,282 - DEBUG - push QTableWidget student_plan_lesson_list
+2024-01-25 12:38:48,282 - DEBUG - pop widget QTableWidget student_plan_lesson_list
+2024-01-25 12:38:48,283 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4EF00>
+2024-01-25 12:38:48,291 - DEBUG - setting property geometry
+2024-01-25 12:38:48,294 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,295 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,295 - DEBUG - setting property font
+2024-01-25 12:38:48,298 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,304 - DEBUG - setting property frameShape
+2024-01-25 12:38:48,305 - DEBUG - push QTableWidget student_plan_mentor_list
+2024-01-25 12:38:48,307 - DEBUG - pop widget QTableWidget student_plan_mentor_list
+2024-01-25 12:38:48,307 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4EF00>
+2024-01-25 12:38:48,310 - DEBUG - setting property geometry
+2024-01-25 12:38:48,310 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,310 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,311 - DEBUG - setting property font
+2024-01-25 12:38:48,311 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,311 - DEBUG - setting property text
+2024-01-25 12:38:48,312 - DEBUG - push QPushButton lesson_attendance
+2024-01-25 12:38:48,312 - DEBUG - pop widget QPushButton lesson_attendance
+2024-01-25 12:38:48,312 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4EF00>
+2024-01-25 12:38:48,312 - DEBUG - setting property geometry
+2024-01-25 12:38:48,312 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,312 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,312 - DEBUG - setting property font
+2024-01-25 12:38:48,313 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,313 - DEBUG - setting property text
+2024-01-25 12:38:48,315 - DEBUG - push QPushButton mentor_attendance
+2024-01-25 12:38:48,315 - DEBUG - pop widget QPushButton mentor_attendance
+2024-01-25 12:38:48,315 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4EF00>
+2024-01-25 12:38:48,315 - DEBUG - pop widget QWidget student_plan
+2024-01-25 12:38:48,315 - DEBUG - new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x000002830EE4E180>
+2024-01-25 12:38:48,336 - DEBUG - push QWidget student_to_do
+2024-01-25 12:38:48,337 - DEBUG - setting property geometry
+2024-01-25 12:38:48,337 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,338 - DEBUG - setting property text
+2024-01-25 12:38:48,338 - DEBUG - push QPushButton update_status_button
+2024-01-25 12:38:48,338 - DEBUG - pop widget QPushButton update_status_button
+2024-01-25 12:38:48,338 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4F2F0>
+2024-01-25 12:38:48,339 - DEBUG - setting property geometry
+2024-01-25 12:38:48,339 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,342 - DEBUG - push QComboBox status_options
+2024-01-25 12:38:48,342 - DEBUG - pop widget QComboBox status_options
+2024-01-25 12:38:48,342 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4F2F0>
+2024-01-25 12:38:48,343 - DEBUG - setting property geometry
+2024-01-25 12:38:48,343 - DEBUG - setting property font
+2024-01-25 12:38:48,343 - DEBUG - setting property text
+2024-01-25 12:38:48,343 - DEBUG - push QLabel label
+2024-01-25 12:38:48,343 - DEBUG - pop widget QLabel label
+2024-01-25 12:38:48,344 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4F2F0>
+2024-01-25 12:38:48,346 - DEBUG - setting property geometry
+2024-01-25 12:38:48,346 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,351 - DEBUG - push QTableWidget tasks_tableWidget
+2024-01-25 12:38:48,351 - DEBUG - pop widget QTableWidget tasks_tableWidget
+2024-01-25 12:38:48,351 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4F2F0>
+2024-01-25 12:38:48,351 - DEBUG - pop widget QWidget student_to_do
+2024-01-25 12:38:48,351 - DEBUG - new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x000002830EE4E180>
+2024-01-25 12:38:48,360 - DEBUG - push QWidget student_attendance
+2024-01-25 12:38:48,361 - DEBUG - setting property geometry
+2024-01-25 12:38:48,361 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,361 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,361 - DEBUG - setting property font
+2024-01-25 12:38:48,362 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,362 - DEBUG - setting property text
+2024-01-25 12:38:48,362 - DEBUG - push QLabel label_lesson_status
+2024-01-25 12:38:48,363 - DEBUG - pop widget QLabel label_lesson_status
+2024-01-25 12:38:48,363 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4F530>
+2024-01-25 12:38:48,364 - DEBUG - setting property geometry
+2024-01-25 12:38:48,364 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,364 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,364 - DEBUG - setting property font
+2024-01-25 12:38:48,365 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,369 - DEBUG - push QTextEdit student_attendance_lesson_list
+2024-01-25 12:38:48,369 - DEBUG - pop widget QTextEdit student_attendance_lesson_list
+2024-01-25 12:38:48,369 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4F530>
+2024-01-25 12:38:48,370 - DEBUG - setting property geometry
+2024-01-25 12:38:48,370 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,370 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,370 - DEBUG - setting property font
+2024-01-25 12:38:48,371 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,371 - DEBUG - setting property text
+2024-01-25 12:38:48,372 - DEBUG - push QLabel label_mentor_status
+2024-01-25 12:38:48,372 - DEBUG - pop widget QLabel label_mentor_status
+2024-01-25 12:38:48,372 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4F530>
+2024-01-25 12:38:48,375 - DEBUG - setting property geometry
+2024-01-25 12:38:48,376 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,377 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,377 - DEBUG - setting property font
+2024-01-25 12:38:48,378 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,383 - DEBUG - push QTextEdit student_attendance_mentor_list
+2024-01-25 12:38:48,383 - DEBUG - pop widget QTextEdit student_attendance_mentor_list
+2024-01-25 12:38:48,383 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4F530>
+2024-01-25 12:38:48,384 - DEBUG - pop widget QWidget student_attendance
+2024-01-25 12:38:48,384 - DEBUG - new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x000002830EE4E180>
+2024-01-25 12:38:48,389 - DEBUG - push QWidget student_dance
+2024-01-25 12:38:48,390 - DEBUG - setting property geometry
+2024-01-25 12:38:48,390 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,391 - DEBUG - setting property font
+2024-01-25 12:38:48,393 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,394 - DEBUG - push QComboBox chat_list
+2024-01-25 12:38:48,395 - DEBUG - pop widget QComboBox chat_list
+2024-01-25 12:38:48,395 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4F9B0>
+2024-01-25 12:38:48,396 - DEBUG - setting property geometry
+2024-01-25 12:38:48,396 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,396 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,396 - DEBUG - setting property font
+2024-01-25 12:38:48,397 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,398 - DEBUG - push QTextEdit student_chat_message_panel
+2024-01-25 12:38:48,398 - DEBUG - pop widget QTextEdit student_chat_message_panel
+2024-01-25 12:38:48,399 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4F9B0>
+2024-01-25 12:38:48,400 - DEBUG - setting property geometry
+2024-01-25 12:38:48,401 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,401 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,401 - DEBUG - setting property font
+2024-01-25 12:38:48,402 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,403 - DEBUG - push QTextEdit student_chat_message
+2024-01-25 12:38:48,403 - DEBUG - pop widget QTextEdit student_chat_message
+2024-01-25 12:38:48,403 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4F9B0>
+2024-01-25 12:38:48,403 - DEBUG - setting property geometry
+2024-01-25 12:38:48,404 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,404 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,404 - DEBUG - setting property font
+2024-01-25 12:38:48,405 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,406 - DEBUG - setting property text
+2024-01-25 12:38:48,406 - DEBUG - push QPushButton student_chat_send_button
+2024-01-25 12:38:48,407 - DEBUG - pop widget QPushButton student_chat_send_button
+2024-01-25 12:38:48,408 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4F9B0>
+2024-01-25 12:38:48,408 - DEBUG - pop widget QWidget student_dance
+2024-01-25 12:38:48,408 - DEBUG - new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x000002830EE4E180>
+2024-01-25 12:38:48,425 - DEBUG - pop widget QTabWidget tabWidget
+2024-01-25 12:38:48,425 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E330>
+2024-01-25 12:38:48,425 - DEBUG - setting property geometry
+2024-01-25 12:38:48,425 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,425 - DEBUG - setting property text
+2024-01-25 12:38:48,426 - DEBUG - push QLabel label_8
+2024-01-25 12:38:48,426 - DEBUG - pop widget QLabel label_8
+2024-01-25 12:38:48,426 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E330>
+2024-01-25 12:38:48,426 - DEBUG - setting property geometry
+2024-01-25 12:38:48,426 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,426 - DEBUG - setting property text
+2024-01-25 12:38:48,426 - DEBUG - push QLabel label_7
+2024-01-25 12:38:48,426 - DEBUG - pop widget QLabel label_7
+2024-01-25 12:38:48,427 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E330>
+2024-01-25 12:38:48,427 - DEBUG - setting property geometry
+2024-01-25 12:38:48,427 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,428 - DEBUG - setting property font
+2024-01-25 12:38:48,428 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,428 - DEBUG - setting property text
+2024-01-25 12:38:48,428 - DEBUG - setting property alignment
+2024-01-25 12:38:48,429 - DEBUG - push QLabel student_main_name
+2024-01-25 12:38:48,429 - DEBUG - pop widget QLabel student_main_name
+2024-01-25 12:38:48,429 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E330>
+2024-01-25 12:38:48,429 - DEBUG - setting property geometry
+2024-01-25 12:38:48,430 - DEBUG - setting property font
+2024-01-25 12:38:48,430 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,432 - DEBUG - setting property text
+2024-01-25 12:38:48,433 - DEBUG - setting property alignment
+2024-01-25 12:38:48,435 - DEBUG - push QLabel label_6
+2024-01-25 12:38:48,435 - DEBUG - pop widget QLabel label_6
+2024-01-25 12:38:48,435 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E330>
+2024-01-25 12:38:48,435 - DEBUG - setting property geometry
+2024-01-25 12:38:48,435 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,435 - DEBUG - setting property text
+2024-01-25 12:38:48,436 - DEBUG - push QLabel user_avatar
+2024-01-25 12:38:48,436 - DEBUG - pop widget QLabel user_avatar
+2024-01-25 12:38:48,436 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E330>
+2024-01-25 12:38:48,436 - DEBUG - setting property geometry
+2024-01-25 12:38:48,436 - DEBUG - setting property minimumSize
+2024-01-25 12:38:48,436 - DEBUG - setting property maximumSize
+2024-01-25 12:38:48,436 - DEBUG - setting property font
+2024-01-25 12:38:48,438 - DEBUG - setting property styleSheet
+2024-01-25 12:38:48,438 - DEBUG - setting property text
+2024-01-25 12:38:48,439 - DEBUG - setting property icon
+2024-01-25 12:38:48,450 - DEBUG - setting property iconSize
+2024-01-25 12:38:48,450 - DEBUG - push QPushButton chat_student_button
+2024-01-25 12:38:48,451 - DEBUG - pop widget QPushButton chat_student_button
+2024-01-25 12:38:48,451 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002830EE4E330>
+2024-01-25 12:38:48,451 - DEBUG - pop widget QWidget centralwidget
+2024-01-25 12:38:48,451 - DEBUG - new topwidget <Student_UI.student_main.Student_Main_Window object at 0x000002830EE4E0F0>
+2024-01-25 12:38:48,452 - DEBUG - push QStatusBar statusbar
+2024-01-25 12:38:48,452 - DEBUG - pop widget QStatusBar statusbar
+2024-01-25 12:38:48,452 - DEBUG - new topwidget <Student_UI.student_main.Student_Main_Window object at 0x000002830EE4E0F0>
+2024-01-25 12:38:48,452 - DEBUG - pop widget Student_Main_Window MainWindow
+2024-01-25 12:38:48,452 - DEBUG - new topwidget None
+2024-01-25 12:39:40,482 - INFO - student Update successfully 
+2024-01-25 12:40:33,224 - INFO - teacher active login successfully 
+2024-01-25 12:40:33,312 - DEBUG - uiname is MainWindow
+2024-01-25 12:40:33,313 - DEBUG - toplevel widget is Teacher_Main_Window
+2024-01-25 12:40:33,313 - DEBUG - setting property geometry
+2024-01-25 12:40:33,313 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,313 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,313 - DEBUG - setting property windowTitle
+2024-01-25 12:40:33,313 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,314 - DEBUG - setting property toolButtonStyle
+2024-01-25 12:40:33,314 - DEBUG - push Teacher_Main_Window MainWindow
+2024-01-25 12:40:33,314 - DEBUG - push QWidget centralwidget
+2024-01-25 12:40:33,315 - DEBUG - setting property geometry
+2024-01-25 12:40:33,316 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,316 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,316 - DEBUG - setting property font
+2024-01-25 12:40:33,318 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,319 - DEBUG - setting property currentIndex
+2024-01-25 12:40:33,320 - DEBUG - push QTabWidget tabWidget
+2024-01-25 12:40:33,321 - DEBUG - push QWidget teacher_main
+2024-01-25 12:40:33,321 - DEBUG - setting property geometry
+2024-01-25 12:40:33,321 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,321 - DEBUG - setting property font
+2024-01-25 12:40:33,321 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,323 - DEBUG - setting property text
+2024-01-25 12:40:33,324 - DEBUG - push QLabel teacher_main_date
+2024-01-25 12:40:33,324 - DEBUG - pop widget QLabel teacher_main_date
+2024-01-25 12:40:33,325 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E180>
+2024-01-25 12:40:33,325 - DEBUG - setting property geometry
+2024-01-25 12:40:33,327 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,329 - DEBUG - setting property font
+2024-01-25 12:40:33,330 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,333 - DEBUG - setting property text
+2024-01-25 12:40:33,333 - DEBUG - push QLabel label_main_announcements
+2024-01-25 12:40:33,333 - DEBUG - pop widget QLabel label_main_announcements
+2024-01-25 12:40:33,333 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E180>
+2024-01-25 12:40:33,336 - DEBUG - setting property geometry
+2024-01-25 12:40:33,337 - DEBUG - setting property font
+2024-01-25 12:40:33,337 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,340 - DEBUG - push QTextBrowser announcement_textbrowser
+2024-01-25 12:40:33,340 - DEBUG - pop widget QTextBrowser announcement_textbrowser
+2024-01-25 12:40:33,340 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E180>
+2024-01-25 12:40:33,341 - DEBUG - setting property geometry
+2024-01-25 12:40:33,341 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,341 - DEBUG - setting property text
+2024-01-25 12:40:33,341 - DEBUG - push QPushButton delete_announcement_button
+2024-01-25 12:40:33,342 - DEBUG - pop widget QPushButton delete_announcement_button
+2024-01-25 12:40:33,342 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E180>
+2024-01-25 12:40:33,342 - DEBUG - setting property geometry
+2024-01-25 12:40:33,342 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,343 - DEBUG - setting property text
+2024-01-25 12:40:33,345 - DEBUG - push QLabel label
+2024-01-25 12:40:33,346 - DEBUG - pop widget QLabel label
+2024-01-25 12:40:33,346 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E180>
+2024-01-25 12:40:33,348 - DEBUG - setting property geometry
+2024-01-25 12:40:33,348 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,350 - DEBUG - setting property currentText
+2024-01-25 12:40:33,351 - DEBUG - push QComboBox announcement_to_delete_combobox
+2024-01-25 12:40:33,351 - DEBUG - pop widget QComboBox announcement_to_delete_combobox
+2024-01-25 12:40:33,351 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E180>
+2024-01-25 12:40:33,351 - DEBUG - setting property geometry
+2024-01-25 12:40:33,351 - DEBUG - setting property font
+2024-01-25 12:40:33,351 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,352 - DEBUG - setting property text
+2024-01-25 12:40:33,352 - DEBUG - push QPushButton create_announcement_button
+2024-01-25 12:40:33,352 - DEBUG - pop widget QPushButton create_announcement_button
+2024-01-25 12:40:33,352 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E180>
+2024-01-25 12:40:33,353 - DEBUG - setting property geometry
+2024-01-25 12:40:33,353 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,353 - DEBUG - setting property font
+2024-01-25 12:40:33,357 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,358 - DEBUG - setting property text
+2024-01-25 12:40:33,358 - DEBUG - setting property placeholderText
+2024-01-25 12:40:33,358 - DEBUG - push QLineEdit announcement_lineEdit
+2024-01-25 12:40:33,358 - DEBUG - pop widget QLineEdit announcement_lineEdit
+2024-01-25 12:40:33,358 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E180>
+2024-01-25 12:40:33,358 - DEBUG - pop widget QWidget teacher_main
+2024-01-25 12:40:33,358 - DEBUG - new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x0000019A87C9E060>
+2024-01-25 12:40:33,370 - DEBUG - setting property font
+2024-01-25 12:40:33,371 - DEBUG - push QWidget teacher_profile
+2024-01-25 12:40:33,371 - DEBUG - setting property geometry
+2024-01-25 12:40:33,372 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,372 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,374 - DEBUG - setting property font
+2024-01-25 12:40:33,374 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,375 - DEBUG - setting property text
+2024-01-25 12:40:33,375 - DEBUG - push QLabel label_profile_name
+2024-01-25 12:40:33,376 - DEBUG - pop widget QLabel label_profile_name
+2024-01-25 12:40:33,376 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E8D0>
+2024-01-25 12:40:33,376 - DEBUG - setting property geometry
+2024-01-25 12:40:33,377 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,378 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,378 - DEBUG - setting property font
+2024-01-25 12:40:33,379 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,379 - DEBUG - setting property text
+2024-01-25 12:40:33,379 - DEBUG - push QLabel label_profile_surname
+2024-01-25 12:40:33,380 - DEBUG - pop widget QLabel label_profile_surname
+2024-01-25 12:40:33,380 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E8D0>
+2024-01-25 12:40:33,380 - DEBUG - setting property geometry
+2024-01-25 12:40:33,380 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,380 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,380 - DEBUG - setting property font
+2024-01-25 12:40:33,381 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,382 - DEBUG - setting property text
+2024-01-25 12:40:33,382 - DEBUG - push QLabel label_profile_birth
+2024-01-25 12:40:33,382 - DEBUG - pop widget QLabel label_profile_birth
+2024-01-25 12:40:33,382 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E8D0>
+2024-01-25 12:40:33,382 - DEBUG - setting property geometry
+2024-01-25 12:40:33,382 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,383 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,383 - DEBUG - setting property font
+2024-01-25 12:40:33,383 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,383 - DEBUG - setting property text
+2024-01-25 12:40:33,383 - DEBUG - push QLabel label_profile_mail
+2024-01-25 12:40:33,383 - DEBUG - pop widget QLabel label_profile_mail
+2024-01-25 12:40:33,383 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E8D0>
+2024-01-25 12:40:33,383 - DEBUG - setting property geometry
+2024-01-25 12:40:33,383 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,385 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,385 - DEBUG - setting property font
+2024-01-25 12:40:33,385 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,386 - DEBUG - setting property text
+2024-01-25 12:40:33,386 - DEBUG - push QLabel label_profile_city
+2024-01-25 12:40:33,386 - DEBUG - pop widget QLabel label_profile_city
+2024-01-25 12:40:33,388 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E8D0>
+2024-01-25 12:40:33,388 - DEBUG - setting property geometry
+2024-01-25 12:40:33,388 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,389 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,389 - DEBUG - setting property font
+2024-01-25 12:40:33,389 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,390 - DEBUG - setting property text
+2024-01-25 12:40:33,391 - DEBUG - push QLabel label_profile_tel
+2024-01-25 12:40:33,393 - DEBUG - pop widget QLabel label_profile_tel
+2024-01-25 12:40:33,394 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E8D0>
+2024-01-25 12:40:33,399 - DEBUG - setting property geometry
+2024-01-25 12:40:33,400 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,402 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,403 - DEBUG - setting property font
+2024-01-25 12:40:33,403 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,405 - DEBUG - setting property readOnly
+2024-01-25 12:40:33,406 - DEBUG - setting property overwriteMode
+2024-01-25 12:40:33,406 - DEBUG - push QTextEdit teacher_profil_name_edit
+2024-01-25 12:40:33,407 - DEBUG - pop widget QTextEdit teacher_profil_name_edit
+2024-01-25 12:40:33,408 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E8D0>
+2024-01-25 12:40:33,410 - DEBUG - setting property geometry
+2024-01-25 12:40:33,410 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,411 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,411 - DEBUG - setting property font
+2024-01-25 12:40:33,412 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,420 - DEBUG - setting property readOnly
+2024-01-25 12:40:33,420 - DEBUG - setting property overwriteMode
+2024-01-25 12:40:33,421 - DEBUG - push QTextEdit teahcer_profil_surname_edit
+2024-01-25 12:40:33,421 - DEBUG - pop widget QTextEdit teahcer_profil_surname_edit
+2024-01-25 12:40:33,421 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E8D0>
+2024-01-25 12:40:33,423 - DEBUG - setting property geometry
+2024-01-25 12:40:33,423 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,423 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,424 - DEBUG - setting property font
+2024-01-25 12:40:33,424 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,426 - DEBUG - setting property readOnly
+2024-01-25 12:40:33,428 - DEBUG - setting property overwriteMode
+2024-01-25 12:40:33,429 - DEBUG - push QTextEdit teacher_profil_birth_edit
+2024-01-25 12:40:33,432 - DEBUG - pop widget QTextEdit teacher_profil_birth_edit
+2024-01-25 12:40:33,433 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E8D0>
+2024-01-25 12:40:33,436 - DEBUG - setting property geometry
+2024-01-25 12:40:33,439 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,439 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,441 - DEBUG - setting property font
+2024-01-25 12:40:33,441 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,443 - DEBUG - setting property readOnly
+2024-01-25 12:40:33,443 - DEBUG - setting property overwriteMode
+2024-01-25 12:40:33,444 - DEBUG - push QTextEdit teacher_profil_mail_edit
+2024-01-25 12:40:33,445 - DEBUG - pop widget QTextEdit teacher_profil_mail_edit
+2024-01-25 12:40:33,445 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E8D0>
+2024-01-25 12:40:33,451 - DEBUG - setting property geometry
+2024-01-25 12:40:33,451 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,451 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,452 - DEBUG - setting property font
+2024-01-25 12:40:33,466 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,476 - DEBUG - setting property readOnly
+2024-01-25 12:40:33,476 - DEBUG - setting property overwriteMode
+2024-01-25 12:40:33,477 - DEBUG - push QTextEdit teacher_profil_city_edit
+2024-01-25 12:40:33,477 - DEBUG - pop widget QTextEdit teacher_profil_city_edit
+2024-01-25 12:40:33,477 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E8D0>
+2024-01-25 12:40:33,478 - DEBUG - setting property geometry
+2024-01-25 12:40:33,480 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,480 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,480 - DEBUG - setting property font
+2024-01-25 12:40:33,482 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,485 - DEBUG - setting property readOnly
+2024-01-25 12:40:33,486 - DEBUG - setting property overwriteMode
+2024-01-25 12:40:33,486 - DEBUG - push QTextEdit teacher_profil_tel_edit
+2024-01-25 12:40:33,487 - DEBUG - pop widget QTextEdit teacher_profil_tel_edit
+2024-01-25 12:40:33,487 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E8D0>
+2024-01-25 12:40:33,488 - DEBUG - setting property geometry
+2024-01-25 12:40:33,488 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,488 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,488 - DEBUG - setting property font
+2024-01-25 12:40:33,488 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,489 - DEBUG - setting property text
+2024-01-25 12:40:33,489 - DEBUG - push QPushButton update_information_button
+2024-01-25 12:40:33,489 - DEBUG - pop widget QPushButton update_information_button
+2024-01-25 12:40:33,490 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E8D0>
+2024-01-25 12:40:33,490 - DEBUG - pop widget QWidget teacher_profile
+2024-01-25 12:40:33,490 - DEBUG - new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x0000019A87C9E060>
+2024-01-25 12:40:33,503 - DEBUG - push QWidget teacher_plan
+2024-01-25 12:40:33,503 - DEBUG - setting property geometry
+2024-01-25 12:40:33,503 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,504 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,504 - DEBUG - setting property font
+2024-01-25 12:40:33,504 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,506 - DEBUG - setting property text
+2024-01-25 12:40:33,508 - DEBUG - push QLabel label_plan_lesson
+2024-01-25 12:40:33,508 - DEBUG - pop widget QLabel label_plan_lesson
+2024-01-25 12:40:33,509 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F0B0>
+2024-01-25 12:40:33,510 - DEBUG - setting property geometry
+2024-01-25 12:40:33,510 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,510 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,510 - DEBUG - setting property font
+2024-01-25 12:40:33,511 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,511 - DEBUG - setting property text
+2024-01-25 12:40:33,512 - DEBUG - push QLabel label_plan_mentor
+2024-01-25 12:40:33,512 - DEBUG - pop widget QLabel label_plan_mentor
+2024-01-25 12:40:33,512 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F0B0>
+2024-01-25 12:40:33,518 - DEBUG - setting property geometry
+2024-01-25 12:40:33,518 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,518 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,518 - DEBUG - setting property font
+2024-01-25 12:40:33,519 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,545 - DEBUG - push QTableWidget teacher_plan_lesson
+2024-01-25 12:40:33,545 - DEBUG - pop widget QTableWidget teacher_plan_lesson
+2024-01-25 12:40:33,546 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F0B0>
+2024-01-25 12:40:33,552 - DEBUG - setting property geometry
+2024-01-25 12:40:33,552 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,552 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,553 - DEBUG - setting property font
+2024-01-25 12:40:33,554 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,557 - DEBUG - push QTableWidget teacher_plan_mentoring
+2024-01-25 12:40:33,558 - DEBUG - pop widget QTableWidget teacher_plan_mentoring
+2024-01-25 12:40:33,558 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F0B0>
+2024-01-25 12:40:33,558 - DEBUG - setting property geometry
+2024-01-25 12:40:33,558 - DEBUG - setting property font
+2024-01-25 12:40:33,560 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,560 - DEBUG - setting property text
+2024-01-25 12:40:33,560 - DEBUG - push QPushButton create_lesson
+2024-01-25 12:40:33,560 - DEBUG - pop widget QPushButton create_lesson
+2024-01-25 12:40:33,560 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F0B0>
+2024-01-25 12:40:33,560 - DEBUG - setting property geometry
+2024-01-25 12:40:33,561 - DEBUG - setting property font
+2024-01-25 12:40:33,561 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,561 - DEBUG - setting property text
+2024-01-25 12:40:33,561 - DEBUG - push QPushButton create_mentor
+2024-01-25 12:40:33,561 - DEBUG - pop widget QPushButton create_mentor
+2024-01-25 12:40:33,561 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F0B0>
+2024-01-25 12:40:33,562 - DEBUG - setting property geometry
+2024-01-25 12:40:33,562 - DEBUG - setting property font
+2024-01-25 12:40:33,562 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,564 - DEBUG - setting property text
+2024-01-25 12:40:33,564 - DEBUG - push QPushButton update_lessons
+2024-01-25 12:40:33,564 - DEBUG - pop widget QPushButton update_lessons
+2024-01-25 12:40:33,565 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F0B0>
+2024-01-25 12:40:33,565 - DEBUG - setting property geometry
+2024-01-25 12:40:33,566 - DEBUG - setting property font
+2024-01-25 12:40:33,566 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,568 - DEBUG - setting property text
+2024-01-25 12:40:33,568 - DEBUG - push QPushButton update_mentoring
+2024-01-25 12:40:33,569 - DEBUG - pop widget QPushButton update_mentoring
+2024-01-25 12:40:33,569 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F0B0>
+2024-01-25 12:40:33,569 - DEBUG - pop widget QWidget teacher_plan
+2024-01-25 12:40:33,569 - DEBUG - new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x0000019A87C9E060>
+2024-01-25 12:40:33,602 - DEBUG - push QWidget teacher_to_do
+2024-01-25 12:40:33,608 - DEBUG - setting property geometry
+2024-01-25 12:40:33,609 - DEBUG - setting property font
+2024-01-25 12:40:33,610 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,632 - DEBUG - push QTableWidget tasks_tableWidget
+2024-01-25 12:40:33,632 - DEBUG - pop widget QTableWidget tasks_tableWidget
+2024-01-25 12:40:33,633 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F5C0>
+2024-01-25 12:40:33,633 - DEBUG - setting property geometry
+2024-01-25 12:40:33,676 - DEBUG - push QWidget layoutWidget
+2024-01-25 12:40:33,676 - DEBUG - setting property pyuicMargins
+2024-01-25 12:40:33,677 - DEBUG - push QFormLayout create_task_form_layout
+2024-01-25 12:40:33,677 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,677 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,677 - DEBUG - setting property font
+2024-01-25 12:40:33,678 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,678 - DEBUG - setting property text
+2024-01-25 12:40:33,679 - DEBUG - push QLabel task_name_label
+2024-01-25 12:40:33,679 - DEBUG - pop widget QLabel task_name_label
+2024-01-25 12:40:33,680 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F6E0>
+2024-01-25 12:40:33,680 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,680 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,681 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,682 - DEBUG - push QLineEdit task_name_input
+2024-01-25 12:40:33,686 - DEBUG - pop widget QLineEdit task_name_input
+2024-01-25 12:40:33,686 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F6E0>
+2024-01-25 12:40:33,688 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,688 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,688 - DEBUG - setting property font
+2024-01-25 12:40:33,690 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,690 - DEBUG - setting property text
+2024-01-25 12:40:33,690 - DEBUG - push QLabel due_date_label
+2024-01-25 12:40:33,691 - DEBUG - pop widget QLabel due_date_label
+2024-01-25 12:40:33,691 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F6E0>
+2024-01-25 12:40:33,698 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,698 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,698 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,698 - DEBUG - setting property minimumDate
+2024-01-25 12:40:33,699 - DEBUG - setting property calendarPopup
+2024-01-25 12:40:33,699 - DEBUG - push QDateEdit due_date_input
+2024-01-25 12:40:33,699 - DEBUG - pop widget QDateEdit due_date_input
+2024-01-25 12:40:33,700 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F6E0>
+2024-01-25 12:40:33,700 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,700 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,700 - DEBUG - setting property font
+2024-01-25 12:40:33,701 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,701 - DEBUG - setting property text
+2024-01-25 12:40:33,701 - DEBUG - push QPushButton create_task_button
+2024-01-25 12:40:33,701 - DEBUG - pop widget QPushButton create_task_button
+2024-01-25 12:40:33,701 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F6E0>
+2024-01-25 12:40:33,702 - DEBUG - pop layout QFormLayout create_task_form_layout
+2024-01-25 12:40:33,702 - DEBUG - pop widget QWidget layoutWidget
+2024-01-25 12:40:33,702 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F5C0>
+2024-01-25 12:40:33,703 - DEBUG - setting property geometry
+2024-01-25 12:40:33,703 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,704 - DEBUG - push QListWidget task_user_list
+2024-01-25 12:40:33,705 - DEBUG - pop widget QListWidget task_user_list
+2024-01-25 12:40:33,705 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F5C0>
+2024-01-25 12:40:33,705 - DEBUG - setting property geometry
+2024-01-25 12:40:33,705 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,705 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,706 - DEBUG - setting property font
+2024-01-25 12:40:33,706 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,706 - DEBUG - setting property text
+2024-01-25 12:40:33,706 - DEBUG - push QLabel task_name_label_2
+2024-01-25 12:40:33,706 - DEBUG - pop widget QLabel task_name_label_2
+2024-01-25 12:40:33,706 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9F5C0>
+2024-01-25 12:40:33,706 - DEBUG - pop widget QWidget teacher_to_do
+2024-01-25 12:40:33,708 - DEBUG - new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x0000019A87C9E060>
+2024-01-25 12:40:33,718 - DEBUG - push QWidget teacher_attendance
+2024-01-25 12:40:33,719 - DEBUG - setting property geometry
+2024-01-25 12:40:33,719 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,719 - DEBUG - setting property font
+2024-01-25 12:40:33,719 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,720 - DEBUG - setting property text
+2024-01-25 12:40:33,720 - DEBUG - setting property alignment
+2024-01-25 12:40:33,720 - DEBUG - push QLabel label_lesson_status
+2024-01-25 12:40:33,720 - DEBUG - pop widget QLabel label_lesson_status
+2024-01-25 12:40:33,720 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9FDA0>
+2024-01-25 12:40:33,721 - DEBUG - setting property geometry
+2024-01-25 12:40:33,721 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,721 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,721 - DEBUG - setting property font
+2024-01-25 12:40:33,722 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,724 - DEBUG - setting property text
+2024-01-25 12:40:33,725 - DEBUG - setting property alignment
+2024-01-25 12:40:33,725 - DEBUG - push QLabel label_mentor_status
+2024-01-25 12:40:33,726 - DEBUG - pop widget QLabel label_mentor_status
+2024-01-25 12:40:33,726 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9FDA0>
+2024-01-25 12:40:33,726 - DEBUG - setting property geometry
+2024-01-25 12:40:33,726 - DEBUG - push QWidget layoutWidget1
+2024-01-25 12:40:33,726 - DEBUG - setting property pyuicMargins
+2024-01-25 12:40:33,726 - DEBUG - push QHBoxLayout horizontalLayout
+2024-01-25 12:40:33,726 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,726 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,728 - DEBUG - setting property font
+2024-01-25 12:40:33,728 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,728 - DEBUG - setting property text
+2024-01-25 12:40:33,730 - DEBUG - push QPushButton lesson_att_show
+2024-01-25 12:40:33,731 - DEBUG - pop widget QPushButton lesson_att_show
+2024-01-25 12:40:33,731 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9FF50>
+2024-01-25 12:40:33,732 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,732 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,732 - DEBUG - setting property font
+2024-01-25 12:40:33,732 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,733 - DEBUG - setting property text
+2024-01-25 12:40:33,733 - DEBUG - push QPushButton lesson_att_insert
+2024-01-25 12:40:33,733 - DEBUG - pop widget QPushButton lesson_att_insert
+2024-01-25 12:40:33,734 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9FF50>
+2024-01-25 12:40:33,734 - DEBUG - pop layout QHBoxLayout horizontalLayout
+2024-01-25 12:40:33,734 - DEBUG - pop widget QWidget layoutWidget1
+2024-01-25 12:40:33,734 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9FDA0>
+2024-01-25 12:40:33,736 - DEBUG - setting property geometry
+2024-01-25 12:40:33,736 - DEBUG - push QWidget layoutWidget2
+2024-01-25 12:40:33,736 - DEBUG - setting property pyuicMargins
+2024-01-25 12:40:33,737 - DEBUG - push QHBoxLayout horizontalLayout_2
+2024-01-25 12:40:33,737 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,739 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,739 - DEBUG - setting property font
+2024-01-25 12:40:33,740 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,740 - DEBUG - setting property text
+2024-01-25 12:40:33,741 - DEBUG - push QPushButton mentor_att_show
+2024-01-25 12:40:33,742 - DEBUG - pop widget QPushButton mentor_att_show
+2024-01-25 12:40:33,742 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87DEC200>
+2024-01-25 12:40:33,742 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,743 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,743 - DEBUG - setting property font
+2024-01-25 12:40:33,743 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,744 - DEBUG - setting property text
+2024-01-25 12:40:33,744 - DEBUG - push QPushButton mentor_att_insert
+2024-01-25 12:40:33,745 - DEBUG - pop widget QPushButton mentor_att_insert
+2024-01-25 12:40:33,749 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87DEC200>
+2024-01-25 12:40:33,749 - DEBUG - pop layout QHBoxLayout horizontalLayout_2
+2024-01-25 12:40:33,749 - DEBUG - pop widget QWidget layoutWidget2
+2024-01-25 12:40:33,750 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9FDA0>
+2024-01-25 12:40:33,750 - DEBUG - pop widget QWidget teacher_attendance
+2024-01-25 12:40:33,750 - DEBUG - new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x0000019A87C9E060>
+2024-01-25 12:40:33,751 - DEBUG - push QWidget student_dance
+2024-01-25 12:40:33,752 - DEBUG - setting property geometry
+2024-01-25 12:40:33,752 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,752 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,753 - DEBUG - setting property font
+2024-01-25 12:40:33,754 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,759 - DEBUG - push QComboBox chat_list
+2024-01-25 12:40:33,759 - DEBUG - pop widget QComboBox chat_list
+2024-01-25 12:40:33,759 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87DEC440>
+2024-01-25 12:40:33,760 - DEBUG - setting property geometry
+2024-01-25 12:40:33,761 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,761 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,762 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,765 - DEBUG - push QTextEdit teacher_chat_message_panel
+2024-01-25 12:40:33,765 - DEBUG - pop widget QTextEdit teacher_chat_message_panel
+2024-01-25 12:40:33,765 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87DEC440>
+2024-01-25 12:40:33,766 - DEBUG - setting property geometry
+2024-01-25 12:40:33,766 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,768 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,768 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,770 - DEBUG - push QTextEdit teacher_chat_message
+2024-01-25 12:40:33,771 - DEBUG - pop widget QTextEdit teacher_chat_message
+2024-01-25 12:40:33,771 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87DEC440>
+2024-01-25 12:40:33,771 - DEBUG - setting property geometry
+2024-01-25 12:40:33,772 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,772 - DEBUG - setting property font
+2024-01-25 12:40:33,772 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,773 - DEBUG - setting property text
+2024-01-25 12:40:33,773 - DEBUG - push QPushButton teacher_chat_send_button
+2024-01-25 12:40:33,773 - DEBUG - pop widget QPushButton teacher_chat_send_button
+2024-01-25 12:40:33,773 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87DEC440>
+2024-01-25 12:40:33,773 - DEBUG - pop widget QWidget student_dance
+2024-01-25 12:40:33,774 - DEBUG - new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x0000019A87C9E060>
+2024-01-25 12:40:33,813 - DEBUG - push QWidget admin_page
+2024-01-25 12:40:33,814 - DEBUG - setting property geometry
+2024-01-25 12:40:33,814 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,815 - DEBUG - setting property font
+2024-01-25 12:40:33,815 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,818 - DEBUG - push QListWidget listWidget
+2024-01-25 12:40:33,818 - DEBUG - pop widget QListWidget listWidget
+2024-01-25 12:40:33,818 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87DEC710>
+2024-01-25 12:40:33,819 - DEBUG - setting property geometry
+2024-01-25 12:40:33,819 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,820 - DEBUG - setting property text
+2024-01-25 12:40:33,820 - DEBUG - push QPushButton approve_Button
+2024-01-25 12:40:33,820 - DEBUG - pop widget QPushButton approve_Button
+2024-01-25 12:40:33,820 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87DEC710>
+2024-01-25 12:40:33,821 - DEBUG - setting property geometry
+2024-01-25 12:40:33,821 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,822 - DEBUG - setting property text
+2024-01-25 12:40:33,822 - DEBUG - push QPushButton reject_Button
+2024-01-25 12:40:33,828 - DEBUG - pop widget QPushButton reject_Button
+2024-01-25 12:40:33,828 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87DEC710>
+2024-01-25 12:40:33,829 - DEBUG - pop widget QWidget admin_page
+2024-01-25 12:40:33,829 - DEBUG - new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x0000019A87C9E060>
+2024-01-25 12:40:33,834 - DEBUG - pop widget QTabWidget tabWidget
+2024-01-25 12:40:33,835 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E210>
+2024-01-25 12:40:33,835 - DEBUG - setting property geometry
+2024-01-25 12:40:33,835 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,836 - DEBUG - setting property text
+2024-01-25 12:40:33,836 - DEBUG - push QLabel user_avatar
+2024-01-25 12:40:33,836 - DEBUG - pop widget QLabel user_avatar
+2024-01-25 12:40:33,836 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E210>
+2024-01-25 12:40:33,837 - DEBUG - setting property geometry
+2024-01-25 12:40:33,838 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,838 - DEBUG - setting property font
+2024-01-25 12:40:33,838 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,839 - DEBUG - setting property text
+2024-01-25 12:40:33,839 - DEBUG - setting property alignment
+2024-01-25 12:40:33,839 - DEBUG - push QLabel teacher_main_name
+2024-01-25 12:40:33,839 - DEBUG - pop widget QLabel teacher_main_name
+2024-01-25 12:40:33,840 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E210>
+2024-01-25 12:40:33,840 - DEBUG - setting property geometry
+2024-01-25 12:40:33,840 - DEBUG - setting property font
+2024-01-25 12:40:33,840 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,840 - DEBUG - setting property text
+2024-01-25 12:40:33,841 - DEBUG - setting property alignment
+2024-01-25 12:40:33,841 - DEBUG - push QLabel label_6
+2024-01-25 12:40:33,841 - DEBUG - pop widget QLabel label_6
+2024-01-25 12:40:33,841 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E210>
+2024-01-25 12:40:33,841 - DEBUG - setting property geometry
+2024-01-25 12:40:33,842 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,842 - DEBUG - setting property text
+2024-01-25 12:40:33,842 - DEBUG - push QLabel label_7
+2024-01-25 12:40:33,842 - DEBUG - pop widget QLabel label_7
+2024-01-25 12:40:33,842 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E210>
+2024-01-25 12:40:33,842 - DEBUG - setting property geometry
+2024-01-25 12:40:33,842 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,842 - DEBUG - setting property text
+2024-01-25 12:40:33,842 - DEBUG - push QLabel label_8
+2024-01-25 12:40:33,842 - DEBUG - pop widget QLabel label_8
+2024-01-25 12:40:33,844 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E210>
+2024-01-25 12:40:33,844 - DEBUG - setting property geometry
+2024-01-25 12:40:33,844 - DEBUG - setting property minimumSize
+2024-01-25 12:40:33,844 - DEBUG - setting property maximumSize
+2024-01-25 12:40:33,844 - DEBUG - setting property font
+2024-01-25 12:40:33,844 - DEBUG - setting property styleSheet
+2024-01-25 12:40:33,845 - DEBUG - setting property text
+2024-01-25 12:40:33,845 - DEBUG - setting property icon
+2024-01-25 12:40:33,852 - DEBUG - setting property iconSize
+2024-01-25 12:40:33,853 - DEBUG - push QPushButton chat_teacher_button
+2024-01-25 12:40:33,853 - DEBUG - pop widget QPushButton chat_teacher_button
+2024-01-25 12:40:33,853 - DEBUG - new topwidget <PyQt5.QtWidgets.QWidget object at 0x0000019A87C9E210>
+2024-01-25 12:40:33,853 - DEBUG - pop widget QWidget centralwidget
+2024-01-25 12:40:33,854 - DEBUG - new topwidget <Teacher_UI.teacher_main.Teacher_Main_Window object at 0x0000019A87C9DFD0>
+2024-01-25 12:40:33,856 - DEBUG - push QStatusBar statusbar
+2024-01-25 12:40:33,856 - DEBUG - pop widget QStatusBar statusbar
+2024-01-25 12:40:33,856 - DEBUG - new topwidget <Teacher_UI.teacher_main.Teacher_Main_Window object at 0x0000019A87C9DFD0>
+2024-01-25 12:40:33,856 - DEBUG - pop widget Teacher_Main_Window MainWindow
+2024-01-25 12:40:33,856 - DEBUG - new topwidget None
+2024-01-25 12:40:33,984 - INFO - Admin Login : teacher@example.com
+2024-01-25 12:41:20,879 - INFO - Lesson created successfully by email teacher@example.com: ['21.1.2024', 'designer', '12.00', '17.00']

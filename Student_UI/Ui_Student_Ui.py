@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\Sema\school_update\Student_UI\Student_Ui.ui'
+# Form implementation generated from reading ui file '/Users/onur/Documents/GitHub/school_update/Student_UI/Student_Ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -48,11 +48,11 @@ class Ui_MainWindow(object):
 "")
         self.student_main_date.setObjectName("student_main_date")
         self.label_main_announcements = QtWidgets.QLabel(self.student_main)
-        self.label_main_announcements.setGeometry(QtCore.QRect(20, 140, 200, 40))
+        self.label_main_announcements.setGeometry(QtCore.QRect(20, 160, 200, 40))
         self.label_main_announcements.setMinimumSize(QtCore.QSize(200, 40))
         font = QtGui.QFont()
         font.setFamily("Arial Black")
-        font.setPointSize(12)
+        font.setPointSize(18)
         font.setBold(True)
         font.setWeight(75)
         self.label_main_announcements.setFont(font)
@@ -348,25 +348,17 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.student_plan, "")
         self.student_to_do = QtWidgets.QWidget()
         self.student_to_do.setObjectName("student_to_do")
-        self.tasks_tableWidget = QtWidgets.QTableWidget(self.student_to_do)
-        self.tasks_tableWidget.setGeometry(QtCore.QRect(50, 100, 751, 500))
-        self.tasks_tableWidget.setMinimumSize(QtCore.QSize(0, 0))
-        self.tasks_tableWidget.setMaximumSize(QtCore.QSize(1000, 500))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(12)
-        self.tasks_tableWidget.setFont(font)
-        self.tasks_tableWidget.setStyleSheet("border-radius:10px;\n"
-"border-color: rgb(197, 197, 226);\n"
-"background-color: rgb(245, 245, 250);")
-        self.tasks_tableWidget.setObjectName("tasks_tableWidget")
-        self.tasks_tableWidget.setColumnCount(0)
-        self.tasks_tableWidget.setRowCount(0)
         self.update_status_button = QtWidgets.QPushButton(self.student_to_do)
-        self.update_status_button.setGeometry(QtCore.QRect(310, 20, 113, 32))
+        self.update_status_button.setGeometry(QtCore.QRect(300, 170, 113, 31))
+        self.update_status_button.setStyleSheet("border-radius:10px;\n"
+"background-color: rgb(132, 132, 193);\n"
+"color: rgb(255, 255, 255);")
         self.update_status_button.setObjectName("update_status_button")
         self.status_options = QtWidgets.QComboBox(self.student_to_do)
-        self.status_options.setGeometry(QtCore.QRect(60, 20, 241, 26))
+        self.status_options.setGeometry(QtCore.QRect(50, 170, 241, 26))
+        self.status_options.setStyleSheet("border-radius:10px;\n"
+"border-color: rgb(197, 197, 226);\n"
+"background-color: rgb(245, 245, 250);")
         self.status_options.setObjectName("status_options")
         self.label = QtWidgets.QLabel(self.student_to_do)
         self.label.setGeometry(QtCore.QRect(260, 50, 391, 21))
@@ -377,6 +369,14 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label.setFont(font)
         self.label.setObjectName("label")
+        self.student_tasks_tableWidget = QtWidgets.QTableWidget(self.student_to_do)
+        self.student_tasks_tableWidget.setGeometry(QtCore.QRect(50, 220, 761, 461))
+        self.student_tasks_tableWidget.setStyleSheet("border-radius:10px;\n"
+"border-color: rgb(197, 197, 226);\n"
+"background-color: rgb(245, 245, 250);")
+        self.student_tasks_tableWidget.setObjectName("student_tasks_tableWidget")
+        self.student_tasks_tableWidget.setColumnCount(0)
+        self.student_tasks_tableWidget.setRowCount(0)
         self.tabWidget.addTab(self.student_to_do, "")
         self.student_attendance = QtWidgets.QWidget()
         self.student_attendance.setObjectName("student_attendance")
@@ -508,25 +508,27 @@ class Ui_MainWindow(object):
         self.student_main_name.setMinimumSize(QtCore.QSize(150, 50))
         font = QtGui.QFont()
         font.setFamily("Arial Black")
-        font.setPointSize(12)
+        font.setPointSize(18)
         font.setBold(True)
         font.setWeight(75)
         self.student_main_name.setFont(font)
         self.student_main_name.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color: rgb(57, 57, 57);")
+        self.student_main_name.setAlignment(QtCore.Qt.AlignCenter)
         self.student_main_name.setObjectName("student_main_name")
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setGeometry(QtCore.QRect(60, 170, 141, 28))
+        self.label_6.setGeometry(QtCore.QRect(30, 157, 201, 41))
         font = QtGui.QFont()
         font.setFamily("Arial Black")
-        font.setPointSize(12)
+        font.setPointSize(18)
         font.setBold(True)
         font.setWeight(75)
         self.label_6.setFont(font)
         self.label_6.setStyleSheet("color: rgb(57, 57, 57);")
+        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
         self.label_6.setObjectName("label_6")
         self.user_avatar = QtWidgets.QLabel(self.centralwidget)
-        self.user_avatar.setGeometry(QtCore.QRect(90, 80, 101, 50))
+        self.user_avatar.setGeometry(QtCore.QRect(80, 80, 101, 50))
         self.user_avatar.setStyleSheet("color: rgb(57, 57, 57);")
         self.user_avatar.setObjectName("user_avatar")
         self.chat_student_button = QtWidgets.QPushButton(self.centralwidget)
@@ -542,21 +544,17 @@ class Ui_MainWindow(object):
         self.chat_student_button.setStyleSheet("background-color: transparent")
         self.chat_student_button.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("./sign/assets/meeting.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("/Users/onur/Documents/GitHub/school_update/Student_UI/../sign/assets/meeting.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.chat_student_button.setIcon(icon)
         self.chat_student_button.setIconSize(QtCore.QSize(100, 100))
         self.chat_student_button.setObjectName("chat_student_button")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 960, 34))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

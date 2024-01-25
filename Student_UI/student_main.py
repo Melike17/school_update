@@ -2,9 +2,9 @@ import sys, os
 sys.path.append(os.getcwd())
 from pathlib import Path
 import logging
-from Classes.user import *
+#from Classes.user import *
 from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
+#from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem
 from Student_UI.Ui_Student_Ui import *
 from Classes.task import Task
@@ -13,9 +13,12 @@ from Student_UI.LessonAttendance import *
 from Student_UI.MentorAttendance import *
 from sign.Ui_login_screen import Ui_Form as Ui_MainWindow_3
 
-class UserListItemWidget(QWidget):
+
+user_selected_task_ids = []
+
+class StudentUserListItemWidget(QWidget):
     def __init__(self, user_id, user_name, last_name, user_type, avatar_path):
-        super(UserListItemWidget, self).__init__()
+        super(StudentUserListItemWidget, self).__init__()
 
         layout = QHBoxLayout(self)
 
@@ -52,18 +55,33 @@ class UserListItemWidget(QWidget):
         # Set user_id as custom data
         self.user_id = user_id
         # Set the background color to transparent initially
-        self.tasks_tableWidget.setStyleSheet("background-color: transparent;")
+        self.student_tasks_tableWidget.setStyleSheet("background-color: transparent;")
+        self.selected_task_ids = []
 
         
 
 
-class Main_Window(QMainWindow, Ui_MainWindow):
+class Student_Main_Window(QMainWindow, Ui_MainWindow):
     def __init__(self):
-        super(Main_Window,self).__init__()
+        super(Student_Main_Window,self).__init__()
         self.setupUi(self)
         self.setWindowTitle("Student Page")
 
-        #User.set_currentuser("student@example.com")
+        User.set_currentuser("student@example.com")
+
+        avatar_pixmap = QPixmap(User._current_user.avatar_path).scaledToWidth(60).scaledToHeight(60, Qt.SmoothTransformation)
+        # Circular mask for the avatar
+        mask = QBitmap(avatar_pixmap.size())
+        mask.fill(Qt.color0)
+        painter = QPainter(mask)
+        painter.setBrush(Qt.color1)
+        painter.drawEllipse(0, 0, mask.width(), mask.height())
+        painter.end()
+
+        avatar_pixmap.setMask(mask)
+        self.user_avatar.setPixmap(avatar_pixmap)
+        self.user_avatar.setFixedSize(60, 60)
+        self.user_avatar.setScaledContents(True)
 
 
         current_date_time = QDateTime.currentDateTime()
@@ -91,8 +109,8 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         #self.sign_out_button.clicked.connect(self.open_login)
 
         self.tabWidget.setCurrentIndex(0)
-        self.selected_task_ids = []
-        self.tasks_tableWidget.setStyleSheet("") 
+        
+        self.student_tasks_tableWidget.setStyleSheet("") 
         status_options_list = ["Select a Status", "Assigned", "In Progress", "Completed"]
         self.status_options.addItems(status_options_list)
         self.update_status_button.clicked.connect(self.update_task_status)
@@ -112,7 +130,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
 
 
     def update_assigned_to_background(self, selected_rows):
-        task_widget = self.findChild(QTableWidget, 'tasks_tableWidget')
+        task_widget = self.findChild(QTableWidget, 'student_tasks_tableWidget')
 
         for row in range(task_widget.rowCount()):
             assigned_to_widget = task_widget.cellWidget(row, 3)
@@ -127,12 +145,23 @@ class Main_Window(QMainWindow, Ui_MainWindow):
                 assigned_to_widget.setStyleSheet(f"background-color: transparent;")
 
     def on_item_selection_changed(self):
-        selected_rows = [row.row() for row in self.tasks_tableWidget.selectionModel().selectedRows()]
-        self.selected_task_ids = [self.tasks_tableWidget.item(row, 0).data(Qt.UserRole) for row in selected_rows]
+        # Delay the execution using QTimer
+        QTimer.singleShot(0, self.process_selection_change)
+
+    def process_selection_change(self):
+        selected_indexes = self.student_tasks_tableWidget.selectionModel().selectedIndexes()
+        print("Selected Indexes:", selected_indexes)
+
+        
+        selected_rows = [row.row() for row in self.student_tasks_tableWidget.selectionModel().selectedRows()]
+        self.selected_task_ids = [self.student_tasks_tableWidget.item(row, 0).data(Qt.UserRole) for row in selected_rows]
+        
+        selection_model = self.student_tasks_tableWidget.selectionModel()
+        print("Selection model:", selection_model)
 
         # Update background color of the "Assigned To" column
-        self.update_assigned_to_background(self.selected_task_ids)
-
+        # self.update_assigned_to_background(self.selected_task_ids)
+        print("selected rows", selected_rows)
         # Print or use the selected_task_ids as needed
         print("Selected Task IDs:", self.selected_task_ids)
 
@@ -146,11 +175,12 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         if tasks is None or not tasks:
             print("No tasks found.")
             return
-
-        task_widget = self.findChild(QTableWidget, 'tasks_tableWidget')
+        
+        #self.student_tasks_tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
+        task_widget = self.findChild(QTableWidget, 'student_tasks_tableWidget')
         task_widget.clear()
         task_widget.setSelectionBehavior(QAbstractItemView.SelectRows)
-        task_widget.setSelectionMode(QAbstractItemView.MultiSelection)
+        task_widget.setSelectionMode(QAbstractItemView.SingleSelection)
         task_widget.itemSelectionChanged.connect(self.on_item_selection_changed)
 
 
@@ -246,13 +276,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
                 color: black;  /* Set the text color for alternate rows */
             }
         """
-        self.tasks_tableWidget.setStyleSheet(style_sheet)
-
-    def checkbox_changed(self, state, task_id):
-        if state == Qt.Checked:
-            self.selected_task_ids.append(task_id)
-        else:
-            self.selected_task_ids.remove(task_id)
+        self.student_tasks_tableWidget.setStyleSheet(style_sheet)
 
     def open_login(self):
         self.ui_main_3_window = QtWidgets.QMainWindow()
@@ -340,7 +364,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     #app.setStyleSheet(Path("lightstyle.qss").read_text())
-    app_window = Main_Window()    
+    app_window = Student_Main_Window()    
     #app_window.setStyleSheet(Path("lightstyle.qss").read_text())
     widget = QtWidgets.QStackedWidget()
     widget.addWidget(app_window) 

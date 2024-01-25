@@ -11,7 +11,7 @@ import datetime, time
 selected_usersfor_group_creation = set()
 
 
-User.set_currentuser("student@example.com")
+#User.set_currentuser("student@example.com")
 
 class MessagesUpdater(QtCore.QThread):
     messagesUpdated = QtCore.pyqtSignal(list)

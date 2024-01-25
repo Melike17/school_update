@@ -12,8 +12,8 @@ from sign.Ui_main_2 import Ui_MainWindow as Ui_MainWindow_2
 from sign.Ui_login_screen import Ui_Form as Ui_MainWindow_3
 from sign.Ui_signup_screen import Ui_Form as Ui_MainWindow_4
 from Classes.user import User
-from Student_UI.student_main import Main_Window as Ui_MainWindow_5
-from Teacher_UI.teacher_main import Main_Window as Ui_MainWindow_6
+from Student_UI.student_main import Student_Main_Window as Ui_MainWindow_5
+from Teacher_UI.teacher_main import Teacher_Main_Window as Ui_MainWindow_6
 
 class Main_Window(QMainWindow, Ui_MainWindow_2):
     def __init__(self):

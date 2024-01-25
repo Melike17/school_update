@@ -24,9 +24,9 @@ from PyQt5.QtGui import QPixmap, QBitmap, QFont, QPainter
 from PyQt5.QtCore import Qt
 
 
-class UserListItemWidget(QWidget):
+class TeacherUserListItemWidget(QWidget):
     def __init__(self, user_id, user_name, last_name, user_type, avatar_path):
-        super(UserListItemWidget, self).__init__()
+        super(TeacherUserListItemWidget, self).__init__()
 
         layout = QHBoxLayout(self)
 
@@ -66,15 +66,33 @@ class UserListItemWidget(QWidget):
         self.setStyleSheet("background-color: transparent;")
 
 
-class Main_Window(QMainWindow, Ui_MainWindow):
+class Teacher_Main_Window(QMainWindow, Ui_MainWindow):
 
 
     def __init__(self):
-        super(Main_Window,self).__init__()
+        super(Teacher_Main_Window,self).__init__()
+
+        #User.set_currentuser("teacher@example.com")
+
         self.setupUi(self)
         self.setWindowTitle("Teacher Page")
 
-        #User.set_currentuser("teacher@example.com")
+        avatar_pixmap = QPixmap(User._current_user.avatar_path).scaledToWidth(60).scaledToHeight(60, Qt.SmoothTransformation)
+
+        # Circular mask for the avatar
+        mask = QBitmap(avatar_pixmap.size())
+        mask.fill(Qt.color0)
+        painter = QPainter(mask)
+        painter.setBrush(Qt.color1)
+        painter.drawEllipse(0, 0, mask.width(), mask.height())
+        painter.end()
+
+        avatar_pixmap.setMask(mask)
+        self.user_avatar.setPixmap(avatar_pixmap)
+        self.user_avatar.setFixedSize(60, 60)
+        self.user_avatar.setScaledContents(True)
+
+        
 
         
         self.current_user_email = User._current_user.email
@@ -139,19 +157,19 @@ class Main_Window(QMainWindow, Ui_MainWindow):
 
         self.update_information_button.clicked.connect(self.update_information)
 
-        self.selected_user_ids = []
+        User.selected_user_ids = []
         self.task_user_list.itemSelectionChanged.connect(self.handle_selection_change)
 
         self.tabWidget.setCurrentIndex(0)
 
     def handle_selection_change(self):
-        self.selected_user_ids = []
+        User.selected_user_ids = []
         for item in self.task_user_list.selectedItems():
             user_item_widget = self.task_user_list.itemWidget(item)
             if user_item_widget:
                 self.selected_user_ids.append(user_item_widget.user_id)
 
-        print("Selected User IDs:", self.selected_user_ids)    
+        print("Selected User IDs:", User.selected_user_ids)    
 
     def update_information(self):
         self.teacher_profil_tel_edit = self.findChild(QtWidgets.QTextEdit,"teacher_profil_tel_edit")
@@ -567,7 +585,6 @@ class Main_Window(QMainWindow, Ui_MainWindow):
 
     def show_user_list_for_task(self):
         self.task_user_list.setSelectionMode(QAbstractItemView.MultiSelection)
-
         users = User.get_emails_for_task_assign()
 
         for user_data in users:
@@ -575,7 +592,7 @@ class Main_Window(QMainWindow, Ui_MainWindow):
 
             # Create a QListWidgetItem and set the custom widget as its widget
             item = QListWidgetItem(self.task_user_list)
-            user_item_widget = UserListItemWidget(user_id, user_name, last_name, user_type, avatar_path)
+            user_item_widget = TeacherUserListItemWidget(user_id, user_name, last_name, user_type, avatar_path)
             item.setSizeHint(user_item_widget.sizeHint())
 
             self.task_user_list.addItem(item)
@@ -793,7 +810,7 @@ if __name__ == "__main__":
     style_sheet = Path("lightstyle.qss").read_text()
     app.setStyleSheet(style_sheet)
 
-    app_window = Main_Window()
+    app_window = Teacher_Main_Window()
     app_window.show()
 
     widget = QtWidgets.QStackedWidget()

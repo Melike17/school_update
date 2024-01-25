@@ -167,17 +167,18 @@ class Teacher_Main_Window(QMainWindow, Ui_MainWindow):
 
         self.tabWidget.setCurrentIndex(0)
         self.chat_teacher_button.clicked.connect(self.open_chat)
+        self.signout_button.clicked.connect(self.open_signout)
         
-    def open_chat(self):
-        # chat_mobil.py dosyasını çağırmak için subprocess modülünü kullanabilirsiniz
-        try:
-            subprocess.run([sys.executable, './Chat_UI/chat_mobile.py'])
-            #Add log file
-            logging.info(f"Chat window opened by {User._current_user.name}")
-        except Exception as e:
-            print(f"Hata oluştu: {e}")    
+    def open_signout(self):
+        #Add log file
+        logging.info(f"{User._current_user.name} Signout successfully")
+        self.close()
+        # Another Python file run
+        subprocess.run(["python", "./sign/main_window.py"])
+        
+    
 
-        self.chat_teacher_button.clicked.connect(self.open_chat)
+        
 
     def open_chat(self):
         if not hasattr(self, 'ui_main_4') or not self.ui_main_4.isVisible():

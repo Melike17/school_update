@@ -1,6 +1,7 @@
 import sys
 import os
 import re
+import subprocess
 from pathlib import Path
 sys.path.append(os.getcwd())
 import logging
@@ -143,6 +144,16 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         self.task_user_list.itemSelectionChanged.connect(self.handle_selection_change)
 
         self.tabWidget.setCurrentIndex(0)
+        self.chat_teacher_button.clicked.connect(self.open_chat)
+        
+    def open_chat(self):
+        # chat_mobil.py dosyasını çağırmak için subprocess modülünü kullanabilirsiniz
+        try:
+            subprocess.run([sys.executable, './Chat_UI/chat_mobile.py'])
+            #Add log file
+            logging.info(f"Chat window opened by {User._current_user.name}")
+        except Exception as e:
+            print(f"Hata oluştu: {e}")    
 
     def handle_selection_change(self):
         self.selected_user_ids = []

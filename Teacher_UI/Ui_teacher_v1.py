@@ -706,7 +706,7 @@ class Ui_MainWindow(object):
         self.chat_teacher_button.setStyleSheet("background-color: transparent")
         self.chat_teacher_button.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\MainUser\\Documents\\GitHub\\Sema\\school_update\\Teacher_UI\\../sign/assets/meeting.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("./sign/assets/comments.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.chat_teacher_button.setIcon(icon)
         self.chat_teacher_button.setIconSize(QtCore.QSize(100, 100))
         self.chat_teacher_button.setObjectName("chat_teacher_button")

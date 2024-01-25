@@ -2,6 +2,7 @@ import sys, os
 sys.path.append(os.getcwd())
 from pathlib import Path
 import logging
+import subprocess
 from Classes.user import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
@@ -12,6 +13,7 @@ from Classes.user import User
 from Student_UI.LessonAttendance import *
 from Student_UI.MentorAttendance import *
 from sign.Ui_login_screen import Ui_Form as Ui_MainWindow_3
+from Chat_UI.Ui_chat_main import *
 
 class UserListItemWidget(QWidget):
     def __init__(self, user_id, user_name, last_name, user_type, avatar_path):
@@ -68,8 +70,14 @@ class Main_Window(QMainWindow, Ui_MainWindow):
 
         current_date_time = QDateTime.currentDateTime()
         formatted_date = current_date_time.toString("dd-MM-yyyy")
-        self.student_main_name.setText(f" {User._current_user.name}")
-        self.student_main_date.setText(f"{formatted_date}")
+        try:
+            # Mevcut kodlarınız...
+            self.student_main_name.setText(f" {User._current_user.name}")
+            self.student_main_date.setText(f"{formatted_date}")
+        except Exception as e:
+            print(f"Hata oluştu: {e}")
+        
+        
         
         tab_widget = self.tabWidget
         tab_widget.removeTab(5)
@@ -96,7 +104,14 @@ class Main_Window(QMainWindow, Ui_MainWindow):
         status_options_list = ["Select a Status", "Assigned", "In Progress", "Completed"]
         self.status_options.addItems(status_options_list)
         self.update_status_button.clicked.connect(self.update_task_status)
+        self.chat_student_button.clicked.connect(self.open_chat)
         
+    def open_chat(self):
+        # chat_mobil.py dosyasını çağırmak için subprocess modülünü kullanabilirsiniz
+        try:
+            subprocess.run([sys.executable, './Chat_UI/chat_mobile.py'])
+        except Exception as e:
+            print(f"Hata oluştu: {e}")    
 
     def update_task_status(self):
         if self.status_options.currentText() == "Select a Status":

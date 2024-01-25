@@ -63,7 +63,7 @@
 color: rgb(57, 57, 57);</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="student_main">
      <attribute name="title">
@@ -932,29 +932,6 @@ border-color: rgb(197, 197, 226);
 background-color: rgb(245, 245, 250);</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="update_status_button">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>20</y>
-        <width>113</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Update Status</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="status_options">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>20</y>
-        <width>241</width>
-        <height>26</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
@@ -1144,7 +1121,7 @@ border-radius:10px;</string>
        <font>
         <family>Arial Black</family>
         <pointsize>9</pointsize>
-<weight>75</weight>
+        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -1463,7 +1440,7 @@ color: rgb(57, 57, 57);</string>
     </property>
    </widget>
   </widget>
-    <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

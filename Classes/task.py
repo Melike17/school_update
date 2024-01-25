@@ -46,7 +46,7 @@ class Task():
                                 (%s,%s,%s)
                                 """
                     for user in assignees:
-                        cursor.execute(insert_relation, (user, task_id, "In Progress"))
+                        cursor.execute(insert_relation, (user, task_id, "Assigned"))
                     conn.commit()
             except Exception as e:
                 print(f"Error: {e}")

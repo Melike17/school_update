@@ -386,6 +386,28 @@ class User():
             except Exception as e:
                 print(f"Error: {e}")
                 return None
+            
+    @classmethod
+    def clear_user_typing_status(cls, member_id,status):
+        connection = retry_db_connection(get_db_connection, max_retries=3, retry_delay=5)
+
+        if connection is None:
+            return None
+
+        with connection as conn:
+            try:
+                with conn.cursor() as cursor:
+                    sql_query = """
+                        UPDATE school.chat_user
+                        SET typing_status = %s 
+                        WHERE member_id = %s
+                    """
+                    cursor.execute(sql_query, (status, member_id))
+                    conn.commit()
+                    #print("typing status is updated in database")
+            except Exception as e:
+                print(f"Error: {e}")
+                return None
 
     @classmethod
     def insert_message_read(cls,user_id,message_id_list):

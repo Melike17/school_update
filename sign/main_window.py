@@ -160,12 +160,12 @@ class Main_Window(QMainWindow, Ui_MainWindow_2):
             # Password to hash'leme
             hashed_password = self.hash_password(password)
             password= hashed_password
-            self.create_Student(name, surname, email, birthday, city, phone_number, password,status='active', avatar_path='./assets/login.png')
+            self.create_Student(name, surname, email, birthday, city, phone_number, password,status='active', avatar_path='avatars/koala.png')
         elif teacher_checked:
             # Password to hash'leme
             hashed_password = self.hash_password(password)
             password= hashed_password
-            self.create_Teacher(name, surname, email, birthday, city, phone_number, password,status='passive', avatar_path='./assets/login.png')
+            self.create_Teacher(name, surname, email, birthday, city, phone_number, password,status='passive', avatar_path='avatars/koala.png')
             
         else:
             QMessageBox.warning(None, 'Warning', 'Please select a role!', QMessageBox.Ok)

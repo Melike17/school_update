@@ -77,7 +77,7 @@ class Teacher_Main_Window(QMainWindow, Ui_MainWindow):
         #User.set_currentuser("teacher@example.com")
         self.ui = uic.loadUi('Teacher_UI/teacher_v1.ui', self)
 
-        self.setupUi(self)
+
         self.setWindowTitle("Teacher Page")
 
         avatar_pixmap = QPixmap(User._current_user.avatar_path).scaledToWidth(60).scaledToHeight(60, Qt.SmoothTransformation)
@@ -129,7 +129,7 @@ class Teacher_Main_Window(QMainWindow, Ui_MainWindow):
 
         self.show_information()
         
-        self.load_tasks()
+        
         #initial values of task create form
         #self.assignee_input_combo.addItem("")
         #self.assignee_input_combo.addItems(User.get_emails_for_task_assign())
@@ -168,10 +168,17 @@ class Teacher_Main_Window(QMainWindow, Ui_MainWindow):
 
         self.chat_teacher_button.clicked.connect(self.open_chat)
 
+        #self.load_tasks()
+        self.tabWidget.currentChanged.connect(self.tab_changed)
+
+    def tab_changed(self, index):
+        if index == 3:
+            self.load_tasks()
+
+
     def open_chat(self):
         if not hasattr(self, 'ui_main_4') or not self.ui_main_4.isVisible():
             # If ui_main_4 is not defined or is not visible, create and show it
-            self.ui_main_4 = QtWidgets.QMainWindow()
             self.ui_main_4 = Chat_Main_Window()
             self.ui_main_4.show()
         else:
@@ -272,8 +279,9 @@ class Teacher_Main_Window(QMainWindow, Ui_MainWindow):
             passive_teachers = User.get_teachers_by_status('passive')
             print(passive_teachers)
             # List widget
-            list_widget = self.findChild(QListWidget, "listWidget")
-            list_widget.clear()
+            list_widget = self.findChild(QListWidget, "listWidget_teacher_approve")
+            print(list_widget) 
+            #list_widget.clear()
             
 
             # Add teachers to list widget
@@ -296,7 +304,7 @@ class Teacher_Main_Window(QMainWindow, Ui_MainWindow):
             print(f"Error displaying teachers with 'passive' status: {e}")
 
     def approve_teacher(self):
-        selected_item = self.findChild(QListWidget, "listWidget").currentItem()
+        selected_item = self.findChild(QListWidget, "listWidget_teacher_approve").currentItem()
         print(selected_item.text())
         # Extracting teacher email from the selected item's text
         
@@ -305,15 +313,15 @@ class Teacher_Main_Window(QMainWindow, Ui_MainWindow):
             # Update the teacher status to 'active' in the database
             self.update_teacher_status(email, 'active')
             # Remove the item from the list widget   
-            selected_row = self.findChild(QListWidget, "listWidget").row(selected_item)
-            self.findChild(QListWidget, "listWidget").takeItem(selected_row)
+            selected_row = self.findChild(QListWidget, "listWidget_teacher_approve").row(selected_item)
+            self.findChild(QListWidget, "listWidget_teacher_approve").takeItem(selected_row)
             # Success Message
             QMessageBox.information(self, "Warning", "Teacher status changed successfully!")
             #Add log file
             logging.info(f"One teacher account approved by {User._current_user.name}") 
 
     def reject_teacher(self):
-        selected_item = self.findChild(QListWidget, "listWidget").currentItem()
+        selected_item = self.findChild(QListWidget, "listWidget_teacher_approve").currentItem()
         print(selected_item.text())
         
         if selected_item is not None:
@@ -335,8 +343,8 @@ class Teacher_Main_Window(QMainWindow, Ui_MainWindow):
                             '''
                             cursor.execute(delete_query, (user_id[0],))
                             # Remove the item from the list widget   
-                            selected_row = self.findChild(QListWidget, "listWidget").row(selected_item)
-                            self.findChild(QListWidget, "listWidget").takeItem(selected_row)      
+                            selected_row = self.findChild(QListWidget, "listWidget_teacher_approve").row(selected_item)
+                            self.findChild(QListWidget, "listWidget_teacher_approve").takeItem(selected_row)      
                             # Success Message
                             QMessageBox.information(self, "Warning", "Teacher deleted successfully!")
                             #Add log file
@@ -636,6 +644,7 @@ class Teacher_Main_Window(QMainWindow, Ui_MainWindow):
             return
 
         task_widget = self.findChild(QTableWidget, 'tasks_tableWidget')
+        task_widget.clear()
         print("taskwidget created")
         task_widget.setRowCount(len(tasks))
         task_widget.setColumnCount(5)  # Reduced column count to 5

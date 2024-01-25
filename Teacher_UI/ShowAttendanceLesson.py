@@ -52,6 +52,7 @@ class ShowAttLesson(QMainWindow):
                         WHERE men.name = %s AND men.type = 'lesson'
                     ''', (current_text,))
                     filtered_data = cursor.fetchall()
+                    print( "filtered data", filtered_data)
             except Exception as e:
                 print(f"Error fetching data: {e}")
                 filtered_data = []

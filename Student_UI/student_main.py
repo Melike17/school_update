@@ -68,7 +68,7 @@ class Student_Main_Window(QMainWindow, Student_Ui_MainWindow):
     def __init__(self):
         super(Student_Main_Window,self).__init__()
         self.ui = uic.loadUi('Student_UI/Student_Ui.ui', self)
-        #self.setupUi(self)
+
         self.setWindowTitle("Student Page")
 
         #User.set_currentuser("student@example.com")
@@ -97,7 +97,7 @@ class Student_Main_Window(QMainWindow, Student_Ui_MainWindow):
         tab_widget.removeTab(5)
         tab_widget.removeTab(4)
 
-        self.load_student_tasks()
+        #self.load_student_tasks()
         #self.load_tasks(User._current_user.email)
         self.show_Lesson_Schedule()
         self.show_Mentor_Schedule()
@@ -121,10 +121,15 @@ class Student_Main_Window(QMainWindow, Student_Ui_MainWindow):
 
         self.chat_student_button.clicked.connect(self.open_chat)
 
+        self.tabWidget.currentChanged.connect(self.tab_changed)
+
+    def tab_changed(self, index):
+        if index == 3:
+            self.load_student_tasks()
+
     def open_chat(self):
         if not hasattr(self, 'ui_main_4') or not self.ui_main_4.isVisible():
             # If ui_main_4 is not defined or is not visible, create and show it
-            self.ui_main_4 = QtWidgets.QMainWindow()
             self.ui_main_4 = Chat_Main_Window()
             self.ui_main_4.show()
         else:

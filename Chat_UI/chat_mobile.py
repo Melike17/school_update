@@ -496,6 +496,7 @@ class MainWindow(QMainWindow, ): #Ui_MainWindow
         super(MainWindow, self).__init__()
         self.ui = uic.loadUi('Chat_UI/chat_mobil.ui', self)
         #self.setupUi(self)
+        self.setWindowTitle(f"{User._current_user.user_id} - {User._current_user.name} - {User._current_user.user_type}")
 
         User.update_user_last_seen(User._current_user.user_id,"Online")
         self.user_list_to_message = User.get_users_for_search_to_message(User._current_user.user_id)
@@ -570,10 +571,13 @@ class MainWindow(QMainWindow, ): #Ui_MainWindow
     def go_to_page(self,page_no):
         # 0 active chat groups // 1 message // 2 create group,
         self.user_search.clear()
+        self.message_text_field.clear()
+        
 
         if int(page_no) == 0 :
             self.set_thread_page_status(0)
             self.stackedWidget.setCurrentIndex(int(page_no))
+            User.clear_user_typing_status( User._current_user.user_id, "")
         elif int(page_no) == 2:
             self.load_group_users_for_creation()
             self.set_thread_page_status(2)
@@ -719,6 +723,7 @@ class MainWindow(QMainWindow, ): #Ui_MainWindow
         self.specific_avatar_label.setScaledContents(True)
 
         self.specific_status_label.setText(status)
+        print(f"initial status will be setted as {status}")
         self.specific_status_label.initial_status = status
         self.specific_status_label.typing_count = 0
         self.specific_username_label.setText(str(display_name))
@@ -797,11 +802,11 @@ class MainWindow(QMainWindow, ): #Ui_MainWindow
             pass
 
     def closeEvent(self, event):
+        
         current_datetime = datetime.datetime.now()
         formatted_datetime = current_datetime.strftime("%d %b - %H:%M")
         User.update_user_last_seen(User._current_user.user_id,formatted_datetime)
-        if self.is_typing_timer.isActive():
-            self.is_typing_timer.stop()
+        User.clear_user_typing_status( User._current_user.user_id, "")
         if self.user_status_updater.isRunning():
             self.user_status_updater.stop()
         if self.specific_message_updater.isRunning():

@@ -2,6 +2,7 @@ import sys, os
 sys.path.append(os.getcwd())
 from pathlib import Path
 import logging
+import subprocess
 #from Classes.user import *
 from PyQt5.QtCore import *
 #from PyQt5.QtWidgets import *
@@ -126,7 +127,15 @@ class Student_Main_Window(QMainWindow, Student_Ui_MainWindow):
         self.update_status_button.clicked.connect(self.update_task_status)
 
         self.chat_student_button.clicked.connect(self.open_chat)
-
+        self.signout_button.clicked.connect(self.open_signout)
+        
+    def open_signout(self):
+        #Add log file
+        logging.info(f"{User._current_user.name} Signout successfully")
+        self.close()
+        # Another Python file run
+        subprocess.run(["python", "./sign/main_window.py"])
+        
     def open_chat(self):
         if not hasattr(self, 'ui_main_4') or not self.ui_main_4.isVisible():
             # If ui_main_4 is not defined or is not visible, create and show it

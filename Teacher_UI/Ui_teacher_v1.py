@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/onur/Documents/GitHub/school_update/Teacher_UI/teacher_v1.ui'
+# Form implementation generated from reading ui file 'c:\Users\MainUser\Documents\GitHub\Sema\school_update\Teacher_UI\teacher_v1.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -666,7 +666,7 @@ class Ui_MainWindow(object):
         self.teacher_main_name.setAlignment(QtCore.Qt.AlignCenter)
         self.teacher_main_name.setObjectName("teacher_main_name")
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setGeometry(QtCore.QRect(61, 170, 141, 28))
+        self.label_6.setGeometry(QtCore.QRect(41, 170, 171, 28))
         font = QtGui.QFont()
         font.setFamily("Arial Black")
         font.setPointSize(18)
@@ -688,7 +688,7 @@ class Ui_MainWindow(object):
         self.label_8.setText("")
         self.label_8.setObjectName("label_8")
         self.chat_teacher_button = QtWidgets.QPushButton(self.centralwidget)
-        self.chat_teacher_button.setGeometry(QtCore.QRect(50, 620, 150, 100))
+        self.chat_teacher_button.setGeometry(QtCore.QRect(50, 520, 150, 100))
         self.chat_teacher_button.setMinimumSize(QtCore.QSize(150, 100))
         self.chat_teacher_button.setMaximumSize(QtCore.QSize(150, 100))
         font = QtGui.QFont()
@@ -704,6 +704,15 @@ class Ui_MainWindow(object):
         self.chat_teacher_button.setIcon(icon)
         self.chat_teacher_button.setIconSize(QtCore.QSize(100, 100))
         self.chat_teacher_button.setObjectName("chat_teacher_button")
+        self.signout_button = QtWidgets.QPushButton(self.centralwidget)
+        self.signout_button.setGeometry(QtCore.QRect(80, 670, 83, 79))
+        self.signout_button.setStyleSheet("background-color:transparent;")
+        self.signout_button.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("./sign/assets/signout.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.signout_button.setIcon(icon1)
+        self.signout_button.setIconSize(QtCore.QSize(70, 70))
+        self.signout_button.setObjectName("signout_button")
         self.label_8.raise_()
         self.label_7.raise_()
         self.tabWidget.raise_()
@@ -711,6 +720,7 @@ class Ui_MainWindow(object):
         self.teacher_main_name.raise_()
         self.label_6.raise_()
         self.chat_teacher_button.raise_()
+        self.signout_button.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")

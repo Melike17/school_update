@@ -1760,9 +1760,9 @@ color: rgb(57, 57, 57);</string>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>61</x>
+      <x>41</x>
       <y>170</y>
-      <width>141</width>
+      <width>171</width>
       <height>28</height>
      </rect>
     </property>
@@ -1821,7 +1821,7 @@ border-radius:10px;</string>
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>620</y>
+      <y>520</y>
       <width>150</width>
       <height>100</height>
      </rect>
@@ -1854,12 +1854,38 @@ border-radius:10px;</string>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../sign/assets/meeting.png</normaloff>../sign/assets/meeting.png</iconset>
+      <normaloff>../sign/assets/comments.png</normaloff>../sign/assets/comments.png</iconset>
     </property>
     <property name="iconSize">
      <size>
       <width>100</width>
       <height>100</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="signout_button">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>670</y>
+      <width>83</width>
+      <height>79</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../sign/assets/signout.png</normaloff>../sign/assets/signout.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
      </size>
     </property>
    </widget>
@@ -1870,6 +1896,7 @@ border-radius:10px;</string>
    <zorder>teacher_main_name</zorder>
    <zorder>label_6</zorder>
    <zorder>chat_teacher_button</zorder>
+   <zorder>signout_button</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
